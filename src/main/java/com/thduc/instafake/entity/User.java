@@ -1,43 +1,68 @@
 package com.thduc.instafake.entity;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
-@Document(collection = "Users")
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
+
+import org.springframework.context.annotation.Primary;
+
+
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import java.util.Set;
+
+@Entity
+@Data
 public class User {
 
     @Id
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
-    @Field(value = "avatar")
+
     private String avatar;
 
-    @Field(value = "username")
+    @NotBlank(message = "Username is require")
+    @Column(unique = true)
     private String username;
 
-    @Field(value = "email")
+    @NotBlank(message = "Email is require")
+    @Column(unique = true)
     private String email;
 
-    @Field(value = "num_of_followings")
+    @NotBlank(message = "Password is require")
+    private String password;
+
     private int numOfFollowings;
 
-    @Field(value = "num_of_followers")
     private int numOfFollowers;
 
-    @Field(value = "cover")
     private String cover;
 
-    @Field(value = "bio")
     private String bio;
 
+   @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+   private Set<Roles> roles;
     public User() {
     }
 
-    public Long getId() {
+    public User(long id, String avatar, @NotBlank(message = "Username is require") String username, @NotBlank(message = "Email is require") String email, @NotBlank(message = "Password is require") String password, int numOfFollowings, int numOfFollowers, String cover, String bio, Set<Roles> roles) {
+        this.id = id;
+        this.avatar = avatar;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.numOfFollowings = numOfFollowings;
+        this.numOfFollowers = numOfFollowers;
+        this.cover = cover;
+        this.bio = bio;
+        this.roles = roles;
+    }
+
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -63,6 +88,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public int getNumOfFollowings() {
@@ -95,5 +128,13 @@ public class User {
 
     public void setBio(String bio) {
         this.bio = bio;
+    }
+
+    public Set<Roles> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Roles> roles) {
+        this.roles = roles;
     }
 }
