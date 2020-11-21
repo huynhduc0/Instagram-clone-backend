@@ -2,22 +2,24 @@ package com.thduc.instafake.entity;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.thduc.instafake.constant.Constant;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
+@JsonFilter(Constant.TBL_ROLES_FILTER)
 public class Roles {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     private String rolename;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH, mappedBy = "roles")
-    private Set<User> users;
+//    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH, mappedBy = "roles")
+//    private Set<User> users;
 
     public Roles() {
     }
@@ -43,12 +45,4 @@ public class Roles {
         this.rolename = rolename;
     }
 
-    public Set<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(Set<User> users) {
-        this.users = users;
-    }
 }
-

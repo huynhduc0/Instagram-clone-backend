@@ -13,4 +13,33 @@ public class Constant {
 
     public static final String NOT_BASE64_STRING = "Request base64 is in correct";
     public static final String INVALID_FILE_EXTENSION = "ACCEPT IMAGE ONLY";
+
+    public static final String TBL_POSTS = "posts";
+    public static final String TBL_HASHTAGS = "hagtags";
+
+    public static final String TBL_USER = "user";
+    public static final String TBL_USER_FOLLOW = "follows";
+
+    public static final String COL_USER_FOLLOWINGS = "followings";
+    public static final String COL_USER_FOLLOWERS = "followers";
+
+    public static final String COL_ID = "id";
+    public static final String COL_POSTS_ID = "postid";
+    public static final String COL_HASHTAGS_ID = "hagtagid";
+
+    public static final String TBL_POSTS_FILTER = "postsFilter";
+    public static final String TBL_HASHTAGS_FILTER = "hashtagsFilter";
+    public static final String TBL_USER_FILTER = "userFilter";
+    public static final String TBL_ROLES_FILTER = "rolesFilter";
+    public static final String TBL_FOLLOWS_FILTER = "followsFilter";
+
+    public static final String POSTS_HASHTAGS="hashtags";
+    public static final String HASHTAGS_POSTS="posts";
+
+    public static final String USER_FOLLOWERS="userfollower";
+    public static final String USER_FOLLOWING="posts";
+
+    public static final String FOLLOW_FROM = "from";
+    public static final String FOLLOW_TO = "to";
+
 }

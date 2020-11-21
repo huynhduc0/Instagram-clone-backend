@@ -18,18 +18,21 @@ public class UserPrinciple implements UserDetails {
     private String username;
     @JsonIgnore
     private String password;
+    private User user;
     private List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
 
     public UserPrinciple() {
     }
 
-    public UserPrinciple(long id, String name, String username, String password, List<GrantedAuthority> grantedAuthorities) {
+    public UserPrinciple(long id, String name, String username, String password, User user, List<GrantedAuthority> grantedAuthorities) {
         this.id = id;
         this.name = name;
         this.username = username;
         this.password = password;
+        this.user = user;
         this.grantedAuthorities = grantedAuthorities;
     }
+
     public static UserPrinciple build(User user) {
         List<GrantedAuthority> authorities = user.getRoles().stream().map(role ->
                 new SimpleGrantedAuthority("ROLE_"+role.getRolename())
@@ -39,8 +42,17 @@ public class UserPrinciple implements UserDetails {
                 user.getUsername(),
                 user.getUsername(),
                 user.getPassword(),
+                user,
                 authorities
         );
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public long getId() {

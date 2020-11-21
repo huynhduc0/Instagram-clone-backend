@@ -1,6 +1,8 @@
 package com.thduc.instafake.entity;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.thduc.instafake.constant.Constant;
 import lombok.Data;
 
 import org.springframework.context.annotation.Primary;
@@ -8,10 +10,10 @@ import org.springframework.context.annotation.Primary;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.List;
 import java.util.Set;
 
 @Entity
-@Data
 public class User {
 
     @Id
@@ -40,8 +42,17 @@ public class User {
 
     private String bio;
 
+
+    @OneToMany(mappedBy="to")
+    private Set<Follows> followers;
+
+    @OneToMany(mappedBy="from")
+    private Set<Follows> following;
+
    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
    private Set<Roles> roles;
+
+
     public User() {
     }
 
@@ -55,6 +66,21 @@ public class User {
         this.numOfFollowers = numOfFollowers;
         this.cover = cover;
         this.bio = bio;
+        this.roles = roles;
+    }
+
+    public User(long id, String avatar, @NotBlank(message = "Username is require") String username, @NotBlank(message = "Email is require") String email, @NotBlank(message = "Password is require") String password, int numOfFollowings, int numOfFollowers, String cover, String bio, Set<Follows> followers, Set<Follows> following, Set<Roles> roles) {
+        this.id = id;
+        this.avatar = avatar;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.numOfFollowings = numOfFollowings;
+        this.numOfFollowers = numOfFollowers;
+        this.cover = cover;
+        this.bio = bio;
+        this.followers = followers;
+        this.following = following;
         this.roles = roles;
     }
 
@@ -136,5 +162,29 @@ public class User {
 
     public void setRoles(Set<Roles> roles) {
         this.roles = roles;
+    }
+
+    public Set<Follows> getFollowers() {
+        return followers;
+    }
+
+    public void setFollowers(Set<Follows> followers) {
+        this.followers = followers;
+    }
+
+    public Set<Follows> getFollowing() {
+        return following;
+    }
+
+    public void setFollowing(Set<Follows> following) {
+        this.following = following;
+    }
+
+    public void follow(Follows follows){
+        this.following.add(follows);
+    }
+
+    public void unfollow(Follows follows){
+        this.following.remove(follows);
     }
 }

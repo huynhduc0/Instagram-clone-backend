@@ -7,9 +7,11 @@ import com.thduc.instafake.repository.UserRepository;
 import com.thduc.instafake.utils.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.data.domain.Page;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Service;
 
+import org.springframework.data.domain.Pageable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +29,11 @@ public class UserService implements UserServiceImpl{
     public User addUser(User user) {
         user.setAvatar(FileUtils.saveFileToStorage(String.valueOf(user.getId()),user.getUsername(),user.getAvatar()));
         return userRepository.save(user);
+    }
+
+    @Override
+    public Page findOtherUser(Long id, Pageable pageable) {
+        return userRepository.findUsersByIdNot(id,pageable);
     }
 
 
