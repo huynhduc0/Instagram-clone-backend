@@ -16,7 +16,7 @@ public class Posts {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @JsonProperty("athorid")
+    @JsonProperty("author")
     @ManyToOne
     private User user;
 

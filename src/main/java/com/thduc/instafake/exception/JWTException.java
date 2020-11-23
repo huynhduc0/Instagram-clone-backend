@@ -1,10 +1,9 @@
 package com.thduc.instafake.exception;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 
 public class JWTException extends RuntimeException  {
-    HttpStatus httpStatus= HttpStatus.UNAUTHORIZED;;
+    HttpStatus httpStatus;
     String message;
 
     public JWTException() {
@@ -14,6 +13,23 @@ public class JWTException extends RuntimeException  {
     public JWTException(HttpStatus httpStatus, String message) {
         super(message);
         this.httpStatus = httpStatus;
+        this.message = message;
+    }
+
+    public HttpStatus getHttpStatus() {
+        return httpStatus;
+    }
+
+    public void setHttpStatus(HttpStatus httpStatus) {
+        this.httpStatus = httpStatus;
+    }
+
+    @Override
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
         this.message = message;
     }
 }

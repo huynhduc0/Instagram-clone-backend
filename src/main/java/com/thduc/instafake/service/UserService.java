@@ -3,22 +3,27 @@ package com.thduc.instafake.service;
 import com.thduc.instafake.entity.User;
 import com.thduc.instafake.exception.BadRequestException;
 import com.thduc.instafake.exception.DataNotFoundException;
+import com.thduc.instafake.model.UserWithFollow;
 import com.thduc.instafake.repository.UserRepository;
 import com.thduc.instafake.utils.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import org.springframework.data.domain.Pageable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class UserService implements UserServiceImpl{
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     public User getUserById(Long id) {
      return userRepository.findById(id)
@@ -36,12 +41,18 @@ public class UserService implements UserServiceImpl{
         return userRepository.findUsersByIdNot(id,pageable);
     }
 
+    public Set<UserWithFollow> findFollow(Long id, Pageable pageable) {
+        return userRepository.findUserWithFollowStatus(id);
+//        return userRepository.findUserWithFollowStatus(id,pageable);
+    }
+
 
     public User findByUsername(String username) {
         return userRepository.findUserByUsername(username);
     }
-    public boolean checkLogin(String u, String pass){
-        return userRepository.existsByUsernameAndPassword(u,pass);
+    public User checkLogin(String u, String pass){
+        User user = userRepository.findUserByUsername(u);
+         return passwordEncoder.matches(pass,user.getPassword())? user: null;
     }
 
 

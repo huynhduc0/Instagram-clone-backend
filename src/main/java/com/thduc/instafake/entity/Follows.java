@@ -9,10 +9,10 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@JsonFilter(Constant.TBL_FOLLOWS_FILTER)
+//@JsonFilter(Constant.TBL_FOLLOWS_FILTER)
 public class Follows {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long id;
 
     @ManyToOne
@@ -28,6 +28,10 @@ public class Follows {
 
     public Follows(long id, User from, User to) {
         this.id = id;
+        this.from = from;
+        this.to = to;
+    }
+    public Follows( User from, User to) {
         this.from = from;
         this.to = to;
     }

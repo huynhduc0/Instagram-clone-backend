@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
+@Data
 public class User {
 
     @Id
@@ -31,6 +32,7 @@ public class User {
     @Column(unique = true)
     private String email;
 
+
     @NotBlank(message = "Password is require")
     private String password;
 
@@ -43,15 +45,14 @@ public class User {
     private String bio;
 
 
-    @OneToMany(mappedBy="to")
-    private Set<Follows> followers;
-
-    @OneToMany(mappedBy="from")
-    private Set<Follows> following;
+//    @OneToMany(mappedBy="to")
+//    private Set<Follows> followers;
+//
+//    @OneToMany(mappedBy="from")
+//    private Set<Follows> following;
 
    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
    private Set<Roles> roles;
-
 
     public User() {
     }
@@ -66,21 +67,6 @@ public class User {
         this.numOfFollowers = numOfFollowers;
         this.cover = cover;
         this.bio = bio;
-        this.roles = roles;
-    }
-
-    public User(long id, String avatar, @NotBlank(message = "Username is require") String username, @NotBlank(message = "Email is require") String email, @NotBlank(message = "Password is require") String password, int numOfFollowings, int numOfFollowers, String cover, String bio, Set<Follows> followers, Set<Follows> following, Set<Roles> roles) {
-        this.id = id;
-        this.avatar = avatar;
-        this.username = username;
-        this.email = email;
-        this.password = password;
-        this.numOfFollowings = numOfFollowings;
-        this.numOfFollowers = numOfFollowers;
-        this.cover = cover;
-        this.bio = bio;
-        this.followers = followers;
-        this.following = following;
         this.roles = roles;
     }
 
@@ -162,29 +148,5 @@ public class User {
 
     public void setRoles(Set<Roles> roles) {
         this.roles = roles;
-    }
-
-    public Set<Follows> getFollowers() {
-        return followers;
-    }
-
-    public void setFollowers(Set<Follows> followers) {
-        this.followers = followers;
-    }
-
-    public Set<Follows> getFollowing() {
-        return following;
-    }
-
-    public void setFollowing(Set<Follows> following) {
-        this.following = following;
-    }
-
-    public void follow(Follows follows){
-        this.following.add(follows);
-    }
-
-    public void unfollow(Follows follows){
-        this.following.remove(follows);
     }
 }

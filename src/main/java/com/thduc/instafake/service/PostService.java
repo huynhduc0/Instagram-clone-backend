@@ -1,5 +1,6 @@
 package com.thduc.instafake.service;
 
+import com.thduc.instafake.entity.Follows;
 import com.thduc.instafake.entity.HashTags;
 import com.thduc.instafake.entity.Posts;
 import com.thduc.instafake.entity.User;
@@ -44,6 +45,11 @@ public class PostService implements PostServiceImpl{
 
     @Override
     public Page loadNewsFedd(User user) {
+        return null;
+    }
+
+    @Override
+    public Follows changeFollows(User to, User from) {
         return null;
     }
 }
