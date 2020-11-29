@@ -10,7 +10,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 
 @SpringBootApplication
-@ComponentScan(basePackages="com.thduc.instafake")
 public class InstafakeApplication {
 
     @Bean
