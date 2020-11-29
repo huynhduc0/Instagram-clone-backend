@@ -1,5 +1,7 @@
 package com.thduc.instafake.service;
 
+import com.thduc.instafake.constant.Constant;
+import com.thduc.instafake.entity.Posts;
 import com.thduc.instafake.entity.User;
 import com.thduc.instafake.exception.BadRequestException;
 import com.thduc.instafake.exception.DataNotFoundException;
@@ -24,6 +26,8 @@ public class UserService implements UserServiceImpl{
     UserRepository userRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired
+    FollowService followService;
 
     public User getUserById(Long id) {
      return userRepository.findById(id)
@@ -32,20 +36,24 @@ public class UserService implements UserServiceImpl{
 
     @Override
     public User addUser(User user) {
-        user.setAvatar(FileUtils.saveFileToStorage(String.valueOf(user.getId()),user.getUsername(),user.getAvatar()));
-        return userRepository.save(user);
+        user.setAvatar(FileUtils.saveFileToStorage("avatars",user.getUsername(),user.getAvatar(),true));
+        user.setCover(FileUtils.saveFileToStorage("user",user.getUsername(),user.getCover(),false));
+        User user1 = userRepository.save(user);
+        followService.changeFollows(user1,user1);
+        return user1;
     }
+
+
 
     @Override
     public Page findOtherUser(Long id, Pageable pageable) {
         return userRepository.findUsersByIdNot(id,pageable);
     }
 
-    public Set<UserWithFollow> findFollow(Long id, Pageable pageable) {
-        return userRepository.findUserWithFollowStatus(id);
+    public List<UserRepository.UserWithFollow> findFollow(Long id, int page) {
+        return userRepository.findUserWithFollowStatus(id, Constant.NUM_STEP_DATA,Constant.NUM_STEP_DATA * page);
 //        return userRepository.findUserWithFollowStatus(id,pageable);
     }
-
 
     public User findByUsername(String username) {
         return userRepository.findUserByUsername(username);

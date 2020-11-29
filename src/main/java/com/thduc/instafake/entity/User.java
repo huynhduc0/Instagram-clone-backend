@@ -1,11 +1,9 @@
 package com.thduc.instafake.entity;
-
 import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.thduc.instafake.constant.Constant;
 import lombok.Data;
-
-import org.springframework.context.annotation.Primary;
+import net.minidev.json.annotate.JsonIgnore;
 
 
 import javax.persistence.*;
@@ -14,7 +12,6 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Data
 public class User {
 
     @Id
@@ -25,14 +22,14 @@ public class User {
     private String avatar;
 
     @NotBlank(message = "Username is require")
-    @Column(unique = true)
+//    @Column(unique = true)
     private String username;
 
     @NotBlank(message = "Email is require")
-    @Column(unique = true)
+//    @Column(unique = true)
     private String email;
 
-
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @NotBlank(message = "Password is require")
     private String password;
 

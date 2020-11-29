@@ -32,18 +32,16 @@ public class FileUtils {
                 return "jpeg";
             case Constant.PNG_MEDIA_TYPE:
                 return "png";
-            case Constant.PDF_MEDIA_TYPE:
-                return "pdf";
-            case Constant.DOC_MEDIA_TYPE:
-                return "doc";
-            case Constant.DOCX_MEDIA_TYPE:
-                return "docx";
+            case Constant.JPG_MEDIA_TYPE:
+                return "jpg";
+//            case Constant.PNG_MEDIA_TYPE:
+//                return "png";
             default:
                 return null;
         }
     }
 
-    public static String saveFileToStorage(String folder, String name, String imageData) {
+    public static String saveFileToStorage(String folder, String name, String imageData, boolean isResized) {
 
         String folderPath = Constant.UPLOAD_PATH + folder;
 
@@ -62,13 +60,12 @@ public class FileUtils {
         }
         String extension = getExtension(properties[0]);
         if (isBlank(extension)) {
-            throw new BadRequestException(Constant.INVALID_FILE_EXTENSION);
+            throw new BadRequestException(imageData);
         }
         String base64 = properties[1];
         byte[] byteData = Base64.getDecoder().decode(base64);
 
-        filename = (_PNG.equals(extension) || (_JPEG.equals(extension) || _JPG.equals(extension))) ? "img_" : "cv_";
-        filename += name + "." + extension;
+        filename = name + "." + extension;
 
         String path = folderPath + "/" + filename;
 
@@ -76,16 +73,18 @@ public class FileUtils {
             //optimize image
             ByteArrayInputStream bis = new ByteArrayInputStream(byteData);
             BufferedImage bufferedImage = ImageIO.read(bis);
-            BufferedImage scaledImg = Scalr.resize(bufferedImage, Scalr.Method.QUALITY, Scalr.Mode.FIT_EXACT,
-                    400, 400, Scalr.OP_ANTIALIAS);
-
             OutputStream outputStream = new FileOutputStream(path);
-
-            ImageIO.write(scaledImg, _PNG, outputStream);
-            //outputStream.write(byteData);
-            outputStream.flush();
-            outputStream.close();
-            return filename;
+            if(isResized){
+                BufferedImage scaledImg = Scalr.resize(bufferedImage, Scalr.Method.QUALITY, Scalr.Mode.FIT_EXACT,
+                        400, 400, Scalr.OP_ANTIALIAS);
+                ImageIO.write(scaledImg, _PNG, outputStream);
+            }else{
+                //outputStream.write(byteData);
+                ImageIO.write(bufferedImage, _PNG, outputStream);
+                outputStream.flush();
+                outputStream.close();
+            }
+            return folder+"/"+filename;
         } catch (Exception e) {
             logger.error("Error image uploading --- {}", e.getMessage());
             return null;
@@ -137,7 +136,6 @@ public class FileUtils {
 
             return ResponseEntity.ok().contentType(MediaType.IMAGE_PNG).body(fileData);
         } else if ((filename.endsWith(_JPEG)) || (filename.endsWith(_JPG))) {
-
             return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(fileData);
         }
         return null;

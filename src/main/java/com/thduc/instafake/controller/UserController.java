@@ -25,6 +25,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
+import java.util.HashMap;
 
 @RestController
 public class UserController {
@@ -51,9 +52,9 @@ public class UserController {
      }
 
     @GetMapping(value = "/user")
-     public ResponseEntity findOtherUser(@ActiveUser UserPrinciple userPrinciple){
+     public ResponseEntity findOtherUser(@RequestParam int page,@ActiveUser UserPrinciple userPrinciple){
 //        return new ResponseEntity(filterFollowingOnly(userService.findOtherUser(userPrinciple.getId(),PageRequest.of(0,2))),HttpStatus.OK);
-        return new ResponseEntity(userService.findFollow(userPrinciple.getId(),PageRequest.of(0,2)),HttpStatus.OK);
+        return new ResponseEntity(userService.findFollow(userPrinciple.getId(),page),HttpStatus.OK);
     }
 //    @GetMapping(value = "/user")
 //    public ResponseEntity findOtherUser(@ActiveUser UserPrinciple userPrinciple){
@@ -66,23 +67,18 @@ public class UserController {
     @CrossOrigin
     @Transactional
     public ResponseEntity<String> login(@RequestBody User user) {
-        String result = "";
-        HttpStatus httpStatus = null;
-        String role = "";
-        JSONObject json  = new JSONObject();
+        HashMap hashMap = new HashMap();
         if (user.getPassword()==null||  user.getUsername()==null)
             return new ResponseEntity("SOME DATA IS MISSING", HttpStatus.BAD_REQUEST);
         User checkedUser = userService.checkLogin(user.getUsername(), user.getPassword());
         if(checkedUser != null){
-            long userId = userService.findByUsername(user.getUsername()).getId();
-            result = jwtService.generateTokenLogin(user);
-            role = jwtService.getRole(result);
-            json.put("token", result);
-            json.put("role", role);
-            json.put("username", user.getUsername());
-            httpStatus = HttpStatus.OK;
+           String result = jwtService.generateTokenLogin(user);
+            String role = jwtService.getRole(result);
+            hashMap.put("token", result);
+            hashMap.put("role", role);
+            hashMap.put("username", user.getUsername());
+            return new ResponseEntity(hashMap, HttpStatus.OK);
         } else throw new JWTException(HttpStatus.UNAUTHORIZED, "WRONG_USERNAME_PASSWORD");
-        return new ResponseEntity(json.toJSONString(), httpStatus);
     }
     @PostMapping(value = "/follow")
     public ResponseEntity changeFollow(@RequestBody User toUser, @ActiveUser UserPrinciple userPrinciple){

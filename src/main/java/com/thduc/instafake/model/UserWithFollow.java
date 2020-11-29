@@ -6,14 +6,22 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class UserWithFollow {
     private long id;
     private String avatar;
     private String username;
-    private boolean following;
+    private int following;
+
+    public UserWithFollow() {
+
+    }
+
+    public UserWithFollow(long id, String avatar, String username, int following) {
+        this.id = id;
+        this.avatar = avatar;
+        this.username = username;
+        this.following = following;
+    }
 
     public long getId() {
         return id;
@@ -39,11 +47,11 @@ public class UserWithFollow {
         this.username = username;
     }
 
-    public boolean isFollowing() {
+    public int getFollowing() {
         return following;
     }
 
-    public void setFollowing(boolean following) {
+    public void setFollowing(int following) {
         this.following = following;
     }
 }

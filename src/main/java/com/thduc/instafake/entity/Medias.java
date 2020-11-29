@@ -26,6 +26,10 @@ public class Medias {
         this.media_type = media_type;
         this.media_url = media_url;
     }
+    public Medias(String media_type, String media_url) {
+        this.media_type = media_type;
+        this.media_url = media_url;
+    }
 
     public long getId() {
         return id;

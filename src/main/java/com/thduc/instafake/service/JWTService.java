@@ -40,7 +40,6 @@ public class JWTService {
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + AuthConstant.ACCESS_TOKEN_VALIDITY_SECONDS*1000))
                 .compact();
-        User User1 = userService.findByUsername(User.getUsername());
         return token;
     }
 

@@ -1,9 +1,12 @@
 package com.thduc.instafake.service;
 
+import com.thduc.instafake.entity.Posts;
 import com.thduc.instafake.entity.User;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+
+import java.util.Set;
 
 public interface UserServiceImpl {
 

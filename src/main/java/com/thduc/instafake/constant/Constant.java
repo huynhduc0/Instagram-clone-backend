@@ -1,9 +1,31 @@
 package com.thduc.instafake.constant;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.core.env.Environment;
+
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 public class Constant {
     public static final String UPLOAD_PATH = System.getProperty("user.dir") + "/webapps/images/";
 
+    @LocalServerPort
+    static int port;
+    public static String ip = "";
+    {
+        try {
+                ip = InetAddress.getLocalHost().getHostAddress();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static final String SERVER_URL = ip+ ":"+String.valueOf(port)+"/";
+
     public static final String JPEG_MEDIA_TYPE = "data:image/jpeg;base64";
+    public static final String JPG_MEDIA_TYPE = "data:image/jpg;base64";
     public static final String PNG_MEDIA_TYPE = "data:image/png;base64";
     public static final String PDF_MEDIA_TYPE = "data:application/pdf;base64";
     //public static final String PDF_MEDIA_TYPE_SECOND = "data:@file/pdf;base64";
@@ -41,5 +63,8 @@ public class Constant {
 
     public static final String FOLLOW_FROM = "from";
     public static final String FOLLOW_TO = "to";
+
+
+    public static final int NUM_STEP_DATA = 10;
 
 }
