@@ -22,11 +22,11 @@ public class User {
     private String avatar;
 
     @NotBlank(message = "Username is require")
-//    @Column(unique = true)
+    @Column(unique = true)
     private String username;
 
     @NotBlank(message = "Email is require")
-//    @Column(unique = true)
+    @Column(unique = true)
     private String email;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
