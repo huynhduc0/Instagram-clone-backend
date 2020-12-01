@@ -3,16 +3,15 @@ package com.thduc.instafake.constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.context.annotation.Profile;
 import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Component;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-
+@Component
 public class Constant {
-    public static final String UPLOAD_PATH = (System.getProperty("user.dir").equals("/")||System.getProperty("user.dir")!= null
-            || System.getProperty("user.dir").equals("//") )
-            ?System.getProperty("user.dir")+ "/src/images/"
-            :"/home/thduc/HCI/src/images/";
+    public static final String UPLOAD_PATH = System.getProperty("user.dir") + "/src/main/resources/static/uploads/";
 
     public static final String JPEG_MEDIA_TYPE = "data:image/jpeg;base64";
     public static final String JPG_MEDIA_TYPE = "data:image/jpg;base64";
