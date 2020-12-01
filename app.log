@@ -28112,3 +28112,424 @@ Caused by: java.lang.NullPointerException: Cannot invoke "String.equals(Object)"
 2020-12-01 15:10:16.904  INFO 7674 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
 2020-12-01 15:10:17.548  INFO 7674 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
 2020-12-01 15:10:17.565  INFO 7674 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : Started InstafakeApplication in 10.122 seconds (JVM running for 13.429)
+2020-12-01 15:28:24.738  INFO 7674 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-01 15:28:24.753  INFO 7674 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-01 15:28:24.760  INFO 7674 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-12-01 15:28:24.788  INFO 7674 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-12-01 15:28:25.229  INFO 7674 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : Starting InstafakeApplication using Java 15.0.1 on thducs-MacBook-Pro.local with PID 7674 (/Users/thduc/Desktop/HCI/instafake/target/classes started by thduc in /Users/thduc/Desktop/HCI/instafake)
+2020-12-01 15:28:25.230  INFO 7674 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : The following profiles are active: local
+2020-12-01 15:28:25.820  INFO 7674 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-01 15:28:25.912  INFO 7674 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 90 ms. Found 7 JPA repository interfaces.
+2020-12-01 15:28:26.077  INFO 7674 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@363ddbd9' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-12-01 15:28:26.082  INFO 7674 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-12-01 15:28:26.319  INFO 7674 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-01 15:28:26.321  INFO 7674 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-01 15:28:26.322  INFO 7674 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-01 15:28:26.359  INFO 7674 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-01 15:28:26.361  INFO 7674 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1124 ms
+2020-12-01 15:28:26.447  WARN 7674 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-01 15:28:26.514  INFO 7674 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-01 15:28:26.556  INFO 7674 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2020-12-01 15:28:26.604  INFO 7674 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2020-12-01 15:28:27.187  INFO 7674 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-01 15:28:27.350  INFO 7674 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6db2035f, org.springframework.security.web.context.SecurityContextPersistenceFilter@4b2de4c3, org.springframework.security.web.header.HeaderWriterFilter@11b1c683, org.springframework.web.filter.CorsFilter@24eb9b58, org.springframework.security.web.authentication.logout.LogoutFilter@4a3e272c, com.thduc.instafake.filter.JwtAuthenticationTokenFilter@1a9194ae, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5c63a11b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@43f9f1ca, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3dd3ceaa, org.springframework.security.web.session.SessionManagementFilter@430dc915, org.springframework.security.web.access.ExceptionTranslationFilter@15f04538, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6f055012]
+2020-12-01 15:28:27.380  INFO 7674 --- [task-2] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-12-01 15:28:27.506  INFO 7674 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-01 15:28:27.507  INFO 7674 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-12-01 15:28:27.781  INFO 7674 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-12-01 15:28:27.791  INFO 7674 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : Started InstafakeApplication in 2.65 seconds (JVM running for 1103.663)
+2020-12-01 15:28:27.795  INFO 7674 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-12-01 15:28:36.055  INFO 7674 --- [Thread-8] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-01 15:28:36.057  INFO 7674 --- [Thread-8] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-01 15:28:36.057  INFO 7674 --- [Thread-8] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2020-12-01 15:28:36.060  INFO 7674 --- [Thread-8] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2020-12-01 15:28:36.196  INFO 7674 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : Starting InstafakeApplication using Java 15.0.1 on thducs-MacBook-Pro.local with PID 7674 (/Users/thduc/Desktop/HCI/instafake/target/classes started by thduc in /Users/thduc/Desktop/HCI/instafake)
+2020-12-01 15:28:36.196  INFO 7674 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : The following profiles are active: local
+2020-12-01 15:28:36.888  INFO 7674 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-01 15:28:37.051  INFO 7674 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 162 ms. Found 7 JPA repository interfaces.
+2020-12-01 15:28:37.336  INFO 7674 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@2d330f4b' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-12-01 15:28:37.345  INFO 7674 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-12-01 15:28:37.530  INFO 7674 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-01 15:28:37.532  INFO 7674 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-01 15:28:37.543  INFO 7674 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-01 15:28:37.591  INFO 7674 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-01 15:28:37.592  INFO 7674 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1388 ms
+2020-12-01 15:28:37.669  WARN 7674 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-01 15:28:37.749  INFO 7674 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-01 15:28:37.782  INFO 7674 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2020-12-01 15:28:37.788  INFO 7674 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2020-12-01 15:28:38.123  INFO 7674 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-01 15:28:38.151  INFO 7674 --- [task-2] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-12-01 15:28:38.397  INFO 7674 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@68dd5684, org.springframework.security.web.context.SecurityContextPersistenceFilter@13394854, org.springframework.security.web.header.HeaderWriterFilter@3ba2a172, org.springframework.web.filter.CorsFilter@64fcaa62, org.springframework.security.web.authentication.logout.LogoutFilter@5f3bebea, com.thduc.instafake.filter.JwtAuthenticationTokenFilter@649347f8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@42e0030c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6c678313, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@227323ea, org.springframework.security.web.session.SessionManagementFilter@7703a2e8, org.springframework.security.web.access.ExceptionTranslationFilter@6c87a1ee, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@425c2ce6]
+2020-12-01 15:28:38.555  INFO 7674 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-01 15:28:38.557  INFO 7674 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-12-01 15:28:39.263  INFO 7674 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-12-01 15:28:39.278  INFO 7674 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : Started InstafakeApplication in 3.129 seconds (JVM running for 1115.15)
+2020-12-01 15:28:39.281  INFO 7674 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-12-01 15:28:42.033  INFO 7674 --- [Thread-13] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-01 15:28:42.033  INFO 7674 --- [Thread-13] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-01 15:28:42.034  INFO 7674 --- [Thread-13] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2020-12-01 15:28:42.042  INFO 7674 --- [Thread-13] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2020-12-01 15:28:42.200  INFO 7674 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : Starting InstafakeApplication using Java 15.0.1 on thducs-MacBook-Pro.local with PID 7674 (/Users/thduc/Desktop/HCI/instafake/target/classes started by thduc in /Users/thduc/Desktop/HCI/instafake)
+2020-12-01 15:28:42.200  INFO 7674 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : The following profiles are active: local
+2020-12-01 15:28:42.602  INFO 7674 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-01 15:28:42.658  INFO 7674 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 55 ms. Found 7 JPA repository interfaces.
+2020-12-01 15:28:42.801  INFO 7674 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@2915d3ab' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-12-01 15:28:42.803  INFO 7674 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-12-01 15:28:42.950  INFO 7674 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-01 15:28:42.951  INFO 7674 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-01 15:28:42.951  INFO 7674 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-01 15:28:43.070  INFO 7674 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-01 15:28:43.071  INFO 7674 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 867 ms
+2020-12-01 15:28:43.192  WARN 7674 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-01 15:28:43.318  INFO 7674 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-01 15:28:43.347  INFO 7674 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2020-12-01 15:28:43.354  INFO 7674 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2020-12-01 15:28:43.671  INFO 7674 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-01 15:28:43.757  INFO 7674 --- [task-2] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-12-01 15:28:43.984  INFO 7674 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2b83a163, org.springframework.security.web.context.SecurityContextPersistenceFilter@1b256ec8, org.springframework.security.web.header.HeaderWriterFilter@47821e9b, org.springframework.web.filter.CorsFilter@55aa510a, org.springframework.security.web.authentication.logout.LogoutFilter@372dda90, com.thduc.instafake.filter.JwtAuthenticationTokenFilter@4a373b8c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@313900a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@54323035, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7eda61d, org.springframework.security.web.session.SessionManagementFilter@93b429e, org.springframework.security.web.access.ExceptionTranslationFilter@1771fbf5, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2cff1f74]
+2020-12-01 15:28:44.420  INFO 7674 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-01 15:28:44.421  INFO 7674 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-12-01 15:28:44.750  INFO 7674 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-12-01 15:28:44.757  INFO 7674 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : Started InstafakeApplication in 2.618 seconds (JVM running for 1120.629)
+2020-12-01 15:28:44.760  INFO 7674 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-12-01 15:28:52.908  INFO 7674 --- [Thread-18] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-01 15:28:52.908  INFO 7674 --- [Thread-18] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-01 15:28:52.909  INFO 7674 --- [Thread-18] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2020-12-01 15:28:52.911  INFO 7674 --- [Thread-18] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2020-12-01 15:28:53.089  INFO 7674 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : Starting InstafakeApplication using Java 15.0.1 on thducs-MacBook-Pro.local with PID 7674 (/Users/thduc/Desktop/HCI/instafake/target/classes started by thduc in /Users/thduc/Desktop/HCI/instafake)
+2020-12-01 15:28:53.090  INFO 7674 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : The following profiles are active: local
+2020-12-01 15:28:53.698  INFO 7674 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-01 15:28:53.758  INFO 7674 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 58 ms. Found 7 JPA repository interfaces.
+2020-12-01 15:28:53.932  INFO 7674 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@26c45b90' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-12-01 15:28:53.940  INFO 7674 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-12-01 15:28:54.241  INFO 7674 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-01 15:28:54.242  INFO 7674 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-01 15:28:54.242  INFO 7674 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-01 15:28:54.325  INFO 7674 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-01 15:28:54.326  INFO 7674 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1233 ms
+2020-12-01 15:28:54.561  WARN 7674 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-01 15:28:54.692  INFO 7674 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-01 15:28:54.740  INFO 7674 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2020-12-01 15:28:54.745  INFO 7674 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2020-12-01 15:28:55.072  INFO 7674 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-01 15:28:55.153  INFO 7674 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-12-01 15:28:55.653  INFO 7674 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7523fdb3, org.springframework.security.web.context.SecurityContextPersistenceFilter@834792b, org.springframework.security.web.header.HeaderWriterFilter@3e9783cf, org.springframework.web.filter.CorsFilter@2ca362f6, org.springframework.security.web.authentication.logout.LogoutFilter@3d1f1b56, com.thduc.instafake.filter.JwtAuthenticationTokenFilter@40766019, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@12344b04, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@103f3b76, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5d4a4805, org.springframework.security.web.session.SessionManagementFilter@1893dc68, org.springframework.security.web.access.ExceptionTranslationFilter@2b563990, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@23362328]
+2020-12-01 15:28:55.856  INFO 7674 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-01 15:28:55.857  INFO 7674 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-12-01 15:28:56.245  INFO 7674 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-12-01 15:28:56.250  INFO 7674 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : Started InstafakeApplication in 3.221 seconds (JVM running for 1132.123)
+2020-12-01 15:28:56.254  INFO 7674 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-12-01 15:28:58.317  INFO 7674 --- [Thread-23] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-01 15:28:58.318  INFO 7674 --- [Thread-23] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-01 15:28:58.318  INFO 7674 --- [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2020-12-01 15:28:58.321  INFO 7674 --- [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2020-12-01 15:28:58.467  INFO 7674 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : Starting InstafakeApplication using Java 15.0.1 on thducs-MacBook-Pro.local with PID 7674 (/Users/thduc/Desktop/HCI/instafake/target/classes started by thduc in /Users/thduc/Desktop/HCI/instafake)
+2020-12-01 15:28:58.468  INFO 7674 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : The following profiles are active: local
+2020-12-01 15:28:59.005  INFO 7674 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-01 15:28:59.097  INFO 7674 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 91 ms. Found 7 JPA repository interfaces.
+2020-12-01 15:28:59.394  INFO 7674 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@465097c5' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-12-01 15:28:59.396  INFO 7674 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-12-01 15:28:59.660  INFO 7674 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-01 15:28:59.661  INFO 7674 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-01 15:28:59.662  INFO 7674 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-01 15:28:59.708  INFO 7674 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-01 15:28:59.708  INFO 7674 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1235 ms
+2020-12-01 15:28:59.904  WARN 7674 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-01 15:29:00.160  INFO 7674 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-01 15:29:00.281  INFO 7674 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2020-12-01 15:29:00.287  INFO 7674 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2020-12-01 15:29:00.762  INFO 7674 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-01 15:29:01.094  INFO 7674 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@8a1aa03, org.springframework.security.web.context.SecurityContextPersistenceFilter@3ec3a48b, org.springframework.security.web.header.HeaderWriterFilter@71b768da, org.springframework.web.filter.CorsFilter@2e27ca3a, org.springframework.security.web.authentication.logout.LogoutFilter@f59b32e, com.thduc.instafake.filter.JwtAuthenticationTokenFilter@488355b4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@13740372, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@59cf487e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@74580bbf, org.springframework.security.web.session.SessionManagementFilter@1a6de944, org.springframework.security.web.access.ExceptionTranslationFilter@7a8ae21b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7057547f]
+2020-12-01 15:29:01.126  INFO 7674 --- [task-2] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-12-01 15:29:01.354  INFO 7674 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-01 15:29:01.355  INFO 7674 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-12-01 15:29:01.834  INFO 7674 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-12-01 15:29:01.841  INFO 7674 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : Started InstafakeApplication in 3.421 seconds (JVM running for 1137.713)
+2020-12-01 15:29:01.844  INFO 7674 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-12-01 15:29:22.018  INFO 7674 --- [Thread-28] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-01 15:29:22.018  INFO 7674 --- [Thread-28] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-01 15:29:22.019  INFO 7674 --- [Thread-28] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
+2020-12-01 15:29:22.022  INFO 7674 --- [Thread-28] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
+2020-12-01 15:29:22.194  INFO 7674 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : Starting InstafakeApplication using Java 15.0.1 on thducs-MacBook-Pro.local with PID 7674 (/Users/thduc/Desktop/HCI/instafake/target/classes started by thduc in /Users/thduc/Desktop/HCI/instafake)
+2020-12-01 15:29:22.194  INFO 7674 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : The following profiles are active: local
+2020-12-01 15:29:22.595  INFO 7674 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-01 15:29:22.635  INFO 7674 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 39 ms. Found 7 JPA repository interfaces.
+2020-12-01 15:29:22.852  INFO 7674 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@3748f452' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-12-01 15:29:22.866  INFO 7674 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-12-01 15:29:23.147  INFO 7674 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-01 15:29:23.148  INFO 7674 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-01 15:29:23.148  INFO 7674 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-01 15:29:23.192  INFO 7674 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-01 15:29:23.192  INFO 7674 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 994 ms
+2020-12-01 15:29:23.432  WARN 7674 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-01 15:29:23.550  INFO 7674 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-01 15:29:23.578  INFO 7674 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Starting...
+2020-12-01 15:29:23.584  INFO 7674 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Start completed.
+2020-12-01 15:29:23.854  INFO 7674 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-01 15:29:23.890  INFO 7674 --- [task-2] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-12-01 15:29:24.086  INFO 7674 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3f0b4d82, org.springframework.security.web.context.SecurityContextPersistenceFilter@5d7c8ba, org.springframework.security.web.header.HeaderWriterFilter@7edb00ca, org.springframework.web.filter.CorsFilter@6ede12f3, org.springframework.security.web.authentication.logout.LogoutFilter@79095152, com.thduc.instafake.filter.JwtAuthenticationTokenFilter@122f841b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1e09acaa, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@387232f1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1cc44033, org.springframework.security.web.session.SessionManagementFilter@1d1ce685, org.springframework.security.web.access.ExceptionTranslationFilter@5089798b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@718fdf3e]
+2020-12-01 15:29:24.530  INFO 7674 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-01 15:29:24.531  INFO 7674 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-12-01 15:29:25.071  INFO 7674 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-12-01 15:29:25.086  INFO 7674 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : Started InstafakeApplication in 2.925 seconds (JVM running for 1160.958)
+2020-12-01 15:29:25.097  INFO 7674 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-12-01 15:29:28.166  INFO 7674 --- [Thread-33] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-01 15:29:28.210  INFO 7674 --- [Thread-33] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-01 15:29:28.211  INFO 7674 --- [Thread-33] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
+2020-12-01 15:29:28.213  INFO 7674 --- [Thread-33] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.
+2020-12-01 15:29:28.406  INFO 7674 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : Starting InstafakeApplication using Java 15.0.1 on thducs-MacBook-Pro.local with PID 7674 (/Users/thduc/Desktop/HCI/instafake/target/classes started by thduc in /Users/thduc/Desktop/HCI/instafake)
+2020-12-01 15:29:28.406  INFO 7674 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : The following profiles are active: local
+2020-12-01 15:29:28.940  INFO 7674 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-01 15:29:29.014  INFO 7674 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 73 ms. Found 7 JPA repository interfaces.
+2020-12-01 15:29:29.173  INFO 7674 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@458aa3a5' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-12-01 15:29:29.175  INFO 7674 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-12-01 15:29:29.306  INFO 7674 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-01 15:29:29.308  INFO 7674 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-01 15:29:29.308  INFO 7674 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-01 15:29:29.363  INFO 7674 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-01 15:29:29.364  INFO 7674 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 955 ms
+2020-12-01 15:29:29.580  WARN 7674 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-01 15:29:29.736  INFO 7674 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-01 15:29:29.764  INFO 7674 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Starting...
+2020-12-01 15:29:29.769  INFO 7674 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Start completed.
+2020-12-01 15:29:30.202  INFO 7674 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5f2e4ff6, org.springframework.security.web.context.SecurityContextPersistenceFilter@6e0f6905, org.springframework.security.web.header.HeaderWriterFilter@31f2384b, org.springframework.web.filter.CorsFilter@34ac72dc, org.springframework.security.web.authentication.logout.LogoutFilter@55353eef, com.thduc.instafake.filter.JwtAuthenticationTokenFilter@955203f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6655b9c3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4645e522, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@242b56b4, org.springframework.security.web.session.SessionManagementFilter@4ce959b4, org.springframework.security.web.access.ExceptionTranslationFilter@7e2ecf88, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2b5a6ec]
+2020-12-01 15:29:30.453  INFO 7674 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-01 15:29:30.507  INFO 7674 --- [task-2] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-12-01 15:29:30.668  INFO 7674 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-01 15:29:30.669  INFO 7674 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-12-01 15:29:31.558  INFO 7674 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-12-01 15:29:31.574  INFO 7674 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : Started InstafakeApplication in 3.216 seconds (JVM running for 1167.446)
+2020-12-01 15:29:31.579  INFO 7674 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-12-01 15:29:44.346  INFO 7674 --- [Thread-38] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-01 15:29:44.352  INFO 7674 --- [Thread-38] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-01 15:29:44.352  INFO 7674 --- [Thread-38] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown initiated...
+2020-12-01 15:29:44.358  INFO 7674 --- [Thread-38] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown completed.
+2020-12-01 15:29:46.168  INFO 7674 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : Starting InstafakeApplication using Java 15.0.1 on thducs-MacBook-Pro.local with PID 7674 (/Users/thduc/Desktop/HCI/instafake/target/classes started by thduc in /Users/thduc/Desktop/HCI/instafake)
+2020-12-01 15:29:46.168  INFO 7674 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : The following profiles are active: local
+2020-12-01 15:29:46.807  INFO 7674 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-01 15:29:46.879  INFO 7674 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 71 ms. Found 7 JPA repository interfaces.
+2020-12-01 15:29:47.029  INFO 7674 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@6f871bcf' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-12-01 15:29:47.032  INFO 7674 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-12-01 15:29:47.204  INFO 7674 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-01 15:29:47.211  INFO 7674 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-01 15:29:47.212  INFO 7674 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-01 15:29:47.261  INFO 7674 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-01 15:29:47.262  INFO 7674 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1089 ms
+2020-12-01 15:29:47.392  WARN 7674 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-01 15:29:47.490  INFO 7674 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-01 15:29:47.521  INFO 7674 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Starting...
+2020-12-01 15:29:47.527  INFO 7674 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Start completed.
+2020-12-01 15:29:47.886  INFO 7674 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-01 15:29:48.439  INFO 7674 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1ce9617, org.springframework.security.web.context.SecurityContextPersistenceFilter@2b3856fc, org.springframework.security.web.header.HeaderWriterFilter@5f64f9c2, org.springframework.web.filter.CorsFilter@6881e5f9, org.springframework.security.web.authentication.logout.LogoutFilter@8e450dc, com.thduc.instafake.filter.JwtAuthenticationTokenFilter@771c5cd4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2f744059, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@57a6169c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@40343a68, org.springframework.security.web.session.SessionManagementFilter@6c8b4335, org.springframework.security.web.access.ExceptionTranslationFilter@24540389, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@56584d1d]
+2020-12-01 15:29:48.445  INFO 7674 --- [task-2] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-12-01 15:29:49.108  INFO 7674 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-01 15:29:49.109  INFO 7674 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-12-01 15:29:49.687  INFO 7674 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-12-01 15:29:49.697  INFO 7674 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : Started InstafakeApplication in 3.983 seconds (JVM running for 1185.569)
+2020-12-01 15:29:49.700  INFO 7674 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-12-01 15:29:50.658  INFO 7674 --- [Thread-43] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-01 15:29:50.658  INFO 7674 --- [Thread-43] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-01 15:29:50.659  INFO 7674 --- [Thread-43] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown initiated...
+2020-12-01 15:29:50.661  INFO 7674 --- [Thread-43] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown completed.
+2020-12-01 15:29:50.764  INFO 7674 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : Starting InstafakeApplication using Java 15.0.1 on thducs-MacBook-Pro.local with PID 7674 (/Users/thduc/Desktop/HCI/instafake/target/classes started by thduc in /Users/thduc/Desktop/HCI/instafake)
+2020-12-01 15:29:50.764  INFO 7674 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : The following profiles are active: local
+2020-12-01 15:29:50.996  INFO 7674 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-01 15:29:51.070  INFO 7674 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 60 ms. Found 7 JPA repository interfaces.
+2020-12-01 15:29:51.269  INFO 7674 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@61fe02cd' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-12-01 15:29:51.271  INFO 7674 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-12-01 15:29:51.518  INFO 7674 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-01 15:29:51.592  INFO 7674 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 826 ms
+2020-12-01 15:29:51.705  WARN 7674 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-01 15:29:51.849  INFO 7674 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-01 15:29:51.871  INFO 7674 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Starting...
+2020-12-01 15:29:51.876  INFO 7674 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Start completed.
+2020-12-01 15:29:52.360  INFO 7674 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-01 15:29:52.377  INFO 7674 --- [task-2] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-12-01 15:29:52.738  INFO 7674 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2d3ec3fb, org.springframework.security.web.context.SecurityContextPersistenceFilter@fe7260b, org.springframework.security.web.header.HeaderWriterFilter@4a6b32ba, org.springframework.web.filter.CorsFilter@3b4a91f6, org.springframework.security.web.authentication.logout.LogoutFilter@36e80131, com.thduc.instafake.filter.JwtAuthenticationTokenFilter@4ecb0ba9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2abbbc40, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@39d6a54f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@65afe87e, org.springframework.security.web.session.SessionManagementFilter@19040c4c, org.springframework.security.web.access.ExceptionTranslationFilter@5f2f5ac5, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@36e66e5a]
+2020-12-01 15:29:52.990  INFO 7674 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-01 15:29:52.991  INFO 7674 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-12-01 15:29:53.387  INFO 7674 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-12-01 15:29:53.396  INFO 7674 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : Started InstafakeApplication in 2.657 seconds (JVM running for 1189.268)
+2020-12-01 15:29:53.403  INFO 7674 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-12-01 15:29:53.465  INFO 7674 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-01 15:29:53.466  INFO 7674 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-01 15:29:53.466  INFO 7674 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Shutdown initiated...
+2020-12-01 15:29:53.472  INFO 7674 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Shutdown completed.
+2020-12-01 15:30:04.304  INFO 8071 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : Starting InstafakeApplication using Java 15.0.1 on thducs-MacBook-Pro.local with PID 8071 (/Users/thduc/Desktop/HCI/instafake/target/classes started by thduc in /Users/thduc/Desktop/HCI/instafake)
+2020-12-01 15:30:04.308  INFO 8071 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : The following profiles are active: local
+2020-12-01 15:30:04.433  INFO 8071 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-01 15:30:04.434  INFO 8071 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-01 15:30:05.880  INFO 8071 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-01 15:30:06.042  INFO 8071 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 145 ms. Found 7 JPA repository interfaces.
+2020-12-01 15:30:06.578  INFO 8071 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@149b6242' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-12-01 15:30:06.597  INFO 8071 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-12-01 15:30:07.674  INFO 8071 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-01 15:30:07.696  INFO 8071 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-01 15:30:07.697  INFO 8071 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-01 15:30:07.899  INFO 8071 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-01 15:30:07.899  INFO 8071 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3464 ms
+2020-12-01 15:30:08.033  WARN 8071 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-01 15:30:08.168  INFO 8071 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-01 15:30:08.840  INFO 8071 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-12-01 15:30:09.134  INFO 8071 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-12-01 15:30:09.365  INFO 8071 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1bbdd9f4, org.springframework.security.web.context.SecurityContextPersistenceFilter@3b0a1c15, org.springframework.security.web.header.HeaderWriterFilter@60c878b6, org.springframework.web.filter.CorsFilter@1f2ea970, org.springframework.security.web.authentication.logout.LogoutFilter@6f2f9d31, com.thduc.instafake.filter.JwtAuthenticationTokenFilter@bcbf5bd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3ea9a29e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4e454271, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4f70acf9, org.springframework.security.web.session.SessionManagementFilter@2fc46c5, org.springframework.security.web.access.ExceptionTranslationFilter@662f96df, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@718ec663]
+2020-12-01 15:30:09.859  INFO 8071 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-12-01 15:30:09.947  INFO 8071 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-01 15:30:09.953  INFO 8071 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-12-01 15:30:11.381  INFO 8071 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-01 15:30:12.631  INFO 8071 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-12-01 15:30:12.657  INFO 8071 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : Started InstafakeApplication in 9.062 seconds (JVM running for 11.704)
+2020-12-01 15:30:15.447  INFO 8071 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-01 15:30:15.452  INFO 8071 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-01 15:30:15.455  INFO 8071 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-12-01 15:30:15.468  INFO 8071 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-12-01 15:30:15.700  INFO 8071 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : Starting InstafakeApplication using Java 15.0.1 on thducs-MacBook-Pro.local with PID 8071 (/Users/thduc/Desktop/HCI/instafake/target/classes started by thduc in /Users/thduc/Desktop/HCI/instafake)
+2020-12-01 15:30:15.700  INFO 8071 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : The following profiles are active: local
+2020-12-01 15:30:16.038  INFO 8071 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-01 15:30:16.044  INFO 8071 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 JPA repository interfaces.
+2020-12-01 15:30:16.181  INFO 8071 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@4186ac69' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-12-01 15:30:16.183  INFO 8071 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-12-01 15:30:16.312  INFO 8071 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-01 15:30:16.313  INFO 8071 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-01 15:30:16.314  INFO 8071 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-01 15:30:16.344  INFO 8071 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-01 15:30:16.345  INFO 8071 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 639 ms
+2020-12-01 15:30:16.465  INFO 8071 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-01 15:30:16.501  INFO 8071 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2020-12-01 15:30:16.534  INFO 8071 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2020-12-01 15:30:16.583  INFO 8071 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-01 15:30:16.611  INFO 8071 --- [task-2] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-12-01 15:30:16.655  WARN 8071 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-01 15:30:16.960  INFO 8071 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 3328f4e7-2d4a-473c-8eda-013185a93bf2
+
+2020-12-01 15:30:17.108  INFO 8071 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2acd3ce1, org.springframework.security.web.context.SecurityContextPersistenceFilter@46adaf2e, org.springframework.security.web.header.HeaderWriterFilter@501e14d6, org.springframework.security.web.csrf.CsrfFilter@13b5c994, org.springframework.security.web.authentication.logout.LogoutFilter@5e652af1, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3c150c30, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@5d27a360, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@5571ce45, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6740a6ec, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@57648444, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@777c82da, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@280e4eb, org.springframework.security.web.session.SessionManagementFilter@7be930ae, org.springframework.security.web.access.ExceptionTranslationFilter@3824b54, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@10440a44]
+2020-12-01 15:30:17.172  INFO 8071 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-01 15:30:17.174  INFO 8071 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-12-01 15:30:17.177  INFO 8071 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-12-01 15:30:17.184  INFO 8071 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : Started InstafakeApplication in 1.545 seconds (JVM running for 16.231)
+2020-12-01 15:30:17.196  INFO 8071 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+   SpringBootWebSecurityConfiguration matched:
+      - found 'session' scope (OnWebApplicationCondition)
+      - AllNestedConditions 2 matched 0 did not; NestedCondition on DefaultWebSecurityCondition.Beans @ConditionalOnMissingBean (types: org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter,org.springframework.security.web.SecurityFilterChain; SearchStrategy: all) did not find any beans; NestedCondition on DefaultWebSecurityCondition.Classes @ConditionalOnClass found required classes 'org.springframework.security.web.SecurityFilterChain', 'org.springframework.security.config.annotation.web.builders.HttpSecurity' (DefaultWebSecurityCondition)
+
+   UserDetailsServiceAutoConfiguration matched:
+      - @ConditionalOnClass found required class 'org.springframework.security.authentication.AuthenticationManager' (OnClassCondition)
+      - @ConditionalOnBean (types: org.springframework.security.config.annotation.ObjectPostProcessor; SearchStrategy: all) found bean 'objectPostProcessor'; @ConditionalOnMissingBean (types: org.springframework.security.authentication.AuthenticationManager,org.springframework.security.authentication.AuthenticationProvider,org.springframework.security.core.userdetails.UserDetailsService,org.springframework.security.oauth2.jwt.JwtDecoder,org.springframework.security.oauth2.server.resource.introspection.OpaqueTokenIntrospector; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   UserDetailsServiceAutoConfiguration#inMemoryUserDetailsManager matched:
+      - @ConditionalOnMissingBean (types: org.springframework.security.oauth2.client.registration.ClientRegistrationRepository; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   WebSecurityEnablerConfiguration matched:
+      - @ConditionalOnClass found required class 'org.springframework.security.config.annotation.web.configuration.EnableWebSecurity' (OnClassCondition)
+      - found 'session' scope (OnWebApplicationCondition)
+      - @ConditionalOnMissingBean (names: springSecurityFilterChain; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+
+Negative matches:
+-----------------
+
+    None
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+2020-12-01 15:30:20.036  INFO 8071 --- [Thread-8] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-01 15:30:20.037  INFO 8071 --- [Thread-8] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-01 15:30:20.038  INFO 8071 --- [Thread-8] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2020-12-01 15:30:20.040  INFO 8071 --- [Thread-8] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2020-12-01 15:30:20.221  INFO 8071 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : Starting InstafakeApplication using Java 15.0.1 on thducs-MacBook-Pro.local with PID 8071 (/Users/thduc/Desktop/HCI/instafake/target/classes started by thduc in /Users/thduc/Desktop/HCI/instafake)
+2020-12-01 15:30:20.221  INFO 8071 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : The following profiles are active: local
+2020-12-01 15:30:20.702  INFO 8071 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-01 15:30:20.764  INFO 8071 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 61 ms. Found 7 JPA repository interfaces.
+2020-12-01 15:30:20.877  INFO 8071 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@49278e92' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-12-01 15:30:20.880  INFO 8071 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-12-01 15:30:21.014  INFO 8071 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-01 15:30:21.017  INFO 8071 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-01 15:30:21.018  INFO 8071 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-01 15:30:21.063  INFO 8071 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-01 15:30:21.064  INFO 8071 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 838 ms
+2020-12-01 15:30:21.138  WARN 8071 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-01 15:30:21.190  INFO 8071 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-01 15:30:21.211  INFO 8071 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2020-12-01 15:30:21.217  INFO 8071 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2020-12-01 15:30:21.655  INFO 8071 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-01 15:30:21.875  INFO 8071 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@68cd7586, org.springframework.security.web.context.SecurityContextPersistenceFilter@5db43661, org.springframework.security.web.header.HeaderWriterFilter@ab2cd64, org.springframework.web.filter.CorsFilter@796962f3, org.springframework.security.web.authentication.logout.LogoutFilter@6b21b5cd, com.thduc.instafake.filter.JwtAuthenticationTokenFilter@3cf5b788, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@78e73c45, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@642207d0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7ec50f53, org.springframework.security.web.session.SessionManagementFilter@27ba8633, org.springframework.security.web.access.ExceptionTranslationFilter@4f8d4f75, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7df705b9]
+2020-12-01 15:30:21.896  INFO 8071 --- [task-2] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-12-01 15:30:22.057  INFO 8071 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-01 15:30:22.058  INFO 8071 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-12-01 15:30:22.396  INFO 8071 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-12-01 15:30:22.405  INFO 8071 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : Started InstafakeApplication in 2.222 seconds (JVM running for 21.452)
+2020-12-01 15:30:22.417  INFO 8071 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+    None
+
+
+Negative matches:
+-----------------
+
+   SpringBootWebSecurityConfiguration:
+      Did not match:
+         - AllNestedConditions 1 matched 1 did not; NestedCondition on DefaultWebSecurityCondition.Beans @ConditionalOnMissingBean (types: org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter,org.springframework.security.web.SecurityFilterChain; SearchStrategy: all) found beans of type 'org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter' securityGlobalConfig; NestedCondition on DefaultWebSecurityCondition.Classes @ConditionalOnClass found required classes 'org.springframework.security.web.SecurityFilterChain', 'org.springframework.security.config.annotation.web.builders.HttpSecurity' (DefaultWebSecurityCondition)
+      Matched:
+         - found 'session' scope (OnWebApplicationCondition)
+
+   UserDetailsServiceAutoConfiguration:
+      Did not match:
+         - @ConditionalOnMissingBean (types: org.springframework.security.authentication.AuthenticationManager,org.springframework.security.authentication.AuthenticationProvider,org.springframework.security.core.userdetails.UserDetailsService,org.springframework.security.oauth2.jwt.JwtDecoder,org.springframework.security.oauth2.server.resource.introspection.OpaqueTokenIntrospector; SearchStrategy: all) found beans of type 'org.springframework.security.authentication.AuthenticationManager' authenticationManager (OnBeanCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.security.authentication.AuthenticationManager' (OnClassCondition)
+
+   WebSecurityEnablerConfiguration:
+      Did not match:
+         - @ConditionalOnMissingBean (names: springSecurityFilterChain; SearchStrategy: all) found beans named springSecurityFilterChain (OnBeanCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.security.config.annotation.web.configuration.EnableWebSecurity' (OnClassCondition)
+         - found 'session' scope (OnWebApplicationCondition)
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+

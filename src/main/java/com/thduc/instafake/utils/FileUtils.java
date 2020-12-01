@@ -1,6 +1,7 @@
 package com.thduc.instafake.utils;
 
 import com.thduc.instafake.constant.Constant;
+import com.thduc.instafake.constant.UploadConstant;
 import com.thduc.instafake.exception.BadRequestException;
 import com.thduc.instafake.exception.DataNotFoundException;
 import org.imgscalr.Scalr;
@@ -43,7 +44,7 @@ public class FileUtils {
 
     public static String saveFileToStorage(String folder, String name, String imageData, boolean isResized) {
 
-        String folderPath = Constant.UPLOAD_PATH + folder;
+        String folderPath = UploadConstant.UPLOAD_PATH + folder;
 
         String filename = null;
 
@@ -86,7 +87,7 @@ public class FileUtils {
             }
             return folder+"/"+filename;
         } catch (Exception e) {
-            logger.error("Error image uploading ---{} {}",Constant.UPLOAD_PATH, e.getMessage());
+            logger.error("Error image uploading ---{} {}",UploadConstant.UPLOAD_PATH, e.getMessage());
             return null;
         }
 
@@ -94,7 +95,7 @@ public class FileUtils {
 
 
     public static void deleteEntireFileInFolder(String folderName) {
-        File currentFolder = new File(Constant.UPLOAD_PATH + folderName);
+        File currentFolder = new File(UploadConstant.UPLOAD_PATH + folderName);
         if (currentFolder.exists()) {
             for (File file : currentFolder.listFiles()) {
                 if (!file.delete()) {
@@ -105,14 +106,14 @@ public class FileUtils {
     }
 
     public static void deleteEntireFolder(String folderName) {
-        File currentFolder = new File(Constant.UPLOAD_PATH + folderName);
+        File currentFolder = new File(UploadConstant.UPLOAD_PATH + folderName);
         if (!(currentFolder.exists() && currentFolder.delete())) {
             logger.error("Cannot delete entire folder: {}", folderName);
         }
     }
 
     public static File[] showFolderContent(String folderName) {
-        String path = Constant.UPLOAD_PATH;
+        String path = UploadConstant.UPLOAD_PATH;
 
         if (folderName != null) {
             path += "/" + folderName;
@@ -122,7 +123,7 @@ public class FileUtils {
     }
 
     public static ResponseEntity<byte[]> loadImage(String folder, String filename) throws IOException {
-        Path path = Paths.get(Constant.UPLOAD_PATH, folder, filename);
+        Path path = Paths.get(UploadConstant.UPLOAD_PATH, folder, filename);
         File file = new File(path.toString());
         if (!file.exists()) {
             throw new DataNotFoundException("File", "path", file.getAbsolutePath());
