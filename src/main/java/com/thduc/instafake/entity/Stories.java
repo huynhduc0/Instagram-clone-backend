@@ -1,6 +1,7 @@
 package com.thduc.instafake.entity;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -19,21 +20,24 @@ public class Stories {
     @CreationTimestamp
     private Timestamp created;
 
+    @UpdateTimestamp
+    private Timestamp updated;
+
     @ManyToOne
     private User author;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<User> viewer;
 
-
     public Stories() {
     }
 
-    public Stories(long id, String url, String type, Timestamp created, User author, Set<User> viewer) {
+    public Stories(long id, String url, String type, Timestamp created, Timestamp updated, User author, Set<User> viewer) {
         this.id = id;
         this.url = url;
         this.type = type;
         this.created = created;
+        this.updated = updated;
         this.author = author;
         this.viewer = viewer;
     }
@@ -68,6 +72,14 @@ public class Stories {
 
     public void setCreated(Timestamp created) {
         this.created = created;
+    }
+
+    public Timestamp getUpdated() {
+        return updated;
+    }
+
+    public void setUpdated(Timestamp updated) {
+        this.updated = updated;
     }
 
     public User getAuthor() {

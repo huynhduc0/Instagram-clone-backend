@@ -16,6 +16,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJacksonValue;
@@ -46,8 +47,15 @@ public class PostController {
     }
 
     @RequestMapping(value = "/feed", method = RequestMethod.GET)
-    public ResponseEntity loadFeed(@ActiveUser UserPrinciple userPrinciple){
-        return new ResponseEntity(filterPostsBasic(postService.loadNewsFedd(userPrinciple.getId(), PageRequest.of(0,2))),HttpStatus.OK);
+    public ResponseEntity loadFeed(
+            @RequestParam(value = "page", defaultValue = "0") int page,
+            @RequestParam(value = "size", defaultValue = "10") int size,
+            @RequestParam(value = "sortBy", defaultValue = "") String[] sortBy,
+            @RequestParam(value = "sortOrder", defaultValue = "") String sortOrder,
+            @ActiveUser UserPrinciple userPrinciple){
+        return (sortOrder.equals("desc"))?
+                new ResponseEntity(filterPostsBasic(postService.loadNewsFedd(userPrinciple.getId(), PageRequest.of(page,size, Sort.by(sortBy).descending()))),HttpStatus.OK)
+                :new ResponseEntity(filterPostsBasic(postService.loadNewsFedd(userPrinciple.getId(), PageRequest.of(page,size, Sort.by(sortBy)))),HttpStatus.OK);
     }
 
     private MappingJacksonValue filterPostsBasic(Object oject) {

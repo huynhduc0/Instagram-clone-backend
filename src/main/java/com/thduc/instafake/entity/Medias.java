@@ -1,8 +1,11 @@
 package com.thduc.instafake.entity;
 
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 @Entity
 @Data
@@ -17,6 +20,12 @@ public class Medias {
 
     private String media_url;
 
+    @CreationTimestamp
+    private Timestamp created;
+
+    @UpdateTimestamp
+    private Timestamp updated;
+
     public Medias() {
     }
 
@@ -29,6 +38,15 @@ public class Medias {
     public Medias(String media_type, String media_url) {
         this.media_type = media_type;
         this.media_url = media_url;
+    }
+
+    public Medias(long id, String description, String media_type, String media_url, Timestamp created, Timestamp updated) {
+        this.id = id;
+        this.description = description;
+        this.media_type = media_type;
+        this.media_url = media_url;
+        this.created = created;
+        this.updated = updated;
     }
 
     public long getId() {
@@ -61,5 +79,21 @@ public class Medias {
 
     public void setMedia_url(String media_url) {
         this.media_url = media_url;
+    }
+
+    public Timestamp getCreated() {
+        return created;
+    }
+
+    public void setCreated(Timestamp created) {
+        this.created = created;
+    }
+
+    public Timestamp getUpdated() {
+        return updated;
+    }
+
+    public void setUpdated(Timestamp updated) {
+        this.updated = updated;
     }
 }

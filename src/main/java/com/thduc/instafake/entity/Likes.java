@@ -4,8 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 @Entity
 public class Likes {
@@ -19,6 +22,12 @@ public class Likes {
     @OneToOne
     private User author;
 
+    @CreationTimestamp
+    private Timestamp created;
+
+    @UpdateTimestamp
+    private Timestamp updated;
+
     public Likes() {
     }
 
@@ -26,6 +35,14 @@ public class Likes {
         this.id = id;
         this.post = post;
         this.author = author;
+    }
+
+    public Likes(long id, Posts post, User author, Timestamp created, Timestamp updated) {
+        this.id = id;
+        this.post = post;
+        this.author = author;
+        this.created = created;
+        this.updated = updated;
     }
 
     public long getId() {
@@ -50,5 +67,21 @@ public class Likes {
 
     public void setAuthor(User author) {
         this.author = author;
+    }
+
+    public Timestamp getCreated() {
+        return created;
+    }
+
+    public void setCreated(Timestamp created) {
+        this.created = created;
+    }
+
+    public Timestamp getUpdated() {
+        return updated;
+    }
+
+    public void setUpdated(Timestamp updated) {
+        this.updated = updated;
     }
 }

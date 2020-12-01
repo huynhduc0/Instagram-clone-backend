@@ -4,8 +4,11 @@ import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.thduc.instafake.constant.Constant;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.Set;
 
 @Entity
@@ -35,6 +38,11 @@ public class Posts {
     @JsonProperty(Constant.POSTS_HASHTAGS)
     private Set<HashTags> hashtags;
 
+    @CreationTimestamp
+    private Timestamp created;
+
+    @UpdateTimestamp
+    private Timestamp updated;
 
     public Posts() {
     }
@@ -47,6 +55,18 @@ public class Posts {
         this.numOfComments = numOfComments;
         this.medias = medias;
         this.hashtags = hashtags;
+    }
+
+    public Posts(long id, User user, String description, int numOfLikes, int numOfComments, Set<Medias> medias, Set<HashTags> hashtags, Timestamp created, Timestamp updated) {
+        this.id = id;
+        this.user = user;
+        this.description = description;
+        this.numOfLikes = numOfLikes;
+        this.numOfComments = numOfComments;
+        this.medias = medias;
+        this.hashtags = hashtags;
+        this.created = created;
+        this.updated = updated;
     }
 
     public long getId() {
@@ -103,5 +123,21 @@ public class Posts {
 
     public void setHashtags(Set<HashTags> hashtags) {
         this.hashtags = hashtags;
+    }
+
+    public Timestamp getCreated() {
+        return created;
+    }
+
+    public void setCreated(Timestamp created) {
+        this.created = created;
+    }
+
+    public Timestamp getUpdated() {
+        return updated;
+    }
+
+    public void setUpdated(Timestamp updated) {
+        this.updated = updated;
     }
 }

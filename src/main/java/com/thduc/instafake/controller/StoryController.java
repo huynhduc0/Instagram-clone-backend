@@ -9,6 +9,7 @@ import com.thduc.instafake.service.StoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -37,8 +38,12 @@ public class StoryController {
     @GetMapping(value = "/")
     public ResponseEntity viewStories(@RequestParam(value = "page", defaultValue = "0") int page,
                                       @RequestParam(value = "size", defaultValue = "10") int size,
+                                      @RequestParam(value = "sortBy", defaultValue = "") String[] sortBy,
+                                      @RequestParam(value = "sortOrder", defaultValue = "") String sortOrder,
                                       @ActiveUser UserPrinciple userPrinciple){
-        return new ResponseEntity(storyService.loadStoriesList(userPrinciple.getUser(), PageRequest.of(page,size)), HttpStatus.OK);
+        return (sortOrder.equals("desc"))?
+                new ResponseEntity(storyService.loadStoriesList(userPrinciple.getUser(), PageRequest.of(page,size, Sort.by(sortBy).descending())), HttpStatus.OK)
+                :new ResponseEntity(storyService.loadStoriesList(userPrinciple.getUser(), PageRequest.of(page,size, Sort.by(sortBy))), HttpStatus.OK);
     }
 
 }

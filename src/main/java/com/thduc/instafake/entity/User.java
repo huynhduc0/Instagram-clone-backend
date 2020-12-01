@@ -4,10 +4,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.thduc.instafake.constant.Constant;
 import lombok.Data;
 import net.minidev.json.annotate.JsonIgnore;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Set;
 
@@ -41,6 +44,12 @@ public class User {
 
     private String bio;
 
+    @CreationTimestamp
+    private Timestamp created;
+
+    @UpdateTimestamp
+    private Timestamp updated;
+
 
 //    @OneToMany(mappedBy="to")
 //    private Set<Follows> followers;
@@ -64,6 +73,21 @@ public class User {
         this.numOfFollowers = numOfFollowers;
         this.cover = cover;
         this.bio = bio;
+        this.roles = roles;
+    }
+
+    public User(long id, String avatar, @NotBlank(message = "Username is require") String username, @NotBlank(message = "Email is require") String email, @NotBlank(message = "Password is require") String password, int numOfFollowings, int numOfFollowers, String cover, String bio, Timestamp created, Timestamp updated, Set<Roles> roles) {
+        this.id = id;
+        this.avatar = avatar;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.numOfFollowings = numOfFollowings;
+        this.numOfFollowers = numOfFollowers;
+        this.cover = cover;
+        this.bio = bio;
+        this.created = created;
+        this.updated = updated;
         this.roles = roles;
     }
 
@@ -145,5 +169,21 @@ public class User {
 
     public void setRoles(Set<Roles> roles) {
         this.roles = roles;
+    }
+
+    public Timestamp getCreated() {
+        return created;
+    }
+
+    public void setCreated(Timestamp created) {
+        this.created = created;
+    }
+
+    public Timestamp getUpdated() {
+        return updated;
+    }
+
+    public void setUpdated(Timestamp updated) {
+        this.updated = updated;
     }
 }

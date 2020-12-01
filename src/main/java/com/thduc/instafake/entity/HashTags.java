@@ -1,9 +1,12 @@
 package com.thduc.instafake.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.sql.Timestamp;
 import java.util.Set;
 
 @Entity
@@ -21,6 +24,12 @@ public class HashTags {
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH, mappedBy = "hashtags")
     private Set<Posts> posts;
 
+    @CreationTimestamp
+    private Timestamp created;
+
+    @UpdateTimestamp
+    private Timestamp updated;
+
     public HashTags() {
     }
 
@@ -28,6 +37,14 @@ public class HashTags {
         this.id = id;
         this.tagName = tagName;
         this.posts = posts;
+    }
+
+    public HashTags(Long id, @NotBlank(message = "Tag name can't be null") String tagName, Set<Posts> posts, Timestamp created, Timestamp updated) {
+        this.id = id;
+        this.tagName = tagName;
+        this.posts = posts;
+        this.created = created;
+        this.updated = updated;
     }
 
     public HashTags(String tag) {
@@ -56,5 +73,21 @@ public class HashTags {
 
     public void setPosts(Set<Posts> posts) {
         this.posts = posts;
+    }
+
+    public Timestamp getCreated() {
+        return created;
+    }
+
+    public void setCreated(Timestamp created) {
+        this.created = created;
+    }
+
+    public Timestamp getUpdated() {
+        return updated;
+    }
+
+    public void setUpdated(Timestamp updated) {
+        this.updated = updated;
     }
 }
