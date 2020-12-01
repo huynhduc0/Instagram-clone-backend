@@ -9,7 +9,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 public class Constant {
-    public static final String UPLOAD_PATH = "webapps/images/";
+    public static final String UPLOAD_PATH = "src/images/";
 
     @LocalServerPort
     static int port;
