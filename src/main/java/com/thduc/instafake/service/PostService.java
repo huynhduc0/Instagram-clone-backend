@@ -39,9 +39,12 @@ public class PostService implements PostServiceImpl{
                     :hashTagRepository.save(new HashTags(tag));
             hashTags.add(hagtag);
         });
-        posts.getMedias().stream().map(medias -> {
-            return new Medias(medias.getMedia_type(),FileUtils.saveFileToStorage(String.valueOf(uid),"",medias.getMedia_url(),false));
+        Set<Medias> mediasSet = new HashSet<Medias>();
+        posts.getMedias().stream().forEach(medias -> {
+            Medias medi =  new Medias(medias.getMedia_type(),FileUtils.saveFileToStorage(String.valueOf(uid),Helper.currentTime("post"),medias.getMedia_url(),false));
+            mediasSet.add(medi);
         });
+        posts.setMedias(mediasSet);
         posts.setUser(user);
         posts.setHashtags(hashTags);
         posts = postRepository.save(posts);

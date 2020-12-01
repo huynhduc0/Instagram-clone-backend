@@ -80,9 +80,10 @@ public class UserController {
             return new ResponseEntity(hashMap, HttpStatus.OK);
         } else throw new JWTException(HttpStatus.UNAUTHORIZED, "WRONG_USERNAME_PASSWORD");
     }
+    @Transactional
     @PostMapping(value = "/follow")
     public ResponseEntity changeFollow(@RequestBody User toUser, @ActiveUser UserPrinciple userPrinciple){
-         User fromUser = userService.findByUsername(userPrinciple.getUsername());
+         User fromUser = userPrinciple.getUser();
          followService.changeFollows(fromUser,toUser);
          return new ResponseEntity(HttpStatus.OK);
     }

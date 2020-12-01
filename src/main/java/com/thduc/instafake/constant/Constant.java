@@ -9,7 +9,9 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 public class Constant {
-    public static final String UPLOAD_PATH = "src/images/";
+    public static final String UPLOAD_PATH = (System.getProperty("user.dir")!="/"||System.getProperty("user.dir")!= null )
+            ?System.getProperty("user.dir")+ "/src/images/"
+            :"/home/thduc/HCI/src/images/";
 
     @LocalServerPort
     static int port;
@@ -63,7 +65,6 @@ public class Constant {
 
     public static final String FOLLOW_FROM = "from";
     public static final String FOLLOW_TO = "to";
-
 
     public static final int NUM_STEP_DATA = 10;
 

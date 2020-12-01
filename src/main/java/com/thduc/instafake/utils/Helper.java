@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -22,7 +23,8 @@ public class Helper {
         return strs;
     }
     public static String currentTime(String upload_type){
-        return upload_type +"_"+ new  SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+        Random rand = new Random();
+        return upload_type +"_"+ new  SimpleDateFormat("yyyy_MM_dd_HH_mm_ss").format(new Date())+"_"+String.valueOf(rand.nextInt(1000));
     }
     public static String bcriptPassword(String password){
 //        Password p = new Password();

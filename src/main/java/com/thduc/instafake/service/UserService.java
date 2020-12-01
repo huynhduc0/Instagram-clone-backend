@@ -40,6 +40,8 @@ public class UserService implements UserServiceImpl{
         user.setCover(FileUtils.saveFileToStorage("user",user.getUsername(),user.getCover(),false));
         User user1 = userRepository.save(user);
         followService.changeFollows(user1,user1);
+        user1.setNumOfFollowers(1);
+        user1.setNumOfFollowings(1);
         return user1;
     }
 
