@@ -86,7 +86,7 @@ public class FileUtils {
             }
             return folder+"/"+filename;
         } catch (Exception e) {
-            logger.error("Error image uploading --- {}", e.getMessage());
+            logger.error("Error image uploading ---{} {}",Constant.UPLOAD_PATH, e.getMessage());
             return null;
         }
 
