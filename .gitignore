@@ -5,6 +5,8 @@ target/
 !**/src/test/**/target/
 app.log
 src/images/**/**
+src/images/**
+webapps/**
 ### STS ###
 .apt_generated
 .classpath

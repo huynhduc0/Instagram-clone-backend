@@ -9,22 +9,10 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 public class Constant {
-    public static final String UPLOAD_PATH = (System.getProperty("user.dir")!="/"||System.getProperty("user.dir")!= null )
+    public static final String UPLOAD_PATH = (System.getProperty("user.dir").equals("/")||System.getProperty("user.dir")!= null
+            || System.getProperty("user.dir").equals("//") )
             ?System.getProperty("user.dir")+ "/src/images/"
             :"/home/thduc/HCI/src/images/";
-
-    @LocalServerPort
-    static int port;
-    public static String ip = "";
-    {
-        try {
-                ip = InetAddress.getLocalHost().getHostAddress();
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static final String SERVER_URL = ip+ ":"+String.valueOf(port)+"/";
 
     public static final String JPEG_MEDIA_TYPE = "data:image/jpeg;base64";
     public static final String JPG_MEDIA_TYPE = "data:image/jpg;base64";
