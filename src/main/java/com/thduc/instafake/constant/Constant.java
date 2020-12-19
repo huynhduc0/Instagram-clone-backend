@@ -54,4 +54,7 @@ public class Constant {
 
     public static final int NUM_STEP_DATA = 10;
 
+    public static final String FOLLOW_NOTI_MESSAGE = " has follow you";
+    public static final String LIKE_NOTI_MESSAGE = " has like your post";
+    public static final String COMMENT_NOTI_MESSAGE = " has comment on your post";
 }

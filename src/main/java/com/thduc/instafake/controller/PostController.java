@@ -3,15 +3,14 @@ package com.thduc.instafake.controller;
 import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
 import com.thduc.instafake.constant.Constant;
-import com.thduc.instafake.entity.Likes;
-import com.thduc.instafake.entity.Posts;
-import com.thduc.instafake.entity.User;
-import com.thduc.instafake.entity.UserPrinciple;
+import com.thduc.instafake.entity.*;
+import com.thduc.instafake.exception.BadRequestException;
 import com.thduc.instafake.repository.FollowRepository;
 import com.thduc.instafake.repository.PostRepository;
 import com.thduc.instafake.security.ActiveUser;
 import com.thduc.instafake.service.LikeService;
 import com.thduc.instafake.service.PostService;
+import com.thduc.instafake.utils.Helper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +37,8 @@ public class PostController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public ResponseEntity addPost(@RequestBody Posts posts, @ActiveUser UserPrinciple userPrinciple){
+        if(posts.getMedias() == null || posts.getMedias().size() == 0)
+            return new ResponseEntity(new BadRequestException("Post need at least a media"),HttpStatus.BAD_REQUEST);
         return new ResponseEntity(filterPostsBasic(postService.uploadPost(posts,userPrinciple.getId())), HttpStatus.OK);
     }
 
@@ -57,12 +58,16 @@ public class PostController {
                 new ResponseEntity(filterPostsBasic(postService.loadNewsFedd(userPrinciple.getId(), PageRequest.of(page,size, Sort.by(sortBy).descending()))),HttpStatus.OK)
                 :new ResponseEntity(filterPostsBasic(postService.loadNewsFedd(userPrinciple.getId(), PageRequest.of(page,size, Sort.by(sortBy)))),HttpStatus.OK);
     }
+    @PostMapping(value = "/post/report/{id}")
+    public ResponseEntity addReport(@PathVariable long id, @RequestBody ReportDetails reportDetails, @ActiveUser UserPrinciple userPrinciple){
+        reportDetails.setReportUser(userPrinciple.getUser());
+        postService.addReport(reportDetails,id);
+        return Helper.Successfully("report");
+    }
 
     private MappingJacksonValue filterPostsBasic(Object oject) {
         SimpleFilterProvider simpleFilterProvider = new SimpleFilterProvider();
         simpleFilterProvider.addFilter(Constant.TBL_POSTS_FILTER, SimpleBeanPropertyFilter.serializeAllExcept(Constant.POSTS_HASHTAGS));
-//                .addFilter(Constant.TBL_USER_FILTER, SimpleBeanPropertyFilter.filterOutAllExcept(Constant.TBL_USER_ID, Constant.TBL_USER_FULLNAME))
-//                .addFilter(Constant.TBL_POSITION_FILTER, SimpleBeanPropertyFilter.serializeAllExcept(Constant.TBL_POSITION_INTERVIEWEES));
         MappingJacksonValue wrapper = new MappingJacksonValue(oject);
         wrapper.setFilters(simpleFilterProvider);
         return wrapper;

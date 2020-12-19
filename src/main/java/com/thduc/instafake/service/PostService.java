@@ -1,11 +1,9 @@
 package com.thduc.instafake.service;
 
 import com.thduc.instafake.entity.*;
+import com.thduc.instafake.exception.BadRequestException;
 import com.thduc.instafake.exception.DataNotFoundException;
-import com.thduc.instafake.repository.FollowRepository;
-import com.thduc.instafake.repository.HashTagRepository;
-import com.thduc.instafake.repository.PostRepository;
-import com.thduc.instafake.repository.UserRepository;
+import com.thduc.instafake.repository.*;
 import com.thduc.instafake.utils.FileUtils;
 import com.thduc.instafake.utils.Helper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,20 +25,24 @@ public class PostService implements PostServiceImpl{
     UserRepository userRepository;
     @Autowired
     FollowRepository followRepository;
+    @Autowired
+    ReportPostRepository reportPostRepository;
+    @Autowired
+    ReportCriteriaRepository reportCriteriaRepository;
 
     @Override
     public Posts uploadPost(Posts posts,Long uid) {
         User user = userRepository.findById(uid).orElseThrow(()->new DataNotFoundException("user","user",String.valueOf(uid)));
         List<String> tagNameList = Helper.hashTagsStringFromString(posts.getDescription());
-        final Set<HashTags> hashTags = (posts.getHashtags() != null)? posts.getHashtags():  new HashSet<HashTags>();
+        final Set<HashTags> hashTags = (posts.getHashtags() != null)? posts.getHashtags(): new HashSet<>();
         tagNameList.forEach(tag->{
             HashTags hagtag = (hashTagRepository.existsByTagName(tag))
                     ?hashTagRepository.findHashTagsByTagName(tag)
                     :hashTagRepository.save(new HashTags(tag));
             hashTags.add(hagtag);
         });
-        Set<Medias> mediasSet = new HashSet<Medias>();
-        posts.getMedias().stream().forEach(medias -> {
+        Set<Medias> mediasSet = new HashSet<>();
+        posts.getMedias().forEach(medias -> {
             Medias medi =  new Medias(medias.getMedia_type(),FileUtils.saveFileToStorage(String.valueOf(uid),Helper.currentTime("post"),medias.getMedia_url(),false));
             mediasSet.add(medi);
         });
@@ -57,8 +59,31 @@ public class PostService implements PostServiceImpl{
         return postRepository.findAllByUserIn(users,pageable);
     }
 
+
     @Override
-    public Follows changeFollows(User to, User from) {
+    public boolean addReport(ReportDetails reportDetails, long postId) {
+       Posts posts = postRepository.findById(postId)
+                .orElseThrow(()-> new DataNotFoundException("post", "post",String.valueOf(postId)));
+        ReportPosts reportPosts = reportPostRepository.findReportPostsByPosts(posts);
+        if (!reportCriteriaRepository.existsByCriteriaName(reportDetails.getReportCriterias().getCriteriaName()))
+            reportCriteriaRepository.save(reportDetails.getReportCriterias());
+        if (reportPosts != null){
+            Set<ReportDetails> reportDetailsSet = new HashSet<>(reportPosts.getReportDetails());
+            reportPosts.setReportDetails(reportDetailsSet);
+            reportPostRepository.save(reportPosts);
+        }else {
+            Set<ReportDetails> reportDetailsSet = new HashSet<>();
+            reportDetailsSet.add(reportDetails);
+            ReportPosts reportPosts1 = new ReportPosts();
+            reportPosts1.setPosts(posts);
+            reportPosts1.setReportDetails(reportDetailsSet);
+            reportPostRepository.save(reportPosts1);
+        }
+        return true;
+    }
+
+    @Override
+    public Page loadAllReport(Pageable pageable) {
         return null;
     }
 }

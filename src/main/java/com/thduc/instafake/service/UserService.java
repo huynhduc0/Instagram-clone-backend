@@ -29,6 +29,7 @@ public class UserService implements UserServiceImpl{
     @Autowired
     FollowService followService;
 
+
     public User getUserById(Long id) {
      return userRepository.findById(id)
              .orElseThrow(()-> new DataNotFoundException("user","user",String.valueOf(id)));
@@ -45,8 +46,6 @@ public class UserService implements UserServiceImpl{
         return user1;
     }
 
-
-
     @Override
     public Page findOtherUser(Long id, Pageable pageable) {
         return userRepository.findUsersByIdNot(id,pageable);
@@ -54,7 +53,10 @@ public class UserService implements UserServiceImpl{
 
     public List<UserRepository.UserWithFollow> findFollow(Long id, int page) {
         return userRepository.findUserWithFollowStatus(id, Constant.NUM_STEP_DATA,Constant.NUM_STEP_DATA * page);
-//        return userRepository.findUserWithFollowStatus(id,pageable);
+    }
+
+    public List<UserRepository.UserWithFollow> searchByNameFollow (Long id, int page, String username) {
+        return userRepository.findUserWithFollowStatusByUsername(id,username, Constant.NUM_STEP_DATA,Constant.NUM_STEP_DATA * page);
     }
 
     public User findByUsername(String username) {
@@ -62,6 +64,7 @@ public class UserService implements UserServiceImpl{
     }
     public User checkLogin(String u, String pass){
         User user = userRepository.findUserByUsername(u);
+        if(user == null ) return null;
          return passwordEncoder.matches(pass,user.getPassword())? user: null;
     }
 

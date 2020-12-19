@@ -70,7 +70,10 @@ public class JwtAuthenticationTokenFilter extends UsernamePasswordAuthentication
             request.setAttribute("token", "Invalid token");
         }
         catch (NullPointerException ex){
-            request.setAttribute("token", "Invalid user, try again");
+            request.setAttribute("token", "Invalid user");
+        }
+        catch (Exception ex){
+            request.setAttribute("token", "Invalid user");
         }
         chain.doFilter(request, response);
     }

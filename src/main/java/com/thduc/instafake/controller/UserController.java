@@ -4,14 +4,17 @@ package com.thduc.instafake.controller;
 import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
 import com.thduc.instafake.constant.Constant;
+import com.thduc.instafake.constant.NotifcationType;
 import com.thduc.instafake.entity.Follows;
 import com.thduc.instafake.entity.User;
 import com.thduc.instafake.entity.UserPrinciple;
+import com.thduc.instafake.exception.BadRequestException;
 import com.thduc.instafake.exception.JWTException;
 import com.thduc.instafake.repository.UserRepository;
 import com.thduc.instafake.security.ActiveUser;
 import com.thduc.instafake.service.FollowService;
 import com.thduc.instafake.service.JWTService;
+import com.thduc.instafake.service.NotificationService;
 import com.thduc.instafake.service.UserService;
 import net.minidev.json.JSONObject;
 import org.slf4j.Logger;
@@ -37,6 +40,9 @@ public class UserController {
     private FollowService followService;
 
     @Autowired
+    NotificationService notificationService;
+
+    @Autowired
     private PasswordEncoder passwordEncoder;
     Logger logger = LoggerFactory.getLogger(PostController.class);
 
@@ -55,6 +61,11 @@ public class UserController {
      public ResponseEntity findOtherUser(@RequestParam int page,@ActiveUser UserPrinciple userPrinciple){
 //        return new ResponseEntity(filterFollowingOnly(userService.findOtherUser(userPrinciple.getId(),PageRequest.of(0,2))),HttpStatus.OK);
         return new ResponseEntity(userService.findFollow(userPrinciple.getId(),page),HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/user/search")
+    public ResponseEntity searchOtherUserbyName(@RequestParam int page,@RequestParam String username,@ActiveUser UserPrinciple userPrinciple){
+        return new ResponseEntity(userService.searchByNameFollow(userPrinciple.getId(),page,username),HttpStatus.OK);
     }
 //    @GetMapping(value = "/user")
 //    public ResponseEntity findOtherUser(@ActiveUser UserPrinciple userPrinciple){
@@ -78,7 +89,7 @@ public class UserController {
             hashMap.put("role", role);
             hashMap.put("username", user.getUsername());
             return new ResponseEntity(hashMap, HttpStatus.OK);
-        } else throw new JWTException(HttpStatus.UNAUTHORIZED, "WRONG_USERNAME_PASSWORD");
+        } else throw new BadRequestException("WRONG_USERNAME_PASSWORD");
     }
     @Transactional
     @PostMapping(value = "/follow")
