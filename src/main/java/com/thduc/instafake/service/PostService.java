@@ -1,7 +1,6 @@
 package com.thduc.instafake.service;
 
 import com.thduc.instafake.entity.*;
-import com.thduc.instafake.exception.BadRequestException;
 import com.thduc.instafake.exception.DataNotFoundException;
 import com.thduc.instafake.repository.*;
 import com.thduc.instafake.utils.FileUtils;
@@ -59,6 +58,10 @@ public class PostService implements PostServiceImpl{
         return postRepository.findAllByUserIn(users,pageable);
     }
 
+    @Override
+    public Page<Posts> loadPostByUid(long id, Pageable pageable){
+        return postRepository.findAllByUser_Id(id,pageable);
+    }
 
     @Override
     public boolean addReport(ReportDetails reportDetails, long postId) {

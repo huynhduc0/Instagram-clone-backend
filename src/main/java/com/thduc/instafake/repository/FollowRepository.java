@@ -14,6 +14,7 @@ public interface FollowRepository extends JpaRepository<Follows, Long> {
     @Query(value = "select fl.to from Follows fl where fl.from.id = :from_id")
     List<User> LoadFollowing(@Param("from_id") Long from_id);
 
+    boolean existsByFrom_IdAndTo_Id(long myId, long id);
 
     @Query(value = "SELECT user.id,user.avatar,user.username, CASE WHEN t.id then 1 ELSE 0 END as following from (SELECT * from follows WHERE follows.from_id = :myIdParam GROUP BY to_id) as t RIGHT JOIN user ON t.to_id = `user`.id " +
             " WHERE user.id in ( SELECT to_id FROM follows WHERE follows.from_id = :idParam  GROUP BY to_id ) "

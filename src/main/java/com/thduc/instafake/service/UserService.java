@@ -6,6 +6,8 @@ import com.thduc.instafake.entity.User;
 import com.thduc.instafake.exception.BadRequestException;
 import com.thduc.instafake.exception.DataNotFoundException;
 import com.thduc.instafake.model.UserWithFollow;
+import com.thduc.instafake.repository.FollowRepository;
+import com.thduc.instafake.repository.RoleRepository;
 import com.thduc.instafake.repository.UserRepository;
 import com.thduc.instafake.utils.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +18,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import org.springframework.data.domain.Pageable;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+
+import java.util.*;
 
 @Service
 public class UserService implements UserServiceImpl{
@@ -28,17 +29,29 @@ public class UserService implements UserServiceImpl{
     private PasswordEncoder passwordEncoder;
     @Autowired
     FollowService followService;
+    @Autowired
+    FollowRepository followRepository;
+    @Autowired
+    RoleRepository roleRepository;
 
 
-    public User getUserById(Long id) {
-     return userRepository.findById(id)
+    public User getUserById(long id, long myId) {
+      return userRepository.findById(id)
              .orElseThrow(()-> new DataNotFoundException("user","user",String.valueOf(id)));
+    }
+    public int checkFollowStatus(long id, long myid){
+        if (id == myid) return -1;
+        else
+            return (followRepository.existsByFrom_IdAndTo_Id(myid,id)?1:0);
     }
 
     @Override
     public User addUser(User user) {
         user.setAvatar(FileUtils.saveFileToStorage("avatars",user.getUsername(),user.getAvatar(),true));
         user.setCover(FileUtils.saveFileToStorage("user",user.getUsername(),user.getCover(),false));
+        HashSet s = new HashSet();
+        s.add( roleRepository.findById(1).get());
+        user.setRoles(s);
         User user1 = userRepository.save(user);
         followService.changeFollows(user1,user1);
         user1.setNumOfFollowers(1);

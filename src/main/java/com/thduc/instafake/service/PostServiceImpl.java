@@ -12,6 +12,8 @@ public interface PostServiceImpl {
     Posts uploadPost(Posts posts,Long uid);
     Page loadNewsFedd(Long id, Pageable pageable);
 
+    Page<Posts> loadPostByUid(long id, Pageable pageable);
+
     boolean addReport(ReportDetails reportDetails, long postId);
     Page loadAllReport(Pageable pageable);
 }

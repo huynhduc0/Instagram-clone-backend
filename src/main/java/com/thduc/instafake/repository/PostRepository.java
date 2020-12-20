@@ -15,5 +15,6 @@ import java.util.Set;
 public interface PostRepository extends PagingAndSortingRepository<Posts,Long> {
     Set<Posts> findAllByHashtags(String hashtag);
     Page<Posts> findAllByUserIn(List<User> users, Pageable pageable);
+    Page<Posts> findAllByUser_Id(long id, Pageable pageable);
 //    Set<Posts> findPostsByAuthorIdIn(String authorId);
 }

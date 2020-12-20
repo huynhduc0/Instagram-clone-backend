@@ -10,8 +10,6 @@ import java.util.Set;
 
 public interface UserServiceImpl {
 
-    User getUserById(Long id);
-
 //    Page<User> getAll(int page, int size, long id);
 
     User addUser(User user);

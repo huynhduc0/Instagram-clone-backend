@@ -12,15 +12,13 @@ import com.thduc.instafake.exception.BadRequestException;
 import com.thduc.instafake.exception.JWTException;
 import com.thduc.instafake.repository.UserRepository;
 import com.thduc.instafake.security.ActiveUser;
-import com.thduc.instafake.service.FollowService;
-import com.thduc.instafake.service.JWTService;
-import com.thduc.instafake.service.NotificationService;
-import com.thduc.instafake.service.UserService;
+import com.thduc.instafake.service.*;
 import net.minidev.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJacksonValue;
@@ -40,6 +38,9 @@ public class UserController {
     private FollowService followService;
 
     @Autowired
+    private PostService postService;
+
+    @Autowired
     NotificationService notificationService;
 
     @Autowired
@@ -47,9 +48,24 @@ public class UserController {
     Logger logger = LoggerFactory.getLogger(PostController.class);
 
      @GetMapping(value = "/user/{id}")
-    public ResponseEntity findUserById(@PathVariable Long id){
-         return new ResponseEntity(filterFollowingOnly(userService.getUserById(id)),HttpStatus.OK);
+    public ResponseEntity findUserById(@PathVariable Long id, @ActiveUser UserPrinciple userPrinciple){
+         HashMap hashMap = new HashMap();
+         hashMap.put("user",filterFollowingOnly(userService.getUserById(id,userPrinciple.getId())).getValue());
+         hashMap.put("followStatus",userService.checkFollowStatus(id, userPrinciple.getId()));
+         return new ResponseEntity(hashMap,HttpStatus.OK);
      }
+
+    @GetMapping(value = "/user/{id}/post")
+    public ResponseEntity findUserPostById(
+            @PathVariable Long id,
+            @RequestParam(value = "page", defaultValue = "0") int page,
+            @RequestParam(value = "size", defaultValue = "10") int size,
+            @RequestParam(value = "sortBy", defaultValue = "created") String[] sortBy,
+            @RequestParam(value = "sortOrder", defaultValue = "desc") String sortOrder){
+        return (sortOrder.equals("desc"))?
+                new ResponseEntity(filterPostsBasic(postService.loadPostByUid(id, PageRequest.of(page,size, Sort.by(sortBy).descending()))),HttpStatus.OK)
+                :new ResponseEntity(filterPostsBasic(postService.loadPostByUid(id, PageRequest.of(page,size, Sort.by(sortBy)))),HttpStatus.OK);
+    }
 
      @PostMapping (value = "/register")
     public User register(@RequestBody User user){
@@ -62,6 +78,8 @@ public class UserController {
 //        return new ResponseEntity(filterFollowingOnly(userService.findOtherUser(userPrinciple.getId(),PageRequest.of(0,2))),HttpStatus.OK);
         return new ResponseEntity(userService.findFollow(userPrinciple.getId(),page),HttpStatus.OK);
     }
+
+
 
     @GetMapping(value = "/user/search")
     public ResponseEntity searchOtherUserbyName(@RequestParam int page,@RequestParam String username,@ActiveUser UserPrinciple userPrinciple){
@@ -87,7 +105,7 @@ public class UserController {
             String role = jwtService.getRole(result);
             hashMap.put("token", result);
             hashMap.put("role", role);
-            hashMap.put("username", user.getUsername());
+            hashMap.put("user", user);
             return new ResponseEntity(hashMap, HttpStatus.OK);
         } else throw new BadRequestException("WRONG_USERNAME_PASSWORD");
     }
@@ -101,6 +119,14 @@ public class UserController {
     private MappingJacksonValue filterFollowingOnly(Object oject) {
         SimpleFilterProvider simpleFilterProvider = new SimpleFilterProvider();
         simpleFilterProvider.addFilter(Constant.TBL_FOLLOWS_FILTER, SimpleBeanPropertyFilter.serializeAllExcept(Constant.FOLLOW_FROM,Constant.FOLLOW_TO));
+        MappingJacksonValue wrapper = new MappingJacksonValue(oject);
+        wrapper.setFilters(simpleFilterProvider);
+        return wrapper;
+    }
+
+    private MappingJacksonValue filterPostsBasic(Object oject) {
+        SimpleFilterProvider simpleFilterProvider = new SimpleFilterProvider();
+        simpleFilterProvider.addFilter(Constant.TBL_POSTS_FILTER, SimpleBeanPropertyFilter.serializeAllExcept(Constant.POSTS_HASHTAGS));
         MappingJacksonValue wrapper = new MappingJacksonValue(oject);
         wrapper.setFilters(simpleFilterProvider);
         return wrapper;
