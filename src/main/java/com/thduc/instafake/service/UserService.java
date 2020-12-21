@@ -47,8 +47,8 @@ public class UserService implements UserServiceImpl{
 
     @Override
     public User addUser(User user) {
-        user.setAvatar(FileUtils.saveFileToStorage("avatars",user.getUsername(),user.getAvatar(),true));
-        user.setCover(FileUtils.saveFileToStorage("user",user.getUsername(),user.getCover(),false));
+        user.setAvatar((user.getAvatar() == null)?null:FileUtils.saveFileToStorage("avatars",user.getUsername(),user.getAvatar(),true));
+        user.setCover((user.getCover() == null)?null:FileUtils.saveFileToStorage("user",user.getUsername(),user.getCover(),false));
         HashSet s = new HashSet();
         s.add( roleRepository.findById(2).get());
         user.setRoles(s);
