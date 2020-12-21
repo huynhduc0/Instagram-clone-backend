@@ -9,13 +9,12 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@JsonFilter(Constant.TBL_ROLES_FILTER)
+//@JsonFilter(Constant.TBL_ROLES_FILTER)
 public class Roles {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-
     private String rolename;
 
 //    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH, mappedBy = "roles")

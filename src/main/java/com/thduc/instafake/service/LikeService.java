@@ -4,6 +4,7 @@ import com.thduc.instafake.constant.Constant;
 import com.thduc.instafake.constant.NotifcationType;
 import com.thduc.instafake.entity.Likes;
 import com.thduc.instafake.entity.Posts;
+import com.thduc.instafake.entity.User;
 import com.thduc.instafake.exception.DataNotFoundException;
 import com.thduc.instafake.repository.LikeRepository;
 import com.thduc.instafake.repository.PostRepository;
@@ -41,6 +42,9 @@ public class LikeService implements LikeServiceImpl {
             postRepository.save(posts);
             return true;
         }
+    }
+    public boolean existLike(long id, User user){
+        return likeRepository.existsByAuthorAndPost_Id(user,id);
     }
     @Override
     public List<LikeRepository.UserWithFollow> loadListOfLike(long id, long uid){

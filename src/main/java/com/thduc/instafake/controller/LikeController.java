@@ -14,6 +14,7 @@ import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping(value = "/likes")
 public class LikeController {
     @Autowired
@@ -23,6 +24,11 @@ public class LikeController {
     public ResponseEntity changeLike(@RequestBody Likes like, @ActiveUser UserPrinciple userPrinciple){
         like.setAuthor(userPrinciple.getUser());
         return Helper.Successfully((likeService.changeLike(like))?"like":"unlike");
+    }
+
+    @GetMapping(value = "/islike/{idpost}")
+    public ResponseEntity isLike(@PathVariable long idpost, @ActiveUser UserPrinciple userPrinciple){
+        return new ResponseEntity(likeService.existLike(idpost,userPrinciple.getUser()),HttpStatus.OK);
     }
 
 

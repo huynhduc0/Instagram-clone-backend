@@ -28,6 +28,8 @@ public class User {
     @Column(unique = true)
     private String username;
 
+    private String fullname;
+
     @NotBlank(message = "Email is require")
     @Column(unique = true)
     private String email;
@@ -185,5 +187,29 @@ public class User {
 
     public void setUpdated(Timestamp updated) {
         this.updated = updated;
+    }
+
+    public String getFullname() {
+        return fullname;
+    }
+
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
+    }
+
+    public User(long id, String avatar, @NotBlank(message = "Username is require") String username, String fullname, @NotBlank(message = "Email is require") String email, @NotBlank(message = "Password is require") String password, int numOfFollowings, int numOfFollowers, String cover, String bio, Timestamp created, Timestamp updated, Set<Roles> roles) {
+        this.id = id;
+        this.avatar = avatar;
+        this.username = username;
+        this.fullname = fullname;
+        this.email = email;
+        this.password = password;
+        this.numOfFollowings = numOfFollowings;
+        this.numOfFollowers = numOfFollowers;
+        this.cover = cover;
+        this.bio = bio;
+        this.created = created;
+        this.updated = updated;
+        this.roles = roles;
     }
 }

@@ -14,6 +14,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -23,6 +24,7 @@ import java.util.Set;
 
 @SpringBootApplication
 @EnableGlobalMethodSecurity(prePostEnabled = true)
+@CrossOrigin(origins = "*")
 public class InstafakeApplication {
 
     @Bean

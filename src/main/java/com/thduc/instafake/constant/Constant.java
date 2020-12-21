@@ -40,7 +40,7 @@ public class Constant {
     public static final String TBL_POSTS_FILTER = "postsFilter";
     public static final String TBL_HASHTAGS_FILTER = "hashtagsFilter";
     public static final String TBL_USER_FILTER = "userFilter";
-    public static final String TBL_ROLES_FILTER = "rolesFilter";
+//    public static final String TBL_ROLES_FILTER = "rolesFilter";
     public static final String TBL_FOLLOWS_FILTER = "followsFilter";
 
     public static final String POSTS_HASHTAGS="hashtags";

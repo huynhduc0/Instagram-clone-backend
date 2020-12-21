@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.*;
 import java.awt.print.Pageable;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class PostController {
     @Autowired
     PostRepository postRepository;

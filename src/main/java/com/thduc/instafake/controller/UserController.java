@@ -29,6 +29,7 @@ import javax.transaction.Transactional;
 import java.util.HashMap;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -59,7 +60,7 @@ public class UserController {
     public ResponseEntity findUserPostById(
             @PathVariable Long id,
             @RequestParam(value = "page", defaultValue = "0") int page,
-            @RequestParam(value = "size", defaultValue = "10") int size,
+            @RequestParam(value = "size", defaultValue = "9") int size,
             @RequestParam(value = "sortBy", defaultValue = "created") String[] sortBy,
             @RequestParam(value = "sortOrder", defaultValue = "desc") String sortOrder){
         return (sortOrder.equals("desc"))?
@@ -105,7 +106,7 @@ public class UserController {
             String role = jwtService.getRole(result);
             hashMap.put("token", result);
             hashMap.put("role", role);
-            hashMap.put("user", user);
+            hashMap.put("user", checkedUser);
             return new ResponseEntity(hashMap, HttpStatus.OK);
         } else throw new BadRequestException("WRONG_USERNAME_PASSWORD");
     }

@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.xml.stream.events.Comment;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping(value = "/comments")
 public class CommentController {
 

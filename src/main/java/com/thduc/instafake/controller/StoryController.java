@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.websocket.server.PathParam;
 
 @RequestMapping(value = "/story")
+@CrossOrigin(origins = "*")
 @RestController
 public class StoryController {
 

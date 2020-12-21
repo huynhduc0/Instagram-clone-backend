@@ -1,5 +1,6 @@
 package com.thduc.instafake.config;
 
+import com.google.common.collect.ImmutableList;
 import com.thduc.instafake.filter.JwtAuthenticationTokenFilter;
 import com.thduc.instafake.security.handle.CustomAccessDeniedHandler;
 import com.thduc.instafake.security.handle.RestAuthenticationEntryPoint;
@@ -11,6 +12,9 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @Configuration
 @EnableWebSecurity
@@ -37,11 +41,13 @@ public class SecurityGlobalConfig extends WebSecurityConfigurerAdapter {
         return super.authenticationManager();
     }
     protected void configure(HttpSecurity http) throws Exception {
+//        http.cors();
         http.cors().and().csrf().disable().
                 authorizeRequests()
                 .antMatchers("/login").permitAll()
                 .antMatchers("/register").permitAll()
                 .antMatchers("/img/*/*").permitAll()
+//                .antMatchers("**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
@@ -51,4 +57,20 @@ public class SecurityGlobalConfig extends WebSecurityConfigurerAdapter {
                 .exceptionHandling().accessDeniedHandler(customAccessDeniedHandler()).authenticationEntryPoint(restServicesEntryPoint());
 
     }
+
+//    @Bean
+//    public CorsConfigurationSource corsConfigurationSource() {
+//        final CorsConfiguration configuration = new CorsConfiguration();
+//
+////        configuration.setAllowedOrigins(ImmutableList.of("*")); // www - obligatory
+//        configuration.setAllowedOrigins(ImmutableList.of("*"));  //set access from all domains
+//        configuration.setAllowedMethods(ImmutableList.of("GET", "POST", "PUT", "DELETE"));
+//        configuration.setAllowCredentials(true);
+//        configuration.setAllowedHeaders(ImmutableList.of("Authorization", "Cache-Control", "Content-Type"));
+//
+//        final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+//        source.registerCorsConfiguration("/**", configuration);
+//
+//        return source;
+//    }
 }

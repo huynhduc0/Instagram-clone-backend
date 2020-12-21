@@ -5,6 +5,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 
 import com.thduc.instafake.constant.AuthConstant;
@@ -46,6 +47,15 @@ public class JwtAuthenticationTokenFilter extends UsernamePasswordAuthentication
         final String authToken;
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         authToken = httpRequest.getHeader(AuthConstant.HEADER_STRING);
+        HttpServletResponse responses = (HttpServletResponse) response;
+//        HttpServletRequest request= (HttpServletRequest) servletRequest;
+
+        responses.setHeader("Access-Control-Allow-Origin", "*");
+        responses.setHeader("Access-Control-Allow-Methods", "GET,POST,DELETE,PUT,OPTIONS");
+        responses.setHeader("Access-Control-Allow-Headers", "*");
+//        responses.setHeader("Access-Control-Allow-Credentials", true);
+//        responses.setHeader("Access-Control-Max-Age", 180);
+//        filterChain.doFilter(servletRequest, servletResponse);
         try {
             if (jwtService.validateTokenLogin(authToken)) {
                 String username = jwtService.getUsernameFromToken(authToken);

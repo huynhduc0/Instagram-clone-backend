@@ -50,7 +50,7 @@ public class UserService implements UserServiceImpl{
         user.setAvatar(FileUtils.saveFileToStorage("avatars",user.getUsername(),user.getAvatar(),true));
         user.setCover(FileUtils.saveFileToStorage("user",user.getUsername(),user.getCover(),false));
         HashSet s = new HashSet();
-        s.add( roleRepository.findById(1).get());
+        s.add( roleRepository.findById(2).get());
         user.setRoles(s);
         User user1 = userRepository.save(user);
         followService.changeFollows(user1,user1);
