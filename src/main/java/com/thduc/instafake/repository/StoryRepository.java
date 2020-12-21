@@ -21,7 +21,7 @@ public interface StoryRepository extends PagingAndSortingRepository<Stories, Lon
             "LEFT JOIN stories_viewer  on stories_viewer.stories_id = stories.id " +
             "where stories.created >= DATE_SUB(NOW(), INTERVAL 1 DAY) " +
             "AND stories.author_id in :userlist " +
-            "GROUP BY USER.id ",nativeQuery = true)
+            "GROUP BY user.id ",nativeQuery = true)
     Page<StoriesUser> loaddStories(@Param("userlist") List<User> userlist,long userid, Pageable pageable);
     public static interface StoriesUser {
         long getUid();
