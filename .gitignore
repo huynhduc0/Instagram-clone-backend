@@ -5,7 +5,9 @@ target/
 !**/src/test/**/target/
 app.log
 *.log
-src/resources/static/uploads/**/**
+src/main/resources/static/uploads/**/**
+src/images/**
+src/images/**/**
 webapps/**
 src/main/java/com/thduc/instafake/constant/UploadConstant.java
 ### STS ###
