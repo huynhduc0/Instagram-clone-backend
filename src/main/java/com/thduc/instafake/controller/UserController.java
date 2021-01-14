@@ -78,6 +78,7 @@ public class UserController {
          user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userService.addUser(user);
      }
+
     @PostMapping (value = "/google")
     public ResponseEntity ggLogin(@RequestBody AccessTokenBody object) throws IOException, GeneralSecurityException {
          User user = userService.googleLogin(object);
@@ -94,6 +95,10 @@ public class UserController {
      public ResponseEntity findOtherUser(@RequestParam int page,@ActiveUser UserPrinciple userPrinciple){
 //        return new ResponseEntity(filterFollowingOnly(userService.findOtherUser(userPrinciple.getId(),PageRequest.of(0,2))),HttpStatus.OK);
         return new ResponseEntity(userService.findFollow(userPrinciple.getId(),page),HttpStatus.OK);
+    }
+    @PostMapping (value = "/update")
+    public User update(@RequestBody User user, @ActiveUser UserPrinciple userPrinciple){
+        return userService.updateUserById(userPrinciple.getId(),user);
     }
 
 

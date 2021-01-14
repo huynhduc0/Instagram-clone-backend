@@ -120,7 +120,6 @@ public class UserService implements UserServiceImpl{
             String email = payload.getEmail();
             String userId = payload.getSubject();
             User Ouser = userRepository.findBySocialId(userId);
-            log.info("be xuan mai lonton");
             if(Ouser != null){
                 if(body.getPushToken()!=null){
                     Set<Tokens> tokens = Ouser.getTokens();
@@ -162,20 +161,18 @@ public class UserService implements UserServiceImpl{
          throw new BadRequestException("accessToken can not use");
     }
     public User updateUserById(Long id, User user1) {
-        if(user1.getUsername().length() < 25) {
-            User user = userRepository.findById(id).orElseThrow(() -> new DataNotFoundException("user", "id", String.valueOf(id)));
-            if(user1.getUsername() == null || user1.getUsername() == "") user1.setUsername(user.getUsername());
-            if(user1.getPassword() == null || user1.getPassword()== "") user1.setPassword(user.getPassword());
-            user = user1;
-            user.setId(id);
-            try {
-                userRepository.save(user);
-            } catch (DataIntegrityViolationException ex) {
-                throw new BadRequestException("EXISTED_USERNAME");
-            }
-            return user;
+        User user = userRepository.findById(id).orElseThrow(() -> new DataNotFoundException("user", "id", String.valueOf(id)));
+        user.setFullname((user1.getFullname()!= null || user1.getFullname().isEmpty())?user.getFullname():user1.getFullname());
+        user.setUsername((user1.getUsername()!= null || user1.getUsername().isEmpty())?user.getUsername():user1.getUsername());
+        user.setAvatar((user1.getAvatar() == null)?user.getAvatar():FileUtils.saveFileToStorage("avatars",user.getUsername(),user.getAvatar(),true));
+        user.setCover((user1.getCover() == null)?user.getBio():FileUtils.saveFileToStorage("user",user.getUsername(),user.getCover(),false));
+        try {
+            userRepository.save(user);
+        } catch (DataIntegrityViolationException ex) {
+            throw new BadRequestException("EXISTED_USERNAME");
         }
-        else throw new BadRequestException("INVALID_USER_FORM");
+        return user;
+
     }
     public boolean updateToken(String pushToken,String deviceType, String deviceId,User user){
             Set<Tokens> tokens = user.getTokens();
@@ -195,6 +192,7 @@ public class UserService implements UserServiceImpl{
         user.setTokens(currentToken);
         userRepository.save(user);
     }
+
 
     boolean validateUserform(User user){
         int lenUsername = user.getUsername().length();
