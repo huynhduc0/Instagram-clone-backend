@@ -13,6 +13,7 @@ public class Tokens {
     private String pushToken;
     private String jwtToken;
     private String deviceType;
+    private String deviceId;
 
     public Tokens() {
     }
@@ -22,6 +23,28 @@ public class Tokens {
         this.pushToken = pushToken;
         this.jwtToken = jwtToken;
         this.deviceType = deviceType;
+    }
+
+    public Tokens(String pushToken, String deviceType, String deviceId) {
+        this.pushToken = pushToken;
+        this.deviceType = deviceType;
+        this.deviceId = deviceId;
+    }
+
+    public String getDeviceId() {
+        return deviceId;
+    }
+
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
+    }
+
+    public Tokens(long id, String pushToken, String jwtToken, String deviceType, String deviceId) {
+        this.id = id;
+        this.pushToken = pushToken;
+        this.jwtToken = jwtToken;
+        this.deviceType = deviceType;
+        this.deviceId = deviceId;
     }
 
     public long getId() {

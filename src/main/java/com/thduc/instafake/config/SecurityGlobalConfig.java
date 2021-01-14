@@ -45,6 +45,7 @@ public class SecurityGlobalConfig extends WebSecurityConfigurerAdapter {
         http.cors().and().csrf().disable().
                 authorizeRequests()
                 .antMatchers("/login").permitAll()
+                .antMatchers("/google").permitAll()
                 .antMatchers("/register").permitAll()
                 .antMatchers("/img/*/*").permitAll()
 //                .antMatchers("**").permitAll()

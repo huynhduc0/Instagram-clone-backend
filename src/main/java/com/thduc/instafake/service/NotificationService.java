@@ -14,6 +14,8 @@ public class NotificationService implements NotificationServiceImpl{
 
     @Autowired
     NotificationRepository notificationRepository;
+    @Autowired
+    private FCMPushService fcmPushService;
 
     @Override
     public Page loadNoti(User user, Pageable pageable) {
@@ -23,6 +25,8 @@ public class NotificationService implements NotificationServiceImpl{
     @Override
     public Notifications addNotification(User from, User to, String message, NotifcationType notifcationType,long destinationId) {
         Notifications notification = new Notifications(from,to,message,notifcationType,destinationId);
-        return notificationRepository.save(notification);
+        Notifications notifications = notificationRepository.save(notification);
+        fcmPushService.sendPnsToDevice(notifications);
+        return notifications;
     }
 }

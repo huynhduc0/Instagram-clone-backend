@@ -10,6 +10,7 @@ import com.thduc.instafake.entity.User;
 import com.thduc.instafake.entity.UserPrinciple;
 import com.thduc.instafake.exception.BadRequestException;
 import com.thduc.instafake.exception.JWTException;
+import com.thduc.instafake.model.AccessTokenBody;
 import com.thduc.instafake.repository.UserRepository;
 import com.thduc.instafake.security.ActiveUser;
 import com.thduc.instafake.service.*;
@@ -26,6 +27,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
+import java.io.IOException;
+import java.security.GeneralSecurityException;
 import java.util.HashMap;
 
 @RestController
@@ -73,6 +76,17 @@ public class UserController {
          user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userService.addUser(user);
      }
+    @PostMapping (value = "/google")
+    public ResponseEntity ggLogin(@RequestBody AccessTokenBody object) throws IOException, GeneralSecurityException {
+         User user = userService.googleLogin(object);
+         HashMap hashMap = new HashMap();
+        String result = jwtService.generateTokenLogin(user);
+        String role = jwtService.getRole(result);
+        hashMap.put("token", result);
+        hashMap.put("role", role);
+        hashMap.put("user", user);
+        return new ResponseEntity(hashMap, HttpStatus.OK);
+    }
 
     @GetMapping(value = "/user")
      public ResponseEntity findOtherUser(@RequestParam int page,@ActiveUser UserPrinciple userPrinciple){

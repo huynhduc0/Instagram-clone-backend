@@ -22,6 +22,7 @@ public class StoryService implements StoryServiceImpl {
     @Autowired
     FollowRepository followRepository;
 
+
     @Override
     public Stories createStories(Stories stories) {
         stories.setUrl(FileUtils.saveFileToStorage(String.valueOf(stories.getAuthor().getId()), Helper.currentTime("story"),stories.getUrl(),false));

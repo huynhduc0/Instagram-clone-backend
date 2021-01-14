@@ -33,9 +33,7 @@ public class User {
     @NotBlank(message = "Email is require")
     @Column(unique = true)
     private String email;
-
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @NotBlank(message = "Password is require")
     private String password;
 
     private int numOfFollowings;
@@ -46,11 +44,16 @@ public class User {
 
     private String bio;
 
+    private String socialId;
+
     @CreationTimestamp
     private Timestamp created;
 
     @UpdateTimestamp
     private Timestamp updated;
+
+    @OneToMany
+    private Set<Tokens> tokens;
 
 
 //    @OneToMany(mappedBy="to")
@@ -65,7 +68,24 @@ public class User {
     public User() {
     }
 
-    public User(long id, String avatar, @NotBlank(message = "Username is require") String username, @NotBlank(message = "Email is require") String email, @NotBlank(message = "Password is require") String password, int numOfFollowings, int numOfFollowers, String cover, String bio, Set<Roles> roles) {
+    public User(long id, String avatar, @NotBlank(message = "Username is require") String username, String fullname, @NotBlank(message = "Email is require") String email, String password, int numOfFollowings, int numOfFollowers, String cover, String bio, String socialId, Timestamp created, Timestamp updated, Set<Roles> roles) {
+        this.id = id;
+        this.avatar = avatar;
+        this.username = username;
+        this.fullname = fullname;
+        this.email = email;
+        this.password = password;
+        this.numOfFollowings = numOfFollowings;
+        this.numOfFollowers = numOfFollowers;
+        this.cover = cover;
+        this.bio = bio;
+        this.socialId = socialId;
+        this.created = created;
+        this.updated = updated;
+        this.roles = roles;
+    }
+
+    public User(long id, String avatar, @NotBlank(message = "Username is require") String username, @NotBlank(message = "Email is require") String email, String password, int numOfFollowings, int numOfFollowers, String cover, String bio, Set<Roles> roles) {
         this.id = id;
         this.avatar = avatar;
         this.username = username;
@@ -78,7 +98,7 @@ public class User {
         this.roles = roles;
     }
 
-    public User(long id, String avatar, @NotBlank(message = "Username is require") String username, @NotBlank(message = "Email is require") String email, @NotBlank(message = "Password is require") String password, int numOfFollowings, int numOfFollowers, String cover, String bio, Timestamp created, Timestamp updated, Set<Roles> roles) {
+    public User(long id, String avatar, @NotBlank(message = "Username is require") String username, @NotBlank(message = "Email is require") String email,  String password, int numOfFollowings, int numOfFollowers, String cover, String bio, Timestamp created, Timestamp updated, Set<Roles> roles) {
         this.id = id;
         this.avatar = avatar;
         this.username = username;
@@ -197,7 +217,7 @@ public class User {
         this.fullname = fullname;
     }
 
-    public User(long id, String avatar, @NotBlank(message = "Username is require") String username, String fullname, @NotBlank(message = "Email is require") String email, @NotBlank(message = "Password is require") String password, int numOfFollowings, int numOfFollowers, String cover, String bio, Timestamp created, Timestamp updated, Set<Roles> roles) {
+    public User(long id, String avatar, @NotBlank(message = "Username is require") String username, String fullname, @NotBlank(message = "Email is require") String email, String password, int numOfFollowings, int numOfFollowers, String cover, String bio, Timestamp created, Timestamp updated, Set<Roles> roles) {
         this.id = id;
         this.avatar = avatar;
         this.username = username;
@@ -210,6 +230,40 @@ public class User {
         this.bio = bio;
         this.created = created;
         this.updated = updated;
+        this.roles = roles;
+    }
+
+    public String getSocialId() {
+        return socialId;
+    }
+
+    public void setSocialId(String socialId) {
+        this.socialId = socialId;
+    }
+
+    public Set<Tokens> getTokens() {
+        return tokens;
+    }
+
+    public void setTokens(Set<Tokens> tokens) {
+        this.tokens = tokens;
+    }
+
+    public User(long id, String avatar, @NotBlank(message = "Username is require") String username, String fullname, @NotBlank(message = "Email is require") String email, String password, int numOfFollowings, int numOfFollowers, String cover, String bio, String socialId, Timestamp created, Timestamp updated, Set<Tokens> tokens, Set<Roles> roles) {
+        this.id = id;
+        this.avatar = avatar;
+        this.username = username;
+        this.fullname = fullname;
+        this.email = email;
+        this.password = password;
+        this.numOfFollowings = numOfFollowings;
+        this.numOfFollowers = numOfFollowers;
+        this.cover = cover;
+        this.bio = bio;
+        this.socialId = socialId;
+        this.created = created;
+        this.updated = updated;
+        this.tokens = tokens;
         this.roles = roles;
     }
 }

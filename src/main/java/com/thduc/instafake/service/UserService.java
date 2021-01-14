@@ -1,24 +1,33 @@
 package com.thduc.instafake.service;
 
+import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
+import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier;
+import com.google.api.client.http.javanet.NetHttpTransport;
+import com.google.api.client.json.JsonFactory;
+import com.google.api.client.json.gson.GsonFactory;
 import com.thduc.instafake.constant.Constant;
-import com.thduc.instafake.entity.Posts;
+import com.thduc.instafake.entity.Roles;
+import com.thduc.instafake.entity.Tokens;
 import com.thduc.instafake.entity.User;
 import com.thduc.instafake.exception.BadRequestException;
 import com.thduc.instafake.exception.DataNotFoundException;
-import com.thduc.instafake.model.UserWithFollow;
+import com.thduc.instafake.model.AccessTokenBody;
 import com.thduc.instafake.repository.FollowRepository;
 import com.thduc.instafake.repository.RoleRepository;
 import com.thduc.instafake.repository.UserRepository;
 import com.thduc.instafake.utils.FileUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import org.springframework.data.domain.Pageable;
-
+import java.io.IOException;
+import java.security.GeneralSecurityException;
 import java.util.*;
 
 @Service
@@ -33,7 +42,7 @@ public class UserService implements UserServiceImpl{
     FollowRepository followRepository;
     @Autowired
     RoleRepository roleRepository;
-
+    Logger log = LoggerFactory.getLogger(UserService.class);
 
     public User getUserById(long id, long myId) {
       return userRepository.findById(id)
@@ -90,7 +99,56 @@ public class UserService implements UserServiceImpl{
         });
         return authorities;
     }
+    public User googleLogin(AccessTokenBody body) throws IOException, GeneralSecurityException {
+        NetHttpTransport transport = new NetHttpTransport();
+        JsonFactory jsonFactory = new GsonFactory();
+        GoogleIdTokenVerifier verifier = new GoogleIdTokenVerifier.Builder(transport, jsonFactory)
+                .setAudience(Collections.singletonList("213239061541-5072nudrlf2dpu7qdlvaub2vuvjg4m4f.apps.googleusercontent.com"))
+                .build();
 
+        GoogleIdToken idToken = GoogleIdToken.parse(verifier.getJsonFactory(), body.getAccessToken());
+        boolean tokenIsValid = (idToken != null) && verifier.verify(idToken);
+
+        if (tokenIsValid) {
+            GoogleIdToken.Payload payload = idToken.getPayload();
+            String email = payload.getEmail();
+            String userId = payload.getSubject();
+            User Ouser = userRepository.findBySocialId(userId);
+            log.debug("be xuan mai lonton");
+            if(Ouser != null){
+                Set<Tokens> tokens = Ouser.getTokens();
+                tokens.add(new Tokens(body.getPushToken(),body.getDeviceType(),body.getDeviceId()));
+                Ouser = userRepository.save(Ouser);
+                return Ouser;
+
+            }else {
+                boolean emailVerified = Boolean.valueOf(payload.getEmailVerified());
+                String name = (String) payload.get("name");
+                String pictureUrl = (String) payload.get("picture");
+                String locale = (String) payload.get("locale");
+                String familyName = (String) payload.get("family_name");
+                String givenName = (String) payload.get("given_name");
+                User user = new User();
+                user.setAvatar(pictureUrl);
+                HashSet s = new HashSet();
+                s.add( roleRepository.findById(2).get());
+                user.setRoles(s);
+                User user1 = userRepository.save(user);
+                followService.changeFollows(user1,user1);
+                user1.setNumOfFollowers(1);
+                user1.setNumOfFollowings(1);
+                user.setEmail(email);
+                user.setFullname(familyName + " " +givenName);
+                user.setUsername(email);
+                user.setSocialId(userId);
+                Set<Tokens> tokens = new HashSet<>();
+                tokens.add(new Tokens(body.getPushToken(),body.getDeviceType(),body.getDeviceId()));
+                user = userRepository.save(user);
+                return user;
+            }
+        }
+         throw new BadRequestException("accessToken can not use");
+    }
     public User updateUserById(Long id, User user1) {
         if(user1.getUsername().length() < 25) {
             User user = userRepository.findById(id).orElseThrow(() -> new DataNotFoundException("user", "id", String.valueOf(id)));
