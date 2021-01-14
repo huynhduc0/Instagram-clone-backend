@@ -52,7 +52,7 @@ public class User {
     @UpdateTimestamp
     private Timestamp updated;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<Tokens> tokens;
 
 

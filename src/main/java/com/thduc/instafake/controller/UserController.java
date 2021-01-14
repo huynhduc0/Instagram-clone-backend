@@ -11,9 +11,11 @@ import com.thduc.instafake.entity.UserPrinciple;
 import com.thduc.instafake.exception.BadRequestException;
 import com.thduc.instafake.exception.JWTException;
 import com.thduc.instafake.model.AccessTokenBody;
+import com.thduc.instafake.model.LoginBody;
 import com.thduc.instafake.repository.UserRepository;
 import com.thduc.instafake.security.ActiveUser;
 import com.thduc.instafake.service.*;
+import com.thduc.instafake.utils.Helper;
 import net.minidev.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -110,20 +112,30 @@ public class UserController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @CrossOrigin
     @Transactional
-    public ResponseEntity<String> login(@RequestBody User user) {
+    public ResponseEntity<String> login(@RequestBody LoginBody loginBody) {
         HashMap hashMap = new HashMap();
-        if (user.getPassword()==null||  user.getUsername()==null)
+        if (loginBody.getPassword()==null||  loginBody.getUsername()==null)
             return new ResponseEntity("SOME DATA IS MISSING", HttpStatus.BAD_REQUEST);
-        User checkedUser = userService.checkLogin(user.getUsername(), user.getPassword());
+        User checkedUser = userService.checkLogin(loginBody.getUsername(), loginBody.getPassword());
         if(checkedUser != null){
-           String result = jwtService.generateTokenLogin(user);
+           String result = jwtService.generateTokenLogin(checkedUser);
             String role = jwtService.getRole(result);
+            if(loginBody.getPushToken()!=null)
+                userService.updateToken(loginBody.getPushToken(),loginBody.getDeviceType(),loginBody.getDeviceId(),checkedUser);
             hashMap.put("token", result);
             hashMap.put("role", role);
             hashMap.put("user", checkedUser);
             return new ResponseEntity(hashMap, HttpStatus.OK);
         } else throw new BadRequestException("WRONG_USERNAME_PASSWORD");
     }
+
+    @RequestMapping(value = "/cleartoken", method = RequestMethod.POST)
+    public ResponseEntity logout(@RequestBody LoginBody loginBody, @ActiveUser UserPrinciple userPrinciple){
+         userService.logout(userPrinciple.getUser(),loginBody.getDeviceId());
+        return Helper.Successfully("log out");
+    }
+
+
     @Transactional
     @PostMapping(value = "/follow")
     public ResponseEntity changeFollow(@RequestBody User toUser, @ActiveUser UserPrinciple userPrinciple){

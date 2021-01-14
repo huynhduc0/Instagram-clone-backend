@@ -5,5 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 
 public interface TokenRepository extends JpaRepository< Tokens,Long> {
-    Tokens findByDeviceId(String deviceId);
+    Tokens findTopByDeviceId(String deviceId);
+    void deleteAllByDeviceId(String deviceId);
 }

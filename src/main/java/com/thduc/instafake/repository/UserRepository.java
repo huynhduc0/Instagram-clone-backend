@@ -1,5 +1,6 @@
 package com.thduc.instafake.repository;
 
+import com.thduc.instafake.entity.Tokens;
 import com.thduc.instafake.entity.User;
 import com.thduc.instafake.model.UserWithFollow;
 import org.springframework.data.domain.Page;
@@ -25,6 +26,7 @@ public interface UserRepository extends PagingAndSortingRepository<User,Long> {
     Page findUsersByIdNot(Long id, Pageable pageable);
     boolean existsByUsername(String username);
     User findBySocialId(String socialId);
+    void deleteByTokens(Tokens tokens);
 //    boolean existsByUsernameAndord(String username, String password);
 
     @Query(value = "SELECT user.id,user.avatar,user.username, CASE WHEN t.id  then 1 ELSE 0 END as following from (SELECT * from follows WHERE follows.from_id = :idParam GROUP BY to_id) as t RIGHT JOIN user ON t.to_id = `user`.id LIMIT :offset , :limit", nativeQuery = true)

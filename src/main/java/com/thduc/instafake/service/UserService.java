@@ -1,5 +1,6 @@
 package com.thduc.instafake.service;
 
+import ch.qos.logback.core.subst.Token;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier;
 import com.google.api.client.http.javanet.NetHttpTransport;
@@ -14,6 +15,7 @@ import com.thduc.instafake.exception.DataNotFoundException;
 import com.thduc.instafake.model.AccessTokenBody;
 import com.thduc.instafake.repository.FollowRepository;
 import com.thduc.instafake.repository.RoleRepository;
+import com.thduc.instafake.repository.TokenRepository;
 import com.thduc.instafake.repository.UserRepository;
 import com.thduc.instafake.utils.FileUtils;
 import org.slf4j.Logger;
@@ -42,6 +44,10 @@ public class UserService implements UserServiceImpl{
     FollowRepository followRepository;
     @Autowired
     RoleRepository roleRepository;
+
+    @Autowired
+    TokenService tokenService;
+
     Logger log = LoggerFactory.getLogger(UserService.class);
 
     public User getUserById(long id, long myId) {
@@ -114,11 +120,15 @@ public class UserService implements UserServiceImpl{
             String email = payload.getEmail();
             String userId = payload.getSubject();
             User Ouser = userRepository.findBySocialId(userId);
-            log.debug("be xuan mai lonton");
+            log.info("be xuan mai lonton");
             if(Ouser != null){
-                Set<Tokens> tokens = Ouser.getTokens();
-                tokens.add(new Tokens(body.getPushToken(),body.getDeviceType(),body.getDeviceId()));
-                Ouser = userRepository.save(Ouser);
+                if(body.getPushToken()!=null){
+                    Set<Tokens> tokens = Ouser.getTokens();
+                    Tokens token = tokenService.refreshToken(body.getPushToken(),body.getDeviceType(),body.getDeviceId());
+                    if (token != null)
+                        tokens.add(new Tokens(body.getPushToken(),body.getDeviceType(),body.getDeviceId()));
+                    Ouser = userRepository.save(Ouser);
+                }
                 return Ouser;
 
             }else {
@@ -133,18 +143,20 @@ public class UserService implements UserServiceImpl{
                 HashSet s = new HashSet();
                 s.add( roleRepository.findById(2).get());
                 user.setRoles(s);
-                User user1 = userRepository.save(user);
-                followService.changeFollows(user1,user1);
-                user1.setNumOfFollowers(1);
-                user1.setNumOfFollowings(1);
+                user.setNumOfFollowers(1);
+                user.setNumOfFollowings(1);
                 user.setEmail(email);
                 user.setFullname(familyName + " " +givenName);
                 user.setUsername(email);
                 user.setSocialId(userId);
-                Set<Tokens> tokens = new HashSet<>();
-                tokens.add(new Tokens(body.getPushToken(),body.getDeviceType(),body.getDeviceId()));
-                user = userRepository.save(user);
-                return user;
+                if(body.getPushToken()!=null){
+                    Set<Tokens> tokens = new HashSet<>();
+                    tokens.add(new Tokens(body.getPushToken(),body.getDeviceType(),body.getDeviceId()));
+                    user.setTokens(tokens);
+                }
+                User newuser = userRepository.save(user);
+                followService.changeFollows(newuser,newuser);
+                return newuser;
             }
         }
          throw new BadRequestException("accessToken can not use");
@@ -164,6 +176,24 @@ public class UserService implements UserServiceImpl{
             return user;
         }
         else throw new BadRequestException("INVALID_USER_FORM");
+    }
+    public boolean updateToken(String pushToken,String deviceType, String deviceId,User user){
+            Set<Tokens> tokens = user.getTokens();
+            Tokens token = tokenService.refreshToken(pushToken,deviceType,deviceId);
+            if (token != null){
+                tokens.add(new Tokens(pushToken,deviceType,deviceId));
+                userRepository.save(user);
+            }
+            return true;
+    }
+    public void logout(User user, String deviceId){
+        Set<Tokens> currentToken = user.getTokens();
+        currentToken.forEach(tokens -> {
+            if (tokens.getDeviceId().equals(deviceId))
+                currentToken.remove(tokens);
+        });
+        user.setTokens(currentToken);
+        userRepository.save(user);
     }
 
     boolean validateUserform(User user){
