@@ -67,6 +67,7 @@ public class UserService implements UserServiceImpl{
         HashSet s = new HashSet();
         s.add( roleRepository.findById(2).get());
         user.setRoles(s);
+        user.setTokens(new HashSet<>());
         User user1 = userRepository.save(user);
         followService.changeFollows(user1,user1);
         user1.setNumOfFollowers(1);
