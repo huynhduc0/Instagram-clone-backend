@@ -29,6 +29,9 @@ public class PostService implements PostServiceImpl{
     @Autowired
     ReportCriteriaRepository reportCriteriaRepository;
 
+    @Autowired
+    RecommendationService recommendationService;
+
     @Override
     public Posts uploadPost(Posts posts,Long uid) {
         User user = userRepository.findById(uid).orElseThrow(()->new DataNotFoundException("user","user",String.valueOf(uid)));
@@ -55,7 +58,8 @@ public class PostService implements PostServiceImpl{
     @Override
     public Page loadNewsFedd(Long id, Pageable pageable) {
        List<User> users = followRepository.LoadFollowing(id);
-        return postRepository.findAllByUserIn(users,pageable);
+       List<Long> ids = recommendationService.getAllReId(id);
+        return postRepository.findAllByUserInOrIdIn(users,ids,pageable);
     }
 
     @Override
