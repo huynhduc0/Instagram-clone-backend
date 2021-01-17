@@ -22,7 +22,7 @@ public class LikeController {
     @Autowired
     LikeService likeService;
 
-    @GetMapping(value = "/")
+    @PostMapping(value = "/")
     public ResponseEntity changeLike(@RequestBody Likes like, @ActiveUser UserPrinciple userPrinciple){
         like.setAuthor(userPrinciple.getUser());
         HashMap hashMap = new HashMap();
