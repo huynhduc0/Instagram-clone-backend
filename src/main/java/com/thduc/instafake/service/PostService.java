@@ -2,6 +2,7 @@ package com.thduc.instafake.service;
 
 import com.thduc.instafake.entity.*;
 import com.thduc.instafake.exception.DataNotFoundException;
+import com.thduc.instafake.model.PostWithLikes;
 import com.thduc.instafake.repository.*;
 import com.thduc.instafake.utils.FileUtils;
 import com.thduc.instafake.utils.Helper;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Function;
 
 @Service
 public class PostService implements PostServiceImpl{
@@ -28,6 +30,8 @@ public class PostService implements PostServiceImpl{
     ReportPostRepository reportPostRepository;
     @Autowired
     ReportCriteriaRepository reportCriteriaRepository;
+    @Autowired
+    LikeService likeService;
 
     @Autowired
     RecommendationService recommendationService;
@@ -56,10 +60,12 @@ public class PostService implements PostServiceImpl{
     }
 
     @Override
-    public Page loadNewsFedd(Long id, Pageable pageable) {
+    public Page loadNewsFedd(Long id, User user, Pageable pageable) {
        List<User> users = followRepository.LoadFollowing(id);
        List<Long> ids = recommendationService.getAllReId(id);
-        return postRepository.findAllByUserInOrIdIn(users,ids,pageable);
+        Page allPost = postRepository.findAllByUserInOrIdIn(users,ids,pageable);
+        Page<PostWithLikes> map = allPost.map((Function<Posts, PostWithLikes>) posts -> new PostWithLikes(posts, likeService.existLike(posts.getId(),user)));
+        return map;
     }
 
     @Override

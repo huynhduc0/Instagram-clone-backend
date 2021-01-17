@@ -6,7 +6,7 @@ import com.thduc.instafake.repository.LikeRepository;
 import java.util.List;
 
 public interface LikeServiceImpl {
-    boolean changeLike(Likes likes);
+    int changeLike(Likes likes);
 
     List<LikeRepository.UserWithFollow> loadListOfLike(long id, long uid);
 }

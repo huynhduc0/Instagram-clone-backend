@@ -56,8 +56,8 @@ public class PostController {
             @RequestParam(value = "sortOrder", defaultValue = "") String sortOrder,
             @ActiveUser UserPrinciple userPrinciple){
         return (sortOrder.equals("desc"))?
-                new ResponseEntity(filterPostsBasic(postService.loadNewsFedd(userPrinciple.getId(), PageRequest.of(page,size, Sort.by(sortBy).descending()))),HttpStatus.OK)
-                :new ResponseEntity(filterPostsBasic(postService.loadNewsFedd(userPrinciple.getId(), PageRequest.of(page,size, Sort.by(sortBy)))),HttpStatus.OK);
+                new ResponseEntity(filterPostsBasic(postService.loadNewsFedd(userPrinciple.getId(), userPrinciple.getUser(),PageRequest.of(page,size, Sort.by(sortBy).descending()))),HttpStatus.OK)
+                :new ResponseEntity(filterPostsBasic(postService.loadNewsFedd(userPrinciple.getId(),userPrinciple.getUser(), PageRequest.of(page,size, Sort.by(sortBy)))),HttpStatus.OK);
     }
     @PostMapping(value = "/post/report/{id}")
     public ResponseEntity addReport(@PathVariable long id, @RequestBody ReportDetails reportDetails, @ActiveUser UserPrinciple userPrinciple){

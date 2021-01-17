@@ -13,6 +13,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping(value = "/likes")
@@ -23,7 +25,10 @@ public class LikeController {
     @GetMapping(value = "/")
     public ResponseEntity changeLike(@RequestBody Likes like, @ActiveUser UserPrinciple userPrinciple){
         like.setAuthor(userPrinciple.getUser());
-        return Helper.Successfully((likeService.changeLike(like))?"like":"unlike");
+        HashMap hashMap = new HashMap();
+        hashMap.put("numOfLikes", likeService.changeLike(like));
+        hashMap.put("message", "sucesss");
+        return (new ResponseEntity(hashMap,HttpStatus.OK));
     }
 
     @GetMapping(value = "/islike/{idpost}")
