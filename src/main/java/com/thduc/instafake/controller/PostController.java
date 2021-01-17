@@ -5,6 +5,8 @@ import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
 import com.thduc.instafake.constant.Constant;
 import com.thduc.instafake.entity.*;
 import com.thduc.instafake.exception.BadRequestException;
+import com.thduc.instafake.exception.DataNotFoundException;
+import com.thduc.instafake.model.PostWithLikes;
 import com.thduc.instafake.repository.FollowRepository;
 import com.thduc.instafake.repository.PostRepository;
 import com.thduc.instafake.security.ActiveUser;
@@ -34,6 +36,8 @@ public class PostController {
     @Autowired
     FollowRepository followRepository;
 
+    @Autowired
+    LikeService likeService;
     Logger logger = LoggerFactory.getLogger(PostController.class);
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
@@ -44,8 +48,9 @@ public class PostController {
     }
 
     @RequestMapping(value = "/post/{id}", method = RequestMethod.GET)
-    public ResponseEntity addPost(@PathVariable Long id, @ActiveUser UserPrinciple userPrinciple){
-        return new ResponseEntity(filterPostsBasic(postRepository.findById(id)), HttpStatus.OK);
+    public ResponseEntity loadPost(@PathVariable Long id, @ActiveUser UserPrinciple userPrinciple){
+        Posts posts = postRepository.findById(id).orElseThrow(()-> new DataNotFoundException("post","post",String.valueOf(id)));
+        return new ResponseEntity(filterPostsBasic(new PostWithLikes(posts,likeService.existLike(id, userPrinciple.getUser()))), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/feed", method = RequestMethod.GET)
@@ -69,6 +74,7 @@ public class PostController {
     private MappingJacksonValue filterPostsBasic(Object oject) {
         SimpleFilterProvider simpleFilterProvider = new SimpleFilterProvider();
         simpleFilterProvider.addFilter(Constant.TBL_POSTS_FILTER, SimpleBeanPropertyFilter.serializeAllExcept(Constant.POSTS_HASHTAGS));
+        simpleFilterProvider.addFilter(Constant.TBL_POSTS_FILTER, SimpleBeanPropertyFilter.filterOutAllExcept("tagname"));
         MappingJacksonValue wrapper = new MappingJacksonValue(oject);
         wrapper.setFilters(simpleFilterProvider);
         return wrapper;

@@ -52,6 +52,7 @@ public class User {
     @UpdateTimestamp
     private Timestamp updated;
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<Tokens> tokens;
 

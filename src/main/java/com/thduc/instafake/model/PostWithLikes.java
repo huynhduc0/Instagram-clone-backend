@@ -53,7 +53,7 @@ public class PostWithLikes {
         this.numOfLikes = posts.getNumOfLikes();
         this.numOfComments = posts.getNumOfComments();
         this.medias = posts.getMedias();
-        this.hashtags = posts.getHashtags();
+//        this.hashtags = posts.getHashtags();
         this.created = posts.getCreated();
         this.updated = posts.getUpdated();
         this.isLike = isLike;
