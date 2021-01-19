@@ -44,7 +44,7 @@ public class PostController {
     public ResponseEntity addPost(@RequestBody Posts posts, @ActiveUser UserPrinciple userPrinciple){
         if(posts.getMedias() == null || posts.getMedias().size() == 0)
             return new ResponseEntity(new BadRequestException("Post need at least a media"),HttpStatus.BAD_REQUEST);
-        return new ResponseEntity(filterPostsBasic(postService.uploadPost(posts,userPrinciple.getId())), HttpStatus.OK);
+        return new ResponseEntity(uploadPostFilter(postService.uploadPost(posts,userPrinciple.getId())), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/post/{id}", method = RequestMethod.GET)
@@ -75,6 +75,14 @@ public class PostController {
         SimpleFilterProvider simpleFilterProvider = new SimpleFilterProvider();
         simpleFilterProvider.addFilter(Constant.TBL_POSTS_FILTER, SimpleBeanPropertyFilter.serializeAllExcept(Constant.POSTS_HASHTAGS));
         simpleFilterProvider.addFilter(Constant.TBL_POSTS_FILTER, SimpleBeanPropertyFilter.filterOutAllExcept("tagname"));
+        MappingJacksonValue wrapper = new MappingJacksonValue(oject);
+        wrapper.setFilters(simpleFilterProvider);
+        return wrapper;
+    }
+
+    private MappingJacksonValue uploadPostFilter(Object oject) {
+        SimpleFilterProvider simpleFilterProvider = new SimpleFilterProvider();
+        simpleFilterProvider.addFilter(Constant.TBL_POSTS_FILTER, SimpleBeanPropertyFilter.serializeAllExcept(Constant.POSTS_HASHTAGS));
         MappingJacksonValue wrapper = new MappingJacksonValue(oject);
         wrapper.setFilters(simpleFilterProvider);
         return wrapper;
