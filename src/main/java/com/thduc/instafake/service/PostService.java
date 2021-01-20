@@ -67,6 +67,10 @@ public class PostService implements PostServiceImpl{
         Page<PostWithLikes> map = allPost.map((Function<Posts, PostWithLikes>) posts -> new PostWithLikes(posts, likeService.existLike(posts.getId(),user)));
         return map;
     }
+    @Override
+    public Page loadPopular(Long id, User user, Pageable pageable) {
+        return postRepository.findAll(pageable);
+    }
 
     @Override
     public Page<Posts> loadPostByUid(long id, Pageable pageable){

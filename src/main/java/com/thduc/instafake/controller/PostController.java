@@ -57,7 +57,7 @@ public class PostController {
     public ResponseEntity loadFeed(
             @RequestParam(value = "page", defaultValue = "0") int page,
             @RequestParam(value = "size", defaultValue = "10") int size,
-            @RequestParam(value = "sortBy", defaultValue = "") String[] sortBy,
+            @RequestParam(value = "sortBy", defaultValue = "") String sortBy,
             @RequestParam(value = "sortOrder", defaultValue = "") String sortOrder,
             @ActiveUser UserPrinciple userPrinciple){
         return (sortOrder.equals("desc"))?
@@ -69,6 +69,17 @@ public class PostController {
         reportDetails.setReportUser(userPrinciple.getUser());
         postService.addReport(reportDetails,id);
         return Helper.Successfully("report");
+    }
+    @RequestMapping(value = "/popular", method = RequestMethod.GET)
+    public ResponseEntity loadPopular(
+            @RequestParam(value = "page", defaultValue = "0") int page,
+            @RequestParam(value = "size", defaultValue = "24") int size,
+            @RequestParam(value = "sortBy", defaultValue = "numOfLikes") String sortBy,
+            @RequestParam(value = "sortOrder", defaultValue = "desc") String sortOrder,
+            @ActiveUser UserPrinciple userPrinciple){
+        return (sortOrder.equals("desc"))?
+                new ResponseEntity(uploadPostFilter(postService.loadPopular(userPrinciple.getId(), userPrinciple.getUser(),PageRequest.of(page,size, Sort.by(sortBy).descending()))),HttpStatus.OK)
+                :new ResponseEntity(uploadPostFilter(postService.loadPopular(userPrinciple.getId(),userPrinciple.getUser(), PageRequest.of(page,size, Sort.by(sortBy)))),HttpStatus.OK);
     }
 
     private MappingJacksonValue filterPostsBasic(Object oject) {
@@ -87,4 +98,5 @@ public class PostController {
         wrapper.setFilters(simpleFilterProvider);
         return wrapper;
     }
+
 }

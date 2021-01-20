@@ -27,10 +27,10 @@ public class LikeService implements LikeServiceImpl {
         Posts posts = postRepository.findById(likes.getPost().getId())
                 .orElseThrow(()->new DataNotFoundException("post","post",String.valueOf(likes.getPost().getId())));
         if(likeRepository.existsByAuthorAndPost_Id(likes.getAuthor(),likes.getPost().getId())) {
-            posts.setNumOfLikes(posts.getNumOfLikes() -1);
             Likes likes1 = likeRepository.findDistinctFirstByAuthorAndAndPost_Id(likes.getAuthor(),likes.getPost().getId());
-            postRepository.save(posts);
             likeRepository.delete(likes1);
+            posts.setNumOfLikes(likeRepository.countByPost_Id(posts.getId()));
+            postRepository.save(posts);
             return posts.getNumOfLikes();
         }
         else {
@@ -38,7 +38,7 @@ public class LikeService implements LikeServiceImpl {
             Likes like = likeRepository.save(likes);
             notificationService.addNotification(likes.getAuthor(), like.getPost().getUser(),
                     Constant.LIKE_NOTI_MESSAGE, NotifcationType.LIKE, likes.getPost().getId());
-            posts.setNumOfLikes(posts.getNumOfLikes() +1);
+            posts.setNumOfLikes(likeRepository.countByPost_Id(posts.getId()));
             postRepository.save(posts);
             return posts.getNumOfLikes();
         }
