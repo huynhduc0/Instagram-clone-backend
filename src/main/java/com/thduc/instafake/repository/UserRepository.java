@@ -29,11 +29,12 @@ public interface UserRepository extends PagingAndSortingRepository<User,Long> {
     void deleteByTokens(Tokens tokens);
 //    boolean existsByUsernameAndord(String username, String password);
 
-    @Query(value = "SELECT user.id,user.avatar,user.username, CASE WHEN t.id  then 1 ELSE 0 END as following from (SELECT * from follows WHERE follows.from_id = :idParam GROUP BY to_id) as t RIGHT JOIN user ON t.to_id = `user`.id LIMIT :offset , :limit", nativeQuery = true)
-    List<UserWithFollow> findUserWithFollowStatus(@Param("idParam") Long id, @Param("limit") int limit, @Param("offset") int offset);
+    @Query(value = "SELECT user.id,user.avatar,user.username,user.fullname, CASE WHEN t.id  then 1 ELSE 0 END as following from (SELECT * from follows WHERE follows.from_id = :idParam GROUP BY to_id) as t RIGHT JOIN user ON t.to_id = `user`.id WHERE user.id != :idParam", nativeQuery = true)
+    List<UserWithFollow> findUserWithFollowStatus(@Param("idParam") Long id);
     public static interface UserWithFollow {
          long getId();
          String getAvatar();
+         String getFullname();
          String getUsername();
          int getFollowing();
     }

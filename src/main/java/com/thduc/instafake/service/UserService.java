@@ -80,8 +80,8 @@ public class UserService implements UserServiceImpl{
         return userRepository.findUsersByIdNot(id,pageable);
     }
 
-    public List<UserRepository.UserWithFollow> findFollow(Long id, int page) {
-        return userRepository.findUserWithFollowStatus(id, Constant.NUM_STEP_DATA,Constant.NUM_STEP_DATA * page);
+    public List<UserRepository.UserWithFollow> findFollow(Long id) {
+        return userRepository.findUserWithFollowStatus(id);
     }
 
     public List<UserRepository.UserWithFollow> searchByNameFollow (Long id, int page, String username) {

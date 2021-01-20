@@ -92,9 +92,9 @@ public class UserController {
     }
 
     @GetMapping(value = "/user")
-     public ResponseEntity findOtherUser(@RequestParam int page,@ActiveUser UserPrinciple userPrinciple){
+     public ResponseEntity findOtherUser(@ActiveUser UserPrinciple userPrinciple){
 //        return new ResponseEntity(filterFollowingOnly(userService.findOtherUser(userPrinciple.getId(),PageRequest.of(0,2))),HttpStatus.OK);
-        return new ResponseEntity(userService.findFollow(userPrinciple.getId(),page),HttpStatus.OK);
+        return new ResponseEntity(userService.findFollow(userPrinciple.getId()),HttpStatus.OK);
     }
     @PostMapping (value = "/update")
     public User update(@RequestBody User user, @ActiveUser UserPrinciple userPrinciple){
