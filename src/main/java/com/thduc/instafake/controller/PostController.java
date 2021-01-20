@@ -74,7 +74,7 @@ public class PostController {
     public ResponseEntity loadPopular(
             @RequestParam(value = "page", defaultValue = "0") int page,
             @RequestParam(value = "size", defaultValue = "24") int size,
-            @RequestParam(value = "sortBy", defaultValue = "numOfLikes") String sortBy,
+            @RequestParam(value = "sortBy", defaultValue = "numOfLikes") String[] sortBy,
             @RequestParam(value = "sortOrder", defaultValue = "desc") String sortOrder,
             @ActiveUser UserPrinciple userPrinciple){
         return (sortOrder.equals("desc"))?
