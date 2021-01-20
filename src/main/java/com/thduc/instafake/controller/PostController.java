@@ -57,7 +57,7 @@ public class PostController {
     public ResponseEntity loadFeed(
             @RequestParam(value = "page", defaultValue = "0") int page,
             @RequestParam(value = "size", defaultValue = "10") int size,
-            @RequestParam(value = "sortBy", defaultValue = "") String sortBy,
+            @RequestParam(value = "sortBy", defaultValue = "") String[] sortBy,
             @RequestParam(value = "sortOrder", defaultValue = "") String sortOrder,
             @ActiveUser UserPrinciple userPrinciple){
         return (sortOrder.equals("desc"))?
