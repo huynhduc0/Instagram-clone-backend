@@ -62,11 +62,11 @@ public class InstafakeApplication {
     }
     @Autowired
     PasswordEncoder passwordEncoder;
-    @Bean
-    @ConditionalOnMissingBean
-    public CloudVisionTemplate cloudVisionTemplate(ImageAnnotatorClient imageAnnotatorClient) {
-        return new CloudVisionTemplate(imageAnnotatorClient);
-    }
+//    @Bean
+//    @ConditionalOnMissingBean
+//    public CloudVisionTemplate cloudVisionTemplate(ImageAnnotatorClient imageAnnotatorClient) {
+//        return new CloudVisionTemplate(imageAnnotatorClient);
+//    }
     @Bean
     CommandLineRunner initData(UserRepository userRepository, RoleRepository rolesRespository) {
         return args -> {

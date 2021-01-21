@@ -47,8 +47,8 @@ public class PostService implements PostServiceImpl{
     RecommendationService recommendationService;
 
     @Autowired
-    CloudVisionTemplate cloudVisionTemplate;
-    @Autowired private ResourceLoader resourceLoader;
+//    CloudVisionTemplate cloudVisionTemplate;
+//    @Autowired private ResourceLoader resourceLoader;
 
     @Override
     public Posts uploadPost(Posts posts,Long uid) {
