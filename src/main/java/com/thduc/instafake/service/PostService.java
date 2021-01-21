@@ -1,8 +1,5 @@
 package com.thduc.instafake.service;
 
-import com.google.cloud.vision.v1.AnnotateImageResponse;
-import com.google.cloud.vision.v1.EntityAnnotation;
-import com.google.cloud.vision.v1.Feature;
 import com.thduc.instafake.constant.UploadConstant;
 import com.thduc.instafake.entity.*;
 import com.thduc.instafake.exception.DataNotFoundException;
@@ -11,7 +8,6 @@ import com.thduc.instafake.repository.*;
 import com.thduc.instafake.utils.FileUtils;
 import com.thduc.instafake.utils.Helper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.gcp.vision.CloudVisionTemplate;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.data.domain.Page;
