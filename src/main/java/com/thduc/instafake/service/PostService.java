@@ -46,7 +46,7 @@ public class PostService implements PostServiceImpl{
     @Autowired
     RecommendationService recommendationService;
 
-    @Autowired
+//    @Autowired
 //    CloudVisionTemplate cloudVisionTemplate;
 //    @Autowired private ResourceLoader resourceLoader;
 
