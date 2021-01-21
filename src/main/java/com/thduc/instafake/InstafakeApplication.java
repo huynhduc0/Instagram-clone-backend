@@ -47,8 +47,8 @@ public class InstafakeApplication {
     }
 
     public static void main(String[] args) throws IOException {
-        GoogleCredentials credentials = GoogleCredentials.fromStream(new FileInputStream("/Users/thduc/Desktop/HCI/instafake/src/main/resources/hihi-8a82316783dd.json"))
-                .createScoped(Lists.newArrayList("https://www.googleapis.com/auth/cloud-vision"));
+//        GoogleCredentials credentials = GoogleCredentials.fromStream(new FileInputStream("/Users/thduc/Desktop/HCI/instafake/src/main/resources/hihi-8a82316783dd.json"))
+//                .createScoped(Lists.newArrayList("https://www.googleapis.com/auth/cloud-vision"));
 //
 //        Storage storage = StorageOptions.newBuilder().setCredentials(credentials).build().getService();
 //
