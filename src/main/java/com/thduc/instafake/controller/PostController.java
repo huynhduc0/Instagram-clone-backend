@@ -64,6 +64,17 @@ public class PostController {
                 new ResponseEntity(filterPostsBasic(postService.loadNewsFedd(userPrinciple.getId(), userPrinciple.getUser(),PageRequest.of(page,size, Sort.by(sortBy).descending()))),HttpStatus.OK)
                 :new ResponseEntity(filterPostsBasic(postService.loadNewsFedd(userPrinciple.getId(),userPrinciple.getUser(), PageRequest.of(page,size, Sort.by(sortBy)))),HttpStatus.OK);
     }
+    @RequestMapping(value = "/postRecommend", method = RequestMethod.GET)
+    public ResponseEntity loadMoreRecommend(
+            @RequestParam(value = "page", defaultValue = "0") int page,
+            @RequestParam(value = "size", defaultValue = "10") int size,
+            @RequestParam(value = "sortBy", defaultValue = "") String[] sortBy,
+            @RequestParam(value = "sortOrder", defaultValue = "") String sortOrder,
+            @ActiveUser UserPrinciple userPrinciple){
+        return (sortOrder.equals("desc"))?
+                new ResponseEntity(filterPostsBasic(postService.loadRecommend(userPrinciple.getId(), userPrinciple.getUser(),PageRequest.of(page,size, Sort.by(sortBy).descending()))),HttpStatus.OK)
+                :new ResponseEntity(filterPostsBasic(postService.loadRecommend(userPrinciple.getId(),userPrinciple.getUser(), PageRequest.of(page,size, Sort.by(sortBy)))),HttpStatus.OK);
+    }
     @PostMapping(value = "/post/report/{id}")
     public ResponseEntity addReport(@PathVariable long id, @RequestBody ReportDetails reportDetails, @ActiveUser UserPrinciple userPrinciple){
         reportDetails.setReportUser(userPrinciple.getUser());

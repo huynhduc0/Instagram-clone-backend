@@ -13,6 +13,8 @@ public interface PostServiceImpl {
 
     Page loadNewsFedd(Long id, User user, Pageable pageable);
 
+    Page loadRecommend(Long id, User user, Pageable pageable);
+
     Page loadPopular(Long id, User user, Pageable pageable);
 
     Page<Posts> loadPostByUid(long id, Pageable pageable);
