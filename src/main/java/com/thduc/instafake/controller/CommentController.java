@@ -41,15 +41,12 @@ public class CommentController {
        Comments cmt = commentService.addComment(comments);
        long id = comments.getPost().getId();
        Posts posts = postRepository.findById(id).orElseThrow( ()->new DataNotFoundException("post","posst","posts"));
-        final String[] imageUrl = new String[1];
-       posts.getMedias().stream().map(medias -> {
-           imageUrl[0] = medias.getMedia_url();
-           return medias;
-       });
+        Medias medias = posts.getMedias().iterator().next();
+        final String imageUrl = medias.getMedia_url();
        if(cmt.getAuthor().getId() != cmt.getPost().getUser().getId())
            notificationService.addNotification(userPrinciple.getUser(),
                    cmt.getPost().getUser(), Constant.COMMENT_NOTI_MESSAGE, NotifcationType.COMMENT, cmt.getPost().getId(),
-                   imageUrl[0]);
+                   imageUrl);
         return cmt;
     }
 
