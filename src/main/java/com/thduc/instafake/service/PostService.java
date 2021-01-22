@@ -95,7 +95,7 @@ public class PostService implements PostServiceImpl{
     public Page loadNewsFedd(Long id, User user, Pageable pageable) {
        List<User> users = followRepository.LoadFollowing(id);
        List<Long> ids = recommendationService.getAllReId(id);
-        Page allPost = postRepository.findAllByUserInOrIdIn(users,ids,pageable);
+        Page allPost = postRepository.findAllByUserInOrIdInAndDeactiveIsFalse(users,ids,pageable);
         Page<PostWithLikes> map = allPost.map((Function<Posts, PostWithLikes>) posts -> new PostWithLikes(posts, likeService.existLike(posts.getId(),user)));
         return map;
     }
@@ -103,7 +103,7 @@ public class PostService implements PostServiceImpl{
     @Override
     public Page loadRecommend(Long id, User user, Pageable pageable) {
         List<Long> ids = recommendationService.getAllReId(id);
-        Page allPost = postRepository.findAllByIdIn(ids,pageable);
+        Page allPost = postRepository.findAllByIdInAndDeactiveIsFalse(ids,pageable);
         Page<PostWithLikes> map = allPost.map((Function<Posts, PostWithLikes>) posts -> new PostWithLikes(posts, likeService.existLike(posts.getId(),user)));
         return map;
     }
@@ -114,7 +114,7 @@ public class PostService implements PostServiceImpl{
 
     @Override
     public Page<Posts> loadPostByUid(long id, Pageable pageable){
-        return postRepository.findAllByUser_Id(id,pageable);
+        return postRepository.findAllByUser_IdAndDeactiveIsFalse(id,pageable);
     }
 
     @Override

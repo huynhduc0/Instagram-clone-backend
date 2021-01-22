@@ -19,6 +19,9 @@ public class ReportPosts {
     @OneToMany(cascade = CascadeType.ALL)
     private Set<ReportDetails> reportDetails;
 
+    @Column(columnDefinition = "boolean default true")
+    private boolean isClosed;
+
     @CreationTimestamp
     private Timestamp created;
 
@@ -26,6 +29,23 @@ public class ReportPosts {
     private Timestamp updated;
 
     public ReportPosts() {
+    }
+
+    public ReportPosts(long id, Posts posts, Set<ReportDetails> reportDetails, boolean isClosed, Timestamp created, Timestamp updated) {
+        this.id = id;
+        this.posts = posts;
+        this.reportDetails = reportDetails;
+        this.isClosed = isClosed;
+        this.created = created;
+        this.updated = updated;
+    }
+
+    public boolean isClosed() {
+        return isClosed;
+    }
+
+    public void setClosed(boolean closed) {
+        isClosed = closed;
     }
 
     public long getId() {

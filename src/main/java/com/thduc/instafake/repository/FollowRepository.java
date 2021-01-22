@@ -16,7 +16,7 @@ public interface FollowRepository extends JpaRepository<Follows, Long> {
 
     boolean existsByFrom_IdAndTo_Id(long myId, long id);
 
-    @Query(value = "SELECT user.id,user.avatar,user.username, CASE WHEN t.id then 1 ELSE 0 END as following from (SELECT * from follows WHERE follows.from_id = :myIdParam GROUP BY to_id) as t RIGHT JOIN user ON t.to_id = `user`.id " +
+    @Query(value = "SELECT user.id,user.avatar,user.username,user.fullname CASE WHEN t.id then 1 ELSE 0 END as following from (SELECT * from follows WHERE follows.from_id = :myIdParam GROUP BY to_id) as t RIGHT JOIN user ON t.to_id = `user`.id " +
             " WHERE user.id in ( SELECT to_id FROM follows WHERE follows.from_id = :idParam  GROUP BY to_id ) "
 //            + "LIMIT :offset , :limit"
             , nativeQuery = true)
@@ -26,10 +26,11 @@ public interface FollowRepository extends JpaRepository<Follows, Long> {
         long getId();
         String getAvatar();
         String getUsername();
+        String getFullname();
         int getFollowing();
     }
 
-    @Query(value = "SELECT user.id,user.avatar,user.username, CASE WHEN t.id then 1 ELSE 0 END as following from (SELECT * from follows WHERE follows.from_id = :myIdParam GROUP BY to_id) as t RIGHT JOIN user ON t.to_id = `user`.id " +
+    @Query(value = "SELECT user.id,user.avatar,user.username,user.fullname CASE WHEN t.id then 1 ELSE 0 END as following from (SELECT * from follows WHERE follows.from_id = :myIdParam GROUP BY to_id) as t RIGHT JOIN user ON t.to_id = `user`.id " +
             " WHERE user.id in ( SELECT from_id FROM follows WHERE follows.to_id = :idParam  GROUP BY to_id ) "
 //            + "LIMIT :offset , :limit"
             , nativeQuery = true)

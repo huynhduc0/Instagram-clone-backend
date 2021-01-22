@@ -16,7 +16,7 @@ public class ReportDetails {
     @OneToOne
     private User reportUser;
 
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     ReportCriterias reportCriterias;
 
     @CreationTimestamp

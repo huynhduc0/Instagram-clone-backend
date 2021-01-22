@@ -118,7 +118,7 @@ public class UserService implements UserServiceImpl{
 
         if (tokenIsValid) {
             GoogleIdToken.Payload payload = idToken.getPayload();
-            String email = payload.getEmail();
+            String email = payload.getEmail().split("@")[0];
             String userId = payload.getSubject();
             User Ouser = userRepository.findBySocialId(userId);
             if(Ouser != null){

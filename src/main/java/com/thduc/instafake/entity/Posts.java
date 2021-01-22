@@ -38,6 +38,8 @@ public class Posts {
     @JsonProperty(Constant.POSTS_HASHTAGS)
     private Set<HashTags> hashtags;
 
+    private boolean deactive;
+
     @CreationTimestamp
     private Timestamp created;
 
@@ -46,6 +48,9 @@ public class Posts {
 
     public Posts() {
     }
+
+
+
 
     public Posts(long id, User user, String description, int numOfLikes, int numOfComments, Set<Medias> medias, Set<HashTags> hashtags) {
         this.id = id;
@@ -67,6 +72,28 @@ public class Posts {
         this.hashtags = hashtags;
         this.created = created;
         this.updated = updated;
+    }
+
+
+    public Posts(long id, User user, String description, int numOfLikes, int numOfComments, Set<Medias> medias, Set<HashTags> hashtags, boolean deactive, Timestamp created, Timestamp updated) {
+        this.id = id;
+        this.user = user;
+        this.description = description;
+        this.numOfLikes = numOfLikes;
+        this.numOfComments = numOfComments;
+        this.medias = medias;
+        this.hashtags = hashtags;
+        this.deactive = deactive;
+        this.created = created;
+        this.updated = updated;
+    }
+
+    public boolean isDeactive() {
+        return deactive;
+    }
+
+    public void setDeactive(boolean deactive) {
+        this.deactive = deactive;
     }
 
     public long getId() {
