@@ -40,10 +40,21 @@ public class AdminController {
     public ResponseEntity getAllUser(){
         return new ResponseEntity(userRepository.findAll(), HttpStatus.OK);
     }
+    @GetMapping(value = "/post")
+    public ResponseEntity getAllport(){
+        return new ResponseEntity(uploadPostFilter(postRepository.findAll()), HttpStatus.OK);
+    }
+    @PostMapping(value = "/post/handle")
+    public ResponseEntity handPo(@RequestBody Posts posts){
+        Posts posts1 = postRepository.findById(posts.getId()).orElseThrow(()-> new DataNotFoundException("posts","post", String.valueOf(posts.getId())));
+        posts1.setDeactive(!posts1.isDeactive());
+        return new ResponseEntity(uploadPostFilter( postRepository.save(posts1)),HttpStatus.OK);
+    }
     @GetMapping(value = "report/post")
     public ResponseEntity getAllReport(){
         return new ResponseEntity(uploadPostFilter(reportPostRepository.findAll()), HttpStatus.OK);
     }
+
     @PostMapping(value = "report/post/handle")
     public ResponseEntity eactivePost(@RequestBody ReportPosts reportPosts){
         ReportPosts reportPosts1 = reportPostRepository.findById(reportPosts.getId()).orElseThrow(()->new DataNotFoundException("posts","post", String.valueOf(reportPosts.getId())));;
