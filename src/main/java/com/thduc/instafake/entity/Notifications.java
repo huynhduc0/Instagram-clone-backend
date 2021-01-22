@@ -28,7 +28,7 @@ public class Notifications {
     private NotifcationType notifcationType;
 
     private long destinationId;
-
+    private String imageUrl;
     @CreationTimestamp
     private Timestamp created;
 
@@ -39,11 +39,51 @@ public class Notifications {
     public Notifications() {
     }
 
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public Notifications(long id, User from, User to, String message, NotifcationType notifcationType, long destinationId, String imageUrl, Timestamp created, Timestamp updated) {
+        this.id = id;
+        this.from = from;
+        this.to = to;
+        this.message = message;
+        this.notifcationType = notifcationType;
+        this.destinationId = destinationId;
+        this.imageUrl = imageUrl;
+        this.created = created;
+        this.updated = updated;
+    }
+
+    public Notifications(long id, User from, User to, String message, NotifcationType notifcationType, long destinationId, String imageUrl) {
+        this.id = id;
+        this.from = from;
+        this.to = to;
+        this.message = message;
+        this.notifcationType = notifcationType;
+        this.destinationId = destinationId;
+        this.imageUrl = imageUrl;
+    }
+
+
     public Notifications(User from, User to, String message, NotifcationType notifcationType, long destinationId) {
         this.from = from;
         this.to = to;
         this.message = this.from.getUsername() + message;
         this.notifcationType = notifcationType;
+        this.destinationId = destinationId;
+    }
+    public Notifications(User from, User to, String message, NotifcationType notifcationType, long destinationId, String imageUrl) {
+        this.from = from;
+        this.to = to;
+        this.message = this.from.getUsername() + message;
+        this.notifcationType = notifcationType;
+        this.imageUrl = imageUrl;
         this.destinationId = destinationId;
     }
 

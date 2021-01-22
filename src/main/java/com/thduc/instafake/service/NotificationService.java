@@ -22,9 +22,16 @@ public class NotificationService implements NotificationServiceImpl{
         return  notificationRepository.findByTo(user,pageable);
     }
 
+//    @Override
+//    public Notifications addNotification(User from, User to, String message, NotifcationType notifcationType,long destinationId) {
+//        Notifications notification = new Notifications(from,to,message,notifcationType,destinationId);
+//        Notifications notifications = notificationRepository.save(notification);
+//        fcmPushService.sendPnsToDevice(notifications);
+//        return notifications;
+//    }
     @Override
-    public Notifications addNotification(User from, User to, String message, NotifcationType notifcationType,long destinationId) {
-        Notifications notification = new Notifications(from,to,message,notifcationType,destinationId);
+    public Notifications addNotification(User from, User to, String message, NotifcationType notifcationType,long destinationId, String imageUrl) {
+        Notifications notification = new Notifications(from,to,message,notifcationType,destinationId,imageUrl);
         Notifications notifications = notificationRepository.save(notification);
         fcmPushService.sendPnsToDevice(notifications);
         return notifications;

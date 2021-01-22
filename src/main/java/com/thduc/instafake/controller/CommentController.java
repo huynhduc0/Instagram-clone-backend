@@ -5,6 +5,8 @@ import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
 import com.thduc.instafake.constant.Constant;
 import com.thduc.instafake.constant.NotifcationType;
 import com.thduc.instafake.entity.*;
+import com.thduc.instafake.exception.DataNotFoundException;
+import com.thduc.instafake.repository.PostRepository;
 import com.thduc.instafake.security.ActiveUser;
 import com.thduc.instafake.service.CommentService;
 import com.thduc.instafake.service.NotificationService;
@@ -18,6 +20,7 @@ import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.web.bind.annotation.*;
 
 import javax.xml.stream.events.Comment;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -29,14 +32,24 @@ public class CommentController {
 
     @Autowired
     NotificationService notificationService;
+    @Autowired
+    PostRepository postRepository;
 
     @PostMapping(value = "/add")
     public Comments addComment(@RequestBody Comments comments, @ActiveUser UserPrinciple userPrinciple){
         comments.setAuthor(userPrinciple.getUser());
        Comments cmt = commentService.addComment(comments);
+       long id = comments.getPost().getId();
+       Posts posts = postRepository.findById(id).orElseThrow( ()->new DataNotFoundException("post","posst","posts"));
+        final String[] imageUrl = new String[1];
+       posts.getMedias().stream().map(medias -> {
+           imageUrl[0] = medias.getMedia_url();
+           return medias;
+       });
        if(cmt.getAuthor().getId() != cmt.getPost().getUser().getId())
            notificationService.addNotification(userPrinciple.getUser(),
-                   cmt.getPost().getUser(), Constant.COMMENT_NOTI_MESSAGE, NotifcationType.COMMENT, cmt.getPost().getId());
+                   cmt.getPost().getUser(), Constant.COMMENT_NOTI_MESSAGE, NotifcationType.COMMENT, cmt.getPost().getId(),
+                   imageUrl[0]);
         return cmt;
     }
 

@@ -8,5 +8,5 @@ import org.springframework.data.domain.Pageable;
 
 public interface NotificationServiceImpl {
     Page loadNoti(User user, Pageable pageable);
-    Notifications addNotification(User from, User to, String message, NotifcationType notifcationType, long destinationId);
+    Notifications addNotification(User from, User to, String message, NotifcationType notifcationType, long destinationId, String imag);
 }

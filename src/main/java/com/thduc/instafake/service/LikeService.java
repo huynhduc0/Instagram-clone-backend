@@ -35,9 +35,15 @@ public class LikeService implements LikeServiceImpl {
         }
         else {
             likes.setPost(posts);
+            long id = likes.getPost().getId();
             Likes like = likeRepository.save(likes);
+            final String[] imageUrl = new String[1];
+            posts.getMedias().stream().map(medias -> {
+                imageUrl[0] = medias.getMedia_url();
+                return medias;
+            });
             notificationService.addNotification(likes.getAuthor(), like.getPost().getUser(),
-                    Constant.LIKE_NOTI_MESSAGE, NotifcationType.LIKE, likes.getPost().getId());
+                    Constant.LIKE_NOTI_MESSAGE, NotifcationType.LIKE, likes.getPost().getId(), imageUrl[0]);
             posts.setNumOfLikes(likeRepository.countByPost_Id(posts.getId()));
             postRepository.save(posts);
             return posts.getNumOfLikes();
