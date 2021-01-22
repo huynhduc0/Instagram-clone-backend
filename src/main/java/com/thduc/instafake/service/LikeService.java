@@ -40,6 +40,7 @@ public class LikeService implements LikeServiceImpl {
             Likes like = likeRepository.save(likes);
             Medias medias = posts.getMedias().iterator().next();
             final String imageUrl = medias.getMedia_url();
+            if (like.getAuthor().getId() != posts.getUser().getId())
             notificationService.addNotification(likes.getAuthor(), like.getPost().getUser(),
                     Constant.LIKE_NOTI_MESSAGE, NotifcationType.LIKE, likes.getPost().getId(), imageUrl);
             posts.setNumOfLikes(likeRepository.countByPost_Id(posts.getId()));
