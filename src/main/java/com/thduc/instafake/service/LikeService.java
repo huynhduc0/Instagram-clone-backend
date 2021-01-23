@@ -11,6 +11,7 @@ import com.thduc.instafake.repository.LikeRepository;
 import com.thduc.instafake.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -23,6 +24,7 @@ public class LikeService implements LikeServiceImpl {
     @Autowired
     PostRepository postRepository;
 
+    @Transactional
     @Override
     public int changeLike(Likes likes) {
         Posts posts = postRepository.findById(likes.getPost().getId())
