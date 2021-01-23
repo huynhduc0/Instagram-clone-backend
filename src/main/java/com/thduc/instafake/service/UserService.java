@@ -70,8 +70,11 @@ public class UserService implements UserServiceImpl{
         user.setTokens(new HashSet<>());
         User user1 = userRepository.save(user);
         followService.changeFollows(user1,user1);
-        user1.setNumOfFollowers(1);
-        user1.setNumOfFollowings(1);
+        user1.setNumOfFollowers(0);
+        user1.setNumOfFollowings(0);
+        user1.setAvatar("avatars/01.jpeg");
+        user1.setCover("https://www.wallpaperup.com/uploads/wallpapers/2013/12/15/196200/f2c43e4304abcbd78e81c243a33bfb54-1000.jpg");
+        user1.setBio(user.getUsername());
         return user1;
     }
 
@@ -118,7 +121,7 @@ public class UserService implements UserServiceImpl{
 
         if (tokenIsValid) {
             GoogleIdToken.Payload payload = idToken.getPayload();
-            String email = payload.getEmail().split("@")[0];
+            String email = payload.getEmail();
             String userId = payload.getSubject();
             User Ouser = userRepository.findBySocialId(userId);
             if(Ouser != null){
@@ -140,6 +143,8 @@ public class UserService implements UserServiceImpl{
                 String givenName = (String) payload.get("given_name");
                 User user = new User();
                 user.setAvatar(pictureUrl);
+                user.setCover("https://www.wallpaperup.com/uploads/wallpapers/2013/12/15/196200/f2c43e4304abcbd78e81c243a33bfb54-1000.jpg");
+                user.setBio(user.getUsername());
                 HashSet s = new HashSet();
                 s.add( roleRepository.findById(2).get());
                 user.setRoles(s);
@@ -147,7 +152,7 @@ public class UserService implements UserServiceImpl{
                 user.setNumOfFollowings(1);
                 user.setEmail(email);
                 user.setFullname(familyName + " " +givenName);
-                user.setUsername(email);
+                user.setUsername(email.split("@")[0]);
                 user.setSocialId(userId);
                 if(body.getPushToken()!=null){
                     Set<Tokens> tokens = new HashSet<>();

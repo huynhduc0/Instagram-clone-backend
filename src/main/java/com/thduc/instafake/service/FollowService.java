@@ -42,6 +42,7 @@ public class FollowService implements FollowServiceImpl {
                 to.setNumOfFollowers(from.getNumOfFollowers() +1);
                 userRepository.save(from);
                 userRepository.save(to);
+                if (to.getId() != from.getId())
                 notificationService.addNotification(from, to, Constant.FOLLOW_NOTI_MESSAGE,
                         NotifcationType.FOLLOW, from.getId(), from.getAvatar());
             }

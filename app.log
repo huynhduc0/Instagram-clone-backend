@@ -16936,3 +16936,7 @@ Caused by: java.lang.ClassNotFoundException: com.thduc.instafake.service.LikeSer
 2021-01-22 21:09:12.216  INFO 19715 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2021-01-22 21:09:12.218  INFO 19715 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
 2021-01-22 21:14:43.924  WARN 19715 --- [http-nio-8080-exec-9] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2021-01-22 21:47:54.833  INFO 19715 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-01-22 21:47:54.834  INFO 19715 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-22 21:47:54.834  INFO 19715 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-17 - Shutdown initiated...
+2021-01-22 21:47:54.836  INFO 19715 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-17 - Shutdown completed.
