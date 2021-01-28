@@ -4,10 +4,10 @@ import com.thduc.instafake.entity.Posts;
 import com.thduc.instafake.repository.HashTagRepository;
 import com.thduc.instafake.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class HashTagService implements HashTagServiceImpl {
@@ -18,7 +18,7 @@ public class HashTagService implements HashTagServiceImpl {
     @Autowired
     PostRepository postRepository;
     @Override
-    public Page<Posts> loadPostByTagName(String tagname) {
+    public Set<Posts> loadPostByTagName(String tagname) {
         List<Long> id = hashTagRepository.findAllByTagNameLike(tagname);
 //        return hashTagRepository.findHashTagsByTagName(tagname);
         return postRepository.findAllByIdIn(id);

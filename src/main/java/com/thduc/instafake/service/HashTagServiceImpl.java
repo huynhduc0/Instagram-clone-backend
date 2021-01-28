@@ -1,8 +1,9 @@
 package com.thduc.instafake.service;
 
 import com.thduc.instafake.entity.Posts;
-import org.springframework.data.domain.Page;
+
+import java.util.Set;
 
 public interface HashTagServiceImpl {
-    public Page<Posts> loadPostByTagName(String tagname);
+    public Set<Posts> loadPostByTagName(String tagname);
 }
