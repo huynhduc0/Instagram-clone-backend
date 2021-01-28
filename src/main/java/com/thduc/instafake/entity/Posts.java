@@ -34,7 +34,7 @@ public class Posts {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, targetEntity = Medias.class)
     private Set<Medias> medias;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonProperty(Constant.POSTS_HASHTAGS)
     private Set<HashTags> hashtags;
 

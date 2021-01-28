@@ -14,6 +14,8 @@ import com.thduc.instafake.repository.UserRepository;
 import com.thduc.instafake.service.UserService;
 import com.thduc.instafake.utils.Helper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJacksonValue;
@@ -37,12 +39,24 @@ public class AdminController {
     PostRepository postRepository;
 
     @GetMapping(value = "user")
-    public ResponseEntity getAllUser(){
-        return new ResponseEntity(userRepository.findAll(), HttpStatus.OK);
+    public ResponseEntity getAllUser(
+            @RequestParam(value = "page", defaultValue = "0") int page,
+            @RequestParam(value = "size", defaultValue = "10") int size,
+            @RequestParam(value = "sortBy", defaultValue = "") String[] sortBy,
+            @RequestParam(value = "sortOrder", defaultValue = "") String sortOrder
+    ){
+        return  (sortOrder.equals("desc"))?
+                new ResponseEntity(userRepository.findAll(PageRequest.of(page,size, Sort.by(sortBy).descending())), HttpStatus.OK)
+                : new ResponseEntity(userRepository.findAll(PageRequest.of(page,size, Sort.by(sortBy))), HttpStatus.OK);
     }
     @GetMapping(value = "/post")
-    public ResponseEntity getAllport(){
-        return new ResponseEntity(uploadPostFilter(postRepository.findAll()), HttpStatus.OK);
+    public ResponseEntity getAllport( @RequestParam(value = "page", defaultValue = "0") int page,
+                                      @RequestParam(value = "size", defaultValue = "10") int size,
+                                      @RequestParam(value = "sortBy", defaultValue = "") String[] sortBy,
+                                      @RequestParam(value = "sortOrder", defaultValue = "") String sortOrder){
+        return (sortOrder.equals("desc"))?
+                new ResponseEntity(uploadPostFilter(postRepository.findAll(PageRequest.of(page,size, Sort.by(sortBy).descending()))), HttpStatus.OK)
+                : new ResponseEntity(uploadPostFilter(postRepository.findAll(PageRequest.of(page,size, Sort.by(sortBy)))), HttpStatus.OK);
     }
     @PostMapping(value = "/post/handle")
     public ResponseEntity handPo(@RequestBody Posts posts){
@@ -51,8 +65,13 @@ public class AdminController {
         return new ResponseEntity(uploadPostFilter( postRepository.save(posts1)),HttpStatus.OK);
     }
     @GetMapping(value = "report/post")
-    public ResponseEntity getAllReport(){
-        return new ResponseEntity(uploadPostFilter(reportPostRepository.findAll()), HttpStatus.OK);
+    public ResponseEntity getAllReport(@RequestParam(value = "page", defaultValue = "0") int page,
+                                       @RequestParam(value = "size", defaultValue = "10") int size,
+                                       @RequestParam(value = "sortBy", defaultValue = "") String[] sortBy,
+                                       @RequestParam(value = "sortOrder", defaultValue = "") String sortOrder){
+        return (sortOrder.equals("desc"))?
+                new ResponseEntity(uploadPostFilter(reportPostRepository.findAll(PageRequest.of(page,size, Sort.by(sortBy).descending()))), HttpStatus.OK)
+                :  new ResponseEntity(uploadPostFilter(reportPostRepository.findAll(PageRequest.of(page,size, Sort.by(sortBy)))), HttpStatus.OK);
     }
 
     @PostMapping(value = "report/post/handle")

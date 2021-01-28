@@ -51,11 +51,12 @@ public class PostService implements PostServiceImpl{
         User user = userRepository.findById(uid).orElseThrow(()->new DataNotFoundException("user","user",String.valueOf(uid)));
         List<String> tagNameList = Helper.hashTagsStringFromString(posts.getDescription());
         final Set<HashTags> hashTags = (posts.getHashtags() != null)? posts.getHashtags(): new HashSet<>();
-        hashTags.stream().map(hashTags1 -> {
+         hashTags.stream().map(hashTags1 -> {
             if (hashTagRepository.existsByTagName(hashTags1.getTagName()))
                 hashTags1 = hashTagRepository.findHashTagsByTagName(hashTags1.getTagName());
             return hashTags1;
         });
+        posts.setHashtags(hashTags);
         tagNameList.forEach(tag->{
             HashTags hagtag = (hashTagRepository.existsByTagName(tag))
                     ?hashTagRepository.findHashTagsByTagName(tag)
@@ -91,7 +92,7 @@ public class PostService implements PostServiceImpl{
 
         posts.setMedias(mediasSet);
         posts.setUser(user);
-        posts.setHashtags(hashTags);
+
         posts = postRepository.save(posts);
         return posts;
     }
