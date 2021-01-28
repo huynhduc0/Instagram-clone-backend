@@ -1,5 +1,6 @@
 package com.thduc.instafake.service;
 
+import com.thduc.instafake.entity.HashTags;
 import com.thduc.instafake.entity.Posts;
 import com.thduc.instafake.repository.HashTagRepository;
 import com.thduc.instafake.repository.PostRepository;
@@ -19,9 +20,9 @@ public class HashTagService implements HashTagServiceImpl {
     PostRepository postRepository;
     @Override
     public Set<Posts> loadPostByTagName(String tagname) {
-        List<Long> id = hashTagRepository.findAllByTagNameLike(tagname);
+        List<HashTags> hashTags = hashTagRepository.findAllByTagNameLike(tagname);
 //        return hashTagRepository.findHashTagsByTagName(tagname);
-        return postRepository.findAllByIdIn(id);
+        return postRepository.findAllByHashtagsIn(hashTags);
     }
 
 }
