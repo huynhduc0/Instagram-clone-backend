@@ -6,6 +6,7 @@ import com.thduc.instafake.constant.Constant;
 import com.thduc.instafake.entity.*;
 import com.thduc.instafake.exception.BadRequestException;
 import com.thduc.instafake.exception.DataNotFoundException;
+import com.thduc.instafake.exception.PermissionDenyException;
 import com.thduc.instafake.model.PostWithLikes;
 import com.thduc.instafake.repository.FollowRepository;
 import com.thduc.instafake.repository.PostRepository;
@@ -50,7 +51,7 @@ public class PostController {
     @RequestMapping(value = "/post/{id}", method = RequestMethod.GET)
     public ResponseEntity loadPost(@PathVariable Long id, @ActiveUser UserPrinciple userPrinciple){
         Posts posts = postRepository.findById(id).orElseThrow(()-> new DataNotFoundException("post","post",String.valueOf(id)));
-        if (posts.isDeactive() && userPrinciple.getAuthorities().size() < 2) throw new BadRequestException("This post is expried or not share with you");
+        if (posts.isDeactive() && userPrinciple.getAuthorities().size() < 2) throw new PermissionDenyException("This post has expired or not share with you");
         return new ResponseEntity(filterPostsBasic(new PostWithLikes(posts,likeService.existLike(id, userPrinciple.getUser()))), HttpStatus.OK);
     }
 
