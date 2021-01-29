@@ -50,6 +50,7 @@ public class PostController {
     @RequestMapping(value = "/post/{id}", method = RequestMethod.GET)
     public ResponseEntity loadPost(@PathVariable Long id, @ActiveUser UserPrinciple userPrinciple){
         Posts posts = postRepository.findById(id).orElseThrow(()-> new DataNotFoundException("post","post",String.valueOf(id)));
+        if (posts.isDeactive() && userPrinciple.getAuthorities().size() < 2) throw new BadRequestException("This post is expried or not share with you");
         return new ResponseEntity(filterPostsBasic(new PostWithLikes(posts,likeService.existLike(id, userPrinciple.getUser()))), HttpStatus.OK);
     }
 
