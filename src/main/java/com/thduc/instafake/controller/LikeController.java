@@ -33,7 +33,10 @@ public class LikeController {
 
     @GetMapping(value = "/islike/{idpost}")
     public ResponseEntity isLike(@PathVariable long idpost, @ActiveUser UserPrinciple userPrinciple){
-        return new ResponseEntity(likeService.existLike(idpost,userPrinciple.getUser()),HttpStatus.OK);
+        HashMap hashMap = new HashMap();
+        hashMap.put("numOfLikes",likeService.getNumOfLikes(idpost));
+        hashMap.put("isLiked",likeService.existLike(idpost,userPrinciple.getUser()));
+        return new ResponseEntity(hashMap,HttpStatus.OK);
     }
 
 

@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -53,6 +54,10 @@ public class LikeService implements LikeServiceImpl {
     public boolean existLike(long id, User user){
         return likeRepository.existsByAuthorAndPost_Id(user,id);
     }
+    public int getNumOfLikes(long id){
+        return likeRepository.countByPost_Id(id);
+    }
+
     @Override
     public List<LikeRepository.UserWithFollow> loadListOfLike(long id, long uid){
         postRepository.findById(id).orElseThrow(()->new DataNotFoundException("post","post",String.valueOf(id)));
