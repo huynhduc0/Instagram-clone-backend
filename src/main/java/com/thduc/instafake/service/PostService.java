@@ -127,11 +127,12 @@ public class PostService implements PostServiceImpl{
     public boolean addReport(ReportDetails reportDetails, long postId) {
        Posts posts = postRepository.findById(postId)
                 .orElseThrow(()-> new DataNotFoundException("post", "post",String.valueOf(postId)));
-        ReportPosts reportPosts = reportPostRepository.findReportPostsByPosts(posts);
+        ReportPosts reportPosts = reportPostRepository.findReportPostsByPosts_Id(postId);
         if (!reportCriteriaRepository.existsByCriteriaName(reportDetails.getReportCriterias().getCriteriaName()))
             reportCriteriaRepository.save(reportDetails.getReportCriterias());
         if (reportPosts != null){
             Set<ReportDetails> reportDetailsSet = new HashSet<>(reportPosts.getReportDetails());
+            reportDetailsSet.add(reportDetails);
             reportPosts.setReportDetails(reportDetailsSet);
             reportPostRepository.save(reportPosts);
         }else {

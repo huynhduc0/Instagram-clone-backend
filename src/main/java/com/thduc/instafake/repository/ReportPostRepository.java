@@ -6,4 +6,5 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 public interface ReportPostRepository extends PagingAndSortingRepository<ReportPosts,Long> {
    ReportPosts findReportPostsByPosts(Posts posts);
+   ReportPosts findReportPostsByPosts_Id(long id);
 }

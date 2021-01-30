@@ -75,7 +75,6 @@ public class UserService implements UserServiceImpl{
         user1.setBio("Bio");
         user1.setAvatar("avatars/01.jpeg");
         user1.setCover("https://www.wallpaperup.com/uploads/wallpapers/2013/12/15/196200/f2c43e4304abcbd78e81c243a33bfb54-1000.jpg");
-        user1.setBio(user.getUsername());
         return user1;
     }
 
@@ -149,8 +148,8 @@ public class UserService implements UserServiceImpl{
                 HashSet s = new HashSet();
                 s.add( roleRepository.findById(2).get());
                 user.setRoles(s);
-                user.setNumOfFollowers(1);
-                user.setNumOfFollowings(1);
+                user.setNumOfFollowers(0);
+                user.setNumOfFollowings(0);
                 user.setEmail(email);
                 user.setFullname(familyName + " " +givenName);
                 user.setUsername(email.split("@")[0]);
