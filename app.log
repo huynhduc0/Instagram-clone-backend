@@ -1043,3 +1043,383 @@ Caused by: java.lang.ClassNotFoundException: com.thduc.instafake.entity.User
 	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522) ~[na:na]
 	... 34 common frames omitted
 
+2021-01-30 14:22:47.205  INFO 15788 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-01-30 14:22:47.207  INFO 15788 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-01-30 14:22:47.214  INFO 15788 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : Starting InstafakeApplication using Java 15.0.1 on thducs-MacBook-Pro.local with PID 15788 (/Users/thduc/Desktop/HCI/instafake/target/classes started by thduc in /Users/thduc/Desktop/HCI/instafake)
+2021-01-30 14:22:47.214  INFO 15788 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : The following profiles are active: local
+2021-01-30 14:22:48.201  INFO 15788 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2021-01-30 14:22:48.423  INFO 15788 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 220 ms. Found 14 JPA repository interfaces.
+2021-01-30 14:22:48.839  INFO 15788 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@2fcca903' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-01-30 14:22:48.849  INFO 15788 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-01-30 14:22:49.417  INFO 15788 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-01-30 14:22:49.433  INFO 15788 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-01-30 14:22:49.433  INFO 15788 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-01-30 14:22:49.551  INFO 15788 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-01-30 14:22:49.551  INFO 15788 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2332 ms
+2021-01-30 14:22:49.737  WARN 15788 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-01-30 14:22:49.886  INFO 15788 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-30 14:22:49.950  INFO 15788 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-01-30 14:22:49.968  INFO 15788 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2021-01-30 14:22:49.978  INFO 15788 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2021-01-30 14:22:49.979  INFO 15788 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-01-30 14:22:51.330  INFO 15788 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-01-30 14:22:51.331  INFO 15788 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-01-30 14:22:51.416  INFO 15788 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@38f4554, org.springframework.security.web.context.SecurityContextPersistenceFilter@28595e46, org.springframework.security.web.header.HeaderWriterFilter@1b5e3cdf, org.springframework.web.filter.CorsFilter@3e220a27, org.springframework.security.web.authentication.logout.LogoutFilter@350f093d, com.thduc.instafake.filter.JwtAuthenticationTokenFilter@65fb5631, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4923c185, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@23f1b4ba, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2c19faa9, org.springframework.security.web.session.SessionManagementFilter@2aebd51c, org.springframework.security.web.access.ExceptionTranslationFilter@4f55d9d9, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@18197b9f]
+2021-01-30 14:22:51.458  INFO 15788 --- [task-2] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-01-30 14:22:52.218  INFO 15788 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-01-30 14:22:52.219  INFO 15788 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2021-01-30 14:22:54.296  INFO 15788 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2021-01-30 14:22:54.310  INFO 15788 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : Started InstafakeApplication in 7.136 seconds (JVM running for 544.674)
+2021-01-30 14:22:54.326  INFO 15788 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-01-30 14:30:48.300  INFO 15788 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-01-30 14:30:48.304  INFO 15788 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-30 14:30:48.305  INFO 15788 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2021-01-30 14:30:48.309  INFO 15788 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2021-01-30 14:41:07.880  INFO 16711 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : Starting InstafakeApplication using Java 15.0.1 on thducs-MacBook-Pro.local with PID 16711 (/Users/thduc/Desktop/HCI/instafake/target/classes started by thduc in /Users/thduc/Desktop/HCI/instafake)
+2021-01-30 14:41:07.885  INFO 16711 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : The following profiles are active: local
+2021-01-30 14:41:08.032  INFO 16711 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/thduc/.m2/repository/io/grpc/grpc-netty-shaded/1.21.0/grpc-netty-shaded-1.21.0.jar referenced one or more files that do not exist: file:/Users/thduc/.m2/repository/io/grpc/grpc-netty-shaded/1.21.0/grpc-core-1.21.0.jar,file:/Users/thduc/.m2/repository/io/grpc/grpc-netty-shaded/1.21.0/opencensus-contrib-grpc-metrics-0.21.0.jar,file:/Users/thduc/.m2/repository/io/grpc/grpc-netty-shaded/1.21.0/opencensus-api-0.21.0.jar,file:/Users/thduc/.m2/repository/io/grpc/grpc-netty-shaded/1.21.0/grpc-api-1.21.0.jar,file:/Users/thduc/.m2/repository/io/grpc/grpc-netty-shaded/1.21.0/gson-2.7.jar,file:/Users/thduc/.m2/repository/io/grpc/grpc-netty-shaded/1.21.0/annotations-4.1.1.4.jar,file:/Users/thduc/.m2/repository/io/grpc/grpc-netty-shaded/1.21.0/grpc-context-1.21.0.jar,file:/Users/thduc/.m2/repository/io/grpc/grpc-netty-shaded/1.21.0/error_prone_annotations-2.3.2.jar,file:/Users/thduc/.m2/repository/io/grpc/grpc-netty-shaded/1.21.0/jsr305-3.0.2.jar,file:/Users/thduc/.m2/repository/io/grpc/grpc-netty-shaded/1.21.0/animal-sniffer-annotations-1.17.jar,file:/Users/thduc/.m2/repository/io/grpc/grpc-netty-shaded/1.21.0/guava-26.0-android.jar,file:/Users/thduc/.m2/repository/io/grpc/grpc-netty-shaded/1.21.0/checker-compat-qual-2.5.2.jar,file:/Users/thduc/.m2/repository/io/grpc/grpc-netty-shaded/1.21.0/j2objc-annotations-1.1.jar
+2021-01-30 14:41:08.033  INFO 16711 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-01-30 14:41:08.033  INFO 16711 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-01-30 14:41:10.113  INFO 16711 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2021-01-30 14:41:10.362  INFO 16711 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 231 ms. Found 14 JPA repository interfaces.
+2021-01-30 14:41:10.921  INFO 16711 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@46cc26f7' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-01-30 14:41:10.929  INFO 16711 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-01-30 14:41:11.504  INFO 16711 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-01-30 14:41:11.520  INFO 16711 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-01-30 14:41:11.520  INFO 16711 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-01-30 14:41:11.756  INFO 16711 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-01-30 14:41:11.756  INFO 16711 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3718 ms
+2021-01-30 14:41:11.914  WARN 16711 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-01-30 14:41:12.040  INFO 16711 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-30 14:41:12.116  INFO 16711 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-01-30 14:41:12.201  INFO 16711 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.23.Final
+2021-01-30 14:41:12.430  INFO 16711 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-01-30 14:41:12.626  INFO 16711 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-01-30 14:41:12.867  INFO 16711 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-01-30 14:41:12.892  INFO 16711 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-01-30 14:41:13.411  INFO 16711 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@63ddb6d3, org.springframework.security.web.context.SecurityContextPersistenceFilter@507c33e5, org.springframework.security.web.header.HeaderWriterFilter@78008d3, org.springframework.web.filter.CorsFilter@31544a74, org.springframework.security.web.authentication.logout.LogoutFilter@530648f9, com.thduc.instafake.filter.JwtAuthenticationTokenFilter@6072c6f3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3c4102e7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@59c8a196, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2e6fc78f, org.springframework.security.web.session.SessionManagementFilter@7908c05d, org.springframework.security.web.access.ExceptionTranslationFilter@54476c3b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@74991bb9]
+2021-01-30 14:41:14.815  INFO 16711 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-01-30 14:41:15.055  INFO 16711 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-01-30 14:41:15.062  INFO 16711 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2021-01-30 14:41:16.514  INFO 16711 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-01-30 14:41:16.535  INFO 16711 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-01-30 14:41:19.644  INFO 16711 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2021-01-30 14:41:19.670  INFO 16711 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : Started InstafakeApplication in 12.729 seconds (JVM running for 15.623)
+2021-01-30 14:42:33.377  INFO 16711 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-01-30 14:42:33.382  INFO 16711 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-30 14:42:33.384  INFO 16711 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-01-30 14:42:33.394  INFO 16711 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-01-30 14:42:33.594  INFO 16711 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : Starting InstafakeApplication using Java 15.0.1 on thducs-MacBook-Pro.local with PID 16711 (/Users/thduc/Desktop/HCI/instafake/target/classes started by thduc in /Users/thduc/Desktop/HCI/instafake)
+2021-01-30 14:42:33.595  INFO 16711 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : The following profiles are active: local
+2021-01-30 14:42:35.255  INFO 16711 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2021-01-30 14:42:35.579  INFO 16711 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 316 ms. Found 13 JPA repository interfaces.
+2021-01-30 14:42:36.293  INFO 16711 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@15c8b3ce' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-01-30 14:42:36.297  INFO 16711 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-01-30 14:42:36.786  INFO 16711 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-01-30 14:42:36.787  INFO 16711 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-01-30 14:42:36.788  INFO 16711 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-01-30 14:42:36.912  INFO 16711 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-01-30 14:42:36.912  INFO 16711 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3307 ms
+2021-01-30 14:42:37.142  WARN 16711 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-01-30 14:42:37.293  INFO 16711 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-30 14:42:37.345  INFO 16711 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-01-30 14:42:37.356  INFO 16711 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2021-01-30 14:42:37.367  INFO 16711 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2021-01-30 14:42:37.367  INFO 16711 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-01-30 14:42:37.708 ERROR 16711 --- [restartedMain] o.s.b.web.embedded.tomcat.TomcatStarter  : Error starting Tomcat context. Exception: org.springframework.beans.factory.UnsatisfiedDependencyException. Message: Error creating bean with name 'jwtAuthenticationTokenFilter': Unsatisfied dependency expressed through field 'jwtService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'JWTService' defined in file [/Users/thduc/Desktop/HCI/instafake/target/classes/com/thduc/instafake/service/JWTService.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userService' defined in file [/Users/thduc/Desktop/HCI/instafake/target/classes/com/thduc/instafake/service/UserService.class]: Post-processing of merged bean definition failed; nested exception is java.lang.IllegalStateException: Failed to introspect Class [com.thduc.instafake.service.UserService] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@53d09200]
+2021-01-30 14:42:37.710  INFO 16711 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2021-01-30 14:42:37.742  WARN 16711 --- [restartedMain] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [task-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ app//net.bytebuddy.description.type.TypeList$Generic$Explicit.get(TypeList.java:358)
+ app//net.bytebuddy.description.type.TypeList$Generic$Explicit.get(TypeList.java:329)
+ java.base@15.0.1/java.util.AbstractList$Itr.next(AbstractList.java:371)
+ app//net.bytebuddy.description.type.TypeList$Generic$AbstractBase.asErasures(TypeList.java:308)
+ app//net.bytebuddy.description.method.MethodDescription$AbstractBase.asTypeToken(MethodDescription.java:821)
+ app//net.bytebuddy.dynamic.scaffold.MethodGraph$Compiler$Default$Key$Store$Entry$Resolved.asNode(MethodGraph.java:1426)
+ app//net.bytebuddy.dynamic.scaffold.MethodGraph$Compiler$Default$Key$Store.asGraph(MethodGraph.java:1169)
+ app//net.bytebuddy.dynamic.scaffold.MethodGraph$Compiler$Default.compile(MethodGraph.java:574)
+ app//net.bytebuddy.dynamic.scaffold.MethodGraph$Compiler$AbstractBase.compile(MethodGraph.java:465)
+ app//net.bytebuddy.dynamic.scaffold.MethodRegistry$Default.prepare(MethodRegistry.java:471)
+ app//net.bytebuddy.dynamic.scaffold.subclass.SubclassDynamicTypeBuilder.make(SubclassDynamicTypeBuilder.java:213)
+ app//net.bytebuddy.dynamic.scaffold.subclass.SubclassDynamicTypeBuilder.make(SubclassDynamicTypeBuilder.java:204)
+ app//net.bytebuddy.dynamic.DynamicType$Builder$AbstractBase.make(DynamicType.java:3659)
+ app//net.bytebuddy.dynamic.DynamicType$Builder$AbstractBase$Delegator.make(DynamicType.java:3897)
+ app//org.hibernate.bytecode.internal.bytebuddy.ByteBuddyState.make(ByteBuddyState.java:200)
+ app//org.hibernate.bytecode.internal.bytebuddy.ByteBuddyState.make(ByteBuddyState.java:189)
+ app//org.hibernate.bytecode.internal.bytebuddy.ByteBuddyState.lambda$load$0(ByteBuddyState.java:178)
+ app//org.hibernate.bytecode.internal.bytebuddy.ByteBuddyState$$Lambda$961/0x00000008011a0ad8.call(Unknown Source)
+ app//net.bytebuddy.TypeCache.findOrInsert(TypeCache.java:153)
+ app//net.bytebuddy.TypeCache$WithInlineExpunction.findOrInsert(TypeCache.java:366)
+ app//net.bytebuddy.TypeCache.findOrInsert(TypeCache.java:175)
+ app//net.bytebuddy.TypeCache$WithInlineExpunction.findOrInsert(TypeCache.java:377)
+ app//org.hibernate.bytecode.internal.bytebuddy.ByteBuddyState.load(ByteBuddyState.java:175)
+ app//org.hibernate.bytecode.internal.bytebuddy.ByteBuddyState.loadProxy(ByteBuddyState.java:99)
+ app//org.hibernate.proxy.pojo.bytebuddy.ByteBuddyProxyHelper.buildProxy(ByteBuddyProxyHelper.java:55)
+ app//org.hibernate.proxy.pojo.bytebuddy.ByteBuddyProxyFactory.postInstantiate(ByteBuddyProxyFactory.java:61)
+ app//org.hibernate.tuple.entity.PojoEntityTuplizer.buildProxyFactory(PojoEntityTuplizer.java:102)
+ app//org.hibernate.tuple.entity.AbstractEntityTuplizer.<init>(AbstractEntityTuplizer.java:160)
+ app//org.hibernate.tuple.entity.PojoEntityTuplizer.<init>(PojoEntityTuplizer.java:53)
+ jdk.internal.reflect.GeneratedConstructorAccessor47.newInstance(Unknown Source)
+ java.base@15.0.1/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+ java.base@15.0.1/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+ java.base@15.0.1/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+ app//org.hibernate.tuple.entity.EntityTuplizerFactory.constructTuplizer(EntityTuplizerFactory.java:88)
+ app//org.hibernate.tuple.entity.EntityTuplizerFactory.constructDefaultTuplizer(EntityTuplizerFactory.java:116)
+ app//org.hibernate.tuple.entity.EntityMetamodel.<init>(EntityMetamodel.java:423)
+ app//org.hibernate.persister.entity.AbstractEntityPersister.<init>(AbstractEntityPersister.java:608)
+ app//org.hibernate.persister.entity.SingleTableEntityPersister.<init>(SingleTableEntityPersister.java:128)
+ jdk.internal.reflect.GeneratedConstructorAccessor46.newInstance(Unknown Source)
+ java.base@15.0.1/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+ java.base@15.0.1/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+ java.base@15.0.1/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+ app//org.hibernate.persister.internal.PersisterFactoryImpl.createEntityPersister(PersisterFactoryImpl.java:96)
+ app//org.hibernate.persister.internal.PersisterFactoryImpl.createEntityPersister(PersisterFactoryImpl.java:77)
+ app//org.hibernate.metamodel.internal.MetamodelImpl.initialize(MetamodelImpl.java:181)
+ app//org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:301)
+ app//org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:469)
+ app//org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1259)
+ app//org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+ app//org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+ app//org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+ app//org.springframework.orm.jpa.AbstractEntityManagerFactoryBean$$Lambda$741/0x0000000800f5a150.call(Unknown Source)
+ java.base@15.0.1/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+ java.base@15.0.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+ java.base@15.0.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+ java.base@15.0.1/java.lang.Thread.run(Thread.java:832)
+2021-01-30 14:42:37.754  WARN 16711 --- [restartedMain] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-2 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@15.0.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@15.0.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@15.0.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1661)
+ java.base@15.0.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@15.0.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@15.0.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1056)
+ java.base@15.0.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1116)
+ java.base@15.0.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+ java.base@15.0.1/java.lang.Thread.run(Thread.java:832)
+2021-01-30 14:42:37.795  WARN 16711 --- [restartedMain] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-2 connection adder] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@15.0.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@15.0.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@15.0.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1661)
+ java.base@15.0.1/java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
+ java.base@15.0.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1055)
+ java.base@15.0.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1116)
+ java.base@15.0.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+ java.base@15.0.1/java.lang.Thread.run(Thread.java:832)
+2021-01-30 14:42:37.798  WARN 16711 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+2021-01-30 14:42:37.798  INFO 16711 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-01-30 14:42:38.864  INFO 16711 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-01-30 14:42:38.865  INFO 16711 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-01-30 14:42:38.865  INFO 16711 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-30 14:42:38.866  INFO 16711 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2021-01-30 14:42:38.868  INFO 16711 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2021-01-30 14:42:38.878  INFO 16711 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-01-30 14:42:38.925 ERROR 16711 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:162) ~[spring-boot-2.4.0.jar:2.4.0]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:582) ~[spring-context-5.3.1.jar:5.3.1]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144) ~[spring-boot-2.4.0.jar:2.4.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:767) ~[spring-boot-2.4.0.jar:2.4.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759) ~[spring-boot-2.4.0.jar:2.4.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426) ~[spring-boot-2.4.0.jar:2.4.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326) ~[spring-boot-2.4.0.jar:2.4.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1309) ~[spring-boot-2.4.0.jar:2.4.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1298) ~[spring-boot-2.4.0.jar:2.4.0]
+	at com.thduc.instafake.InstafakeApplication.main(InstafakeApplication.java:59) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.4.0.jar:2.4.0]
+Caused by: org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:142) ~[spring-boot-2.4.0.jar:2.4.0]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:104) ~[spring-boot-2.4.0.jar:2.4.0]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:451) ~[spring-boot-2.4.0.jar:2.4.0]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:200) ~[spring-boot-2.4.0.jar:2.4.0]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:181) ~[spring-boot-2.4.0.jar:2.4.0]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:159) ~[spring-boot-2.4.0.jar:2.4.0]
+	... 14 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'jwtAuthenticationTokenFilter': Unsatisfied dependency expressed through field 'jwtService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'JWTService' defined in file [/Users/thduc/Desktop/HCI/instafake/target/classes/com/thduc/instafake/service/JWTService.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userService' defined in file [/Users/thduc/Desktop/HCI/instafake/target/classes/com/thduc/instafake/service/UserService.class]: Post-processing of merged bean definition failed; nested exception is java.lang.IllegalStateException: Failed to introspect Class [com.thduc.instafake.service.UserService] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@53d09200]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:643) ~[spring-beans-5.3.1.jar:5.3.1]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119) ~[spring-beans-5.3.1.jar:5.3.1]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399) ~[spring-beans-5.3.1.jar:5.3.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1415) ~[spring-beans-5.3.1.jar:5.3.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:608) ~[spring-beans-5.3.1.jar:5.3.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:531) ~[spring-beans-5.3.1.jar:5.3.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.1.jar:5.3.1]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.1.jar:5.3.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.1.jar:5.3.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:213) ~[spring-beans-5.3.1.jar:5.3.1]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:212) ~[spring-boot-2.4.0.jar:2.4.0]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:175) ~[spring-boot-2.4.0.jar:2.4.0]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:170) ~[spring-boot-2.4.0.jar:2.4.0]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAdaptableBeans(ServletContextInitializerBeans.java:155) ~[spring-boot-2.4.0.jar:2.4.0]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:87) ~[spring-boot-2.4.0.jar:2.4.0]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:259) ~[spring-boot-2.4.0.jar:2.4.0]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:233) ~[spring-boot-2.4.0.jar:2.4.0]
+	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:53) ~[spring-boot-2.4.0.jar:2.4.0]
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5166) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1384) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1374) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140) ~[na:na]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:909) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:843) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1384) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1374) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140) ~[na:na]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:909) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:262) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:421) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:930) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:486) ~[tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:123) ~[spring-boot-2.4.0.jar:2.4.0]
+	... 19 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'JWTService' defined in file [/Users/thduc/Desktop/HCI/instafake/target/classes/com/thduc/instafake/service/JWTService.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userService' defined in file [/Users/thduc/Desktop/HCI/instafake/target/classes/com/thduc/instafake/service/UserService.class]: Post-processing of merged bean definition failed; nested exception is java.lang.IllegalStateException: Failed to introspect Class [com.thduc.instafake.service.UserService] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@53d09200]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:798) ~[spring-beans-5.3.1.jar:5.3.1]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:228) ~[spring-beans-5.3.1.jar:5.3.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1356) ~[spring-beans-5.3.1.jar:5.3.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1206) ~[spring-beans-5.3.1.jar:5.3.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:571) ~[spring-beans-5.3.1.jar:5.3.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:531) ~[spring-beans-5.3.1.jar:5.3.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.1.jar:5.3.1]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.1.jar:5.3.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.1.jar:5.3.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.1.jar:5.3.1]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.1.jar:5.3.1]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1367) ~[spring-beans-5.3.1.jar:5.3.1]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1287) ~[spring-beans-5.3.1.jar:5.3.1]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640) ~[spring-beans-5.3.1.jar:5.3.1]
+	... 60 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userService' defined in file [/Users/thduc/Desktop/HCI/instafake/target/classes/com/thduc/instafake/service/UserService.class]: Post-processing of merged bean definition failed; nested exception is java.lang.IllegalStateException: Failed to introspect Class [com.thduc.instafake.service.UserService] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@53d09200]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:586) ~[spring-beans-5.3.1.jar:5.3.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:531) ~[spring-beans-5.3.1.jar:5.3.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.1.jar:5.3.1]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.1.jar:5.3.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.1.jar:5.3.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.1.jar:5.3.1]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.1.jar:5.3.1]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1367) ~[spring-beans-5.3.1.jar:5.3.1]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1287) ~[spring-beans-5.3.1.jar:5.3.1]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:885) ~[spring-beans-5.3.1.jar:5.3.1]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:789) ~[spring-beans-5.3.1.jar:5.3.1]
+	... 73 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [com.thduc.instafake.service.UserService] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@53d09200]
+	at org.springframework.util.ReflectionUtils.getDeclaredFields(ReflectionUtils.java:737) ~[spring-core-5.3.1.jar:5.3.1]
+	at org.springframework.util.ReflectionUtils.doWithLocalFields(ReflectionUtils.java:669) ~[spring-core-5.3.1.jar:5.3.1]
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor.buildPersistenceMetadata(PersistenceAnnotationBeanPostProcessor.java:407) ~[spring-orm-5.3.1.jar:5.3.1]
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor.findPersistenceMetadata(PersistenceAnnotationBeanPostProcessor.java:388) ~[spring-orm-5.3.1.jar:5.3.1]
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor.postProcessMergedBeanDefinition(PersistenceAnnotationBeanPostProcessor.java:335) ~[spring-orm-5.3.1.jar:5.3.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyMergedBeanDefinitionPostProcessors(AbstractAutowireCapableBeanFactory.java:1100) ~[spring-beans-5.3.1.jar:5.3.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:583) ~[spring-beans-5.3.1.jar:5.3.1]
+	... 83 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: com/thduc/instafake/repository/FollowRepository
+	at java.base/java.lang.Class.getDeclaredFields0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredFields(Class.java:3220) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredFields(Class.java:2341) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredFields(ReflectionUtils.java:732) ~[spring-core-5.3.1.jar:5.3.1]
+	... 89 common frames omitted
+Caused by: java.lang.ClassNotFoundException: com.thduc.instafake.repository.FollowRepository
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:606) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:168) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:468) ~[na:na]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:144) ~[spring-boot-devtools-2.4.0.jar:2.4.0]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522) ~[na:na]
+	... 93 common frames omitted
+
+2021-01-30 14:42:42.507  INFO 16711 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : Starting InstafakeApplication using Java 15.0.1 on thducs-MacBook-Pro.local with PID 16711 (/Users/thduc/Desktop/HCI/instafake/target/classes started by thduc in /Users/thduc/Desktop/HCI/instafake)
+2021-01-30 14:42:42.507  INFO 16711 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : The following profiles are active: local
+2021-01-30 14:42:43.171  INFO 16711 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2021-01-30 14:42:43.353  INFO 16711 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 172 ms. Found 14 JPA repository interfaces.
+2021-01-30 14:42:43.586  INFO 16711 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@4049b88c' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-01-30 14:42:43.588  INFO 16711 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-01-30 14:42:43.790  INFO 16711 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-01-30 14:42:43.833  INFO 16711 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-01-30 14:42:43.833  INFO 16711 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-01-30 14:42:43.888  INFO 16711 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2021-01-30 14:42:43.888  INFO 16711 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1376 ms
+2021-01-30 14:42:44.062  WARN 16711 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-01-30 14:42:44.214  INFO 16711 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-30 14:42:44.272  INFO 16711 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-01-30 14:42:44.282  INFO 16711 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2021-01-30 14:42:44.291  INFO 16711 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2021-01-30 14:42:44.292  INFO 16711 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-01-30 14:42:45.170  INFO 16711 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-01-30 14:42:45.171  INFO 16711 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-01-30 14:42:45.321  INFO 16711 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@150469b, org.springframework.security.web.context.SecurityContextPersistenceFilter@12b98d68, org.springframework.security.web.header.HeaderWriterFilter@465902f4, org.springframework.web.filter.CorsFilter@7948f4ed, org.springframework.security.web.authentication.logout.LogoutFilter@27f76559, com.thduc.instafake.filter.JwtAuthenticationTokenFilter@4a23abbe, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@594678ac, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@57869fd2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2e7c2024, org.springframework.security.web.session.SessionManagementFilter@67c93352, org.springframework.security.web.access.ExceptionTranslationFilter@3daed340, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@27b5ab24]
+2021-01-30 14:42:45.359  INFO 16711 --- [task-2] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-01-30 14:42:45.614  INFO 16711 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-01-30 14:42:45.615  INFO 16711 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2021-01-30 14:42:46.400  INFO 16711 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2021-01-30 14:42:46.409  INFO 16711 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : Started InstafakeApplication in 3.956 seconds (JVM running for 102.361)
+2021-01-30 14:42:46.419  INFO 16711 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-01-30 14:42:49.136  INFO 16711 --- [Thread-8] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-01-30 14:42:49.137  INFO 16711 --- [Thread-8] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-30 14:42:49.137  INFO 16711 --- [Thread-8] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2021-01-30 14:42:49.139  INFO 16711 --- [Thread-8] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2021-01-30 14:42:49.289  INFO 16711 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : Starting InstafakeApplication using Java 15.0.1 on thducs-MacBook-Pro.local with PID 16711 (/Users/thduc/Desktop/HCI/instafake/target/classes started by thduc in /Users/thduc/Desktop/HCI/instafake)
+2021-01-30 14:42:49.290  INFO 16711 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : The following profiles are active: local
+2021-01-30 14:42:50.005  INFO 16711 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2021-01-30 14:42:50.199  INFO 16711 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 193 ms. Found 13 JPA repository interfaces.
+2021-01-30 14:42:50.465  INFO 16711 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@11e0f24e' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-01-30 14:42:50.467  INFO 16711 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-01-30 14:42:50.599  INFO 16711 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-01-30 14:42:50.600  INFO 16711 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-01-30 14:42:50.601  INFO 16711 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-01-30 14:42:50.646  INFO 16711 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2021-01-30 14:42:50.647  INFO 16711 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1350 ms
+2021-01-30 14:42:50.910  WARN 16711 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-01-30 14:42:51.015  INFO 16711 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-30 14:42:51.046  INFO 16711 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-01-30 14:42:51.056  INFO 16711 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2021-01-30 14:42:51.070  INFO 16711 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2021-01-30 14:42:51.071  INFO 16711 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-01-30 14:42:51.556 ERROR 16711 --- [restartedMain] o.s.b.web.embedded.tomcat.TomcatStarter  : Error starting Tomcat context. Exception: org.springframework.beans.factory.UnsatisfiedDependencyException. Message: Error creating bean with name 'jwtAuthenticationTokenFilter': Unsatisfied dependency expressed through field 'jwtService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'JWTService' defined in file [/Users/thduc/Desktop/HCI/instafake/target/classes/com/thduc/instafake/service/JWTService.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userService' defined in file [/Users/thduc/Desktop/HCI/instafake/target/classes/com/thduc/instafake/service/UserService.class]: Post-processing of merged bean definition failed; nested exception is java.lang.IllegalStateException: Failed to introspect Class [com.thduc.instafake.service.UserService] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@3d991c24]
+2021-01-30 14:42:51.638  WARN 16711 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+2021-01-30 14:42:51.639  INFO 16711 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-01-30 14:42:52.285  INFO 16711 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-01-30 14:42:52.286  INFO 16711 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-01-30 14:42:52.287  INFO 16711 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-30 14:42:52.288  INFO 16711 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2021-01-30 14:42:52.290  INFO 16711 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2021-01-30 14:43:07.817  INFO 16765 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : Starting InstafakeApplication using Java 15.0.1 on thducs-MacBook-Pro.local with PID 16765 (/Users/thduc/Desktop/HCI/instafake/target/classes started by thduc in /Users/thduc/Desktop/HCI/instafake)
+2021-01-30 14:43:07.825  INFO 16765 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : The following profiles are active: local
+2021-01-30 14:43:08.035  INFO 16765 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/thduc/.m2/repository/io/grpc/grpc-netty-shaded/1.21.0/grpc-netty-shaded-1.21.0.jar referenced one or more files that do not exist: file:/Users/thduc/.m2/repository/io/grpc/grpc-netty-shaded/1.21.0/grpc-core-1.21.0.jar,file:/Users/thduc/.m2/repository/io/grpc/grpc-netty-shaded/1.21.0/opencensus-contrib-grpc-metrics-0.21.0.jar,file:/Users/thduc/.m2/repository/io/grpc/grpc-netty-shaded/1.21.0/opencensus-api-0.21.0.jar,file:/Users/thduc/.m2/repository/io/grpc/grpc-netty-shaded/1.21.0/grpc-api-1.21.0.jar,file:/Users/thduc/.m2/repository/io/grpc/grpc-netty-shaded/1.21.0/gson-2.7.jar,file:/Users/thduc/.m2/repository/io/grpc/grpc-netty-shaded/1.21.0/annotations-4.1.1.4.jar,file:/Users/thduc/.m2/repository/io/grpc/grpc-netty-shaded/1.21.0/grpc-context-1.21.0.jar,file:/Users/thduc/.m2/repository/io/grpc/grpc-netty-shaded/1.21.0/error_prone_annotations-2.3.2.jar,file:/Users/thduc/.m2/repository/io/grpc/grpc-netty-shaded/1.21.0/jsr305-3.0.2.jar,file:/Users/thduc/.m2/repository/io/grpc/grpc-netty-shaded/1.21.0/animal-sniffer-annotations-1.17.jar,file:/Users/thduc/.m2/repository/io/grpc/grpc-netty-shaded/1.21.0/guava-26.0-android.jar,file:/Users/thduc/.m2/repository/io/grpc/grpc-netty-shaded/1.21.0/checker-compat-qual-2.5.2.jar,file:/Users/thduc/.m2/repository/io/grpc/grpc-netty-shaded/1.21.0/j2objc-annotations-1.1.jar
+2021-01-30 14:43:08.041  INFO 16765 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-01-30 14:43:08.042  INFO 16765 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-01-30 14:43:09.867  INFO 16765 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2021-01-30 14:43:10.146  INFO 16765 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 262 ms. Found 14 JPA repository interfaces.
+2021-01-30 14:43:10.878  INFO 16765 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@533cfeb8' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-01-30 14:43:10.888  INFO 16765 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-01-30 14:43:11.955  INFO 16765 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-01-30 14:43:11.973  INFO 16765 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-01-30 14:43:11.974  INFO 16765 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-01-30 14:43:12.260  INFO 16765 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-01-30 14:43:12.261  INFO 16765 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4215 ms
+2021-01-30 14:43:12.408  WARN 16765 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-01-30 14:43:12.525  INFO 16765 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-30 14:43:12.582  INFO 16765 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-01-30 14:43:12.657  INFO 16765 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.23.Final
+2021-01-30 14:43:12.839  INFO 16765 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-01-30 14:43:13.019  INFO 16765 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-01-30 14:43:13.274  INFO 16765 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-01-30 14:43:13.302  INFO 16765 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-01-30 14:43:13.917  INFO 16765 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@458538b7, org.springframework.security.web.context.SecurityContextPersistenceFilter@27fd9a89, org.springframework.security.web.header.HeaderWriterFilter@7c89060d, org.springframework.web.filter.CorsFilter@79239597, org.springframework.security.web.authentication.logout.LogoutFilter@581e53e9, com.thduc.instafake.filter.JwtAuthenticationTokenFilter@26eef3b9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@22652d30, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@27b583bd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@43ea6772, org.springframework.security.web.session.SessionManagementFilter@d83ba3, org.springframework.security.web.access.ExceptionTranslationFilter@57977ec4, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4324daab]
+2021-01-30 14:43:14.419  INFO 16765 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-01-30 14:43:14.500  INFO 16765 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-01-30 14:43:14.505  INFO 16765 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2021-01-30 14:43:15.222  INFO 16765 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-01-30 14:43:15.232  INFO 16765 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-01-30 14:43:16.076  INFO 16765 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2021-01-30 14:43:16.090  INFO 16765 --- [restartedMain] c.thduc.instafake.InstafakeApplication   : Started InstafakeApplication in 9.228 seconds (JVM running for 12.267)

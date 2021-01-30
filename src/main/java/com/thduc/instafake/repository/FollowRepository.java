@@ -9,6 +9,8 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface FollowRepository extends JpaRepository<Follows, Long> {
+    int countByFrom_Id(long id);
+    int countByTo_Id(long id);
     Follows findByFromAndTo(User from, User to);
 //    <Set>Follows findAllByFrom(User from);
     @Query(value = "select fl.to from Follows fl where fl.from.id = :from_id")
@@ -17,7 +19,7 @@ public interface FollowRepository extends JpaRepository<Follows, Long> {
     boolean existsByFrom_IdAndTo_Id(long myId, long id);
 
     @Query(value = "SELECT user.id,user.avatar,user.username,user.fullname, CASE WHEN t.id then 1 ELSE 0 END as following from (SELECT * from follows WHERE follows.from_id = :myIdParam GROUP BY to_id) as t RIGHT JOIN user ON t.to_id = `user`.id " +
-            " WHERE user.id in ( SELECT to_id FROM follows WHERE follows.from_id = :idParam  GROUP BY to_id ) "
+            " WHERE user.id in ( SELECT to_id FROM follows WHERE follows.from_id = :idParam  GROUP BY to_id ) AND user.id != :myId"
 //            + "LIMIT :offset , :limit"
             , nativeQuery = true)
     List<UserWithFollow> viewFollowingsUser(@Param("idParam") Long id, @Param("myIdParam") Long myId );
@@ -31,7 +33,7 @@ public interface FollowRepository extends JpaRepository<Follows, Long> {
     }
 
     @Query(value = "SELECT user.id,user.avatar,user.username,user.fullname, CASE WHEN t.id then 1 ELSE 0 END as following from (SELECT * from follows WHERE follows.from_id = :myIdParam GROUP BY to_id) as t RIGHT JOIN user ON t.to_id = `user`.id " +
-            " WHERE user.id in ( SELECT from_id FROM follows WHERE follows.to_id = :idParam  GROUP BY to_id ) "
+            " WHERE user.id in ( SELECT from_id FROM follows WHERE follows.to_id = :idParam  GROUP BY to_id ) AND user.id != :myId"
 //            + "LIMIT :offset , :limit"
             , nativeQuery = true)
     List<UserWithFollow> viewFollowersUser(@Param("idParam") Long id, @Param("myIdParam") Long myId );

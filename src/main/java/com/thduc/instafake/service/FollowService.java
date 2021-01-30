@@ -31,15 +31,15 @@ public class FollowService implements FollowServiceImpl {
             Follows follows = followRepository.findByFromAndTo(from,to);
             if (follows!=null) {
                 followRepository.delete(follows);
-                from.setNumOfFollowings(from.getNumOfFollowings() -1);
-                to.setNumOfFollowers(from.getNumOfFollowers() -1);
+                from.setNumOfFollowings((followRepository.countByTo_Id(to.getId())-1 > 0)? followRepository.countByTo_Id(to.getId())-1 :0);
+                to.setNumOfFollowers((followRepository.countByTo_Id(to.getId())-1 > 0)? followRepository.countByTo_Id(to.getId())-1 :0);
                 userRepository.save(from);
                 userRepository.save(to);
             }
             else{
                 followRepository.save(new Follows(from,to));
-                from.setNumOfFollowings(from.getNumOfFollowings() +1);
-                to.setNumOfFollowers(from.getNumOfFollowers() +1);
+                from.setNumOfFollowings((followRepository.countByTo_Id(to.getId())-1 > 0)? followRepository.countByTo_Id(to.getId())-1 :0);
+                to.setNumOfFollowers((followRepository.countByTo_Id(to.getId())-1 > 0)? followRepository.countByTo_Id(to.getId())-1 :0);
                 userRepository.save(from);
                 userRepository.save(to);
                 if (to.getId() != from.getId())
