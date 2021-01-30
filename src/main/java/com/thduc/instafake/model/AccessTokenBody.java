@@ -5,6 +5,7 @@ public class AccessTokenBody {
     String deviceType;
     String deviceId;
     String pushToken;
+    boolean isWeb;
 
     public AccessTokenBody() {
     }
@@ -14,6 +15,22 @@ public class AccessTokenBody {
         this.deviceType = deviceType;
         this.deviceId = deviceId;
         this.pushToken = pushToken;
+    }
+
+    public boolean isWeb() {
+        return isWeb;
+    }
+
+    public void setWeb(boolean web) {
+        isWeb = web;
+    }
+
+    public AccessTokenBody(String accessToken, String deviceType, String deviceId, String pushToken, boolean isWeb) {
+        this.accessToken = accessToken;
+        this.deviceType = deviceType;
+        this.deviceId = deviceId;
+        this.pushToken = pushToken;
+        this.isWeb = isWeb;
     }
 
     public String getAccessToken() {

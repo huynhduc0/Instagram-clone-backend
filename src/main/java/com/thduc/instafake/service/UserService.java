@@ -112,8 +112,9 @@ public class UserService implements UserServiceImpl{
     public User googleLogin(AccessTokenBody body) throws IOException, GeneralSecurityException {
         NetHttpTransport transport = new NetHttpTransport();
         JsonFactory jsonFactory = new GsonFactory();
+        String key = (body.isWeb())?"213239061541-lhm7o6vso9gsu58lvfv31svmj4bio7tf.apps.googleusercontent.com":"213239061541-5072nudrlf2dpu7qdlvaub2vuvjg4m4f.apps.googleusercontent.com";
         GoogleIdTokenVerifier verifier = new GoogleIdTokenVerifier.Builder(transport, jsonFactory)
-                .setAudience(Collections.singletonList("213239061541-5072nudrlf2dpu7qdlvaub2vuvjg4m4f.apps.googleusercontent.com"))
+                .setAudience(Collections.singletonList(key))
                 .build();
 
         GoogleIdToken idToken = GoogleIdToken.parse(verifier.getJsonFactory(), body.getAccessToken());
