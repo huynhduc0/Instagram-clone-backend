@@ -72,6 +72,7 @@ public class UserService implements UserServiceImpl{
         followService.changeFollows(user1,user1);
         user1.setNumOfFollowers(0);
         user1.setNumOfFollowings(0);
+        user1.setBio("Bio");
         user1.setAvatar("avatars/01.jpeg");
         user1.setCover("https://www.wallpaperup.com/uploads/wallpapers/2013/12/15/196200/f2c43e4304abcbd78e81c243a33bfb54-1000.jpg");
         user1.setBio(user.getUsername());
@@ -168,10 +169,10 @@ public class UserService implements UserServiceImpl{
     }
     public User updateUserById(Long id, User user1) {
         User user = userRepository.findById(id).orElseThrow(() -> new DataNotFoundException("user", "id", String.valueOf(id)));
-        user.setFullname((user1.getFullname()!= null || user1.getFullname().isEmpty())?user.getFullname():user1.getFullname());
-        user.setUsername((user1.getUsername()!= null || user1.getUsername().isEmpty())?user.getUsername():user1.getUsername());
+        user.setFullname((user1.getFullname()== null || user1.getFullname().isEmpty())?user.getFullname():user1.getFullname());
+        user.setUsername((user1.getUsername()== null || user1.getUsername().isEmpty())?user.getUsername():user1.getUsername());
         user.setAvatar((user1.getAvatar() == null)?user.getAvatar():FileUtils.saveFileToStorage("avatars",user.getUsername(),user.getAvatar(),true));
-        user.setCover((user1.getCover() == null)?user.getBio():FileUtils.saveFileToStorage("user",user.getUsername(),user.getCover(),false));
+        user.setCover((user1.getCover() == null)?user.getCover():FileUtils.saveFileToStorage("user",user.getUsername(),user.getCover(),false));
         try {
             userRepository.save(user);
         } catch (DataIntegrityViolationException ex) {
